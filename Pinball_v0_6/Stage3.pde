@@ -19,9 +19,9 @@ void showStage3(){
   bgmGaming = minim.loadFile("bgm_Gaming.mp3");
 
   // font load
-  formataB = loadFont("Formata-Bold-48.vlw");
-  formataI = loadFont("Formata-Italic-48.vlw");
-  formataBI = loadFont("Formata-BoldItalic-48.vlw");  
+  //formataB = loadFont("Formata-Bold-48.vlw");
+  //formataI = loadFont("Formata-Italic-48.vlw");
+  //formataBI = loadFont("Formata-BoldItalic-48.vlw");  
 
   // Buttons             (Pos.x, Pos.y, Width, Height, radius, Text, R, G, B, Alpha)
   textFont(formataBI);

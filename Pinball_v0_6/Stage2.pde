@@ -14,9 +14,9 @@ void showStage2(){
   img2Controller = loadImage("Stage2_ControllerIndicator.png");
 
   // font load
-  formataB = loadFont("Formata-Bold-48.vlw");
-  formataI = loadFont("Formata-Italic-48.vlw");
-  formataBI = loadFont("Formata-BoldItalic-48.vlw");  
+  //formataB = loadFont("Formata-Bold-48.vlw");
+  //formataI = loadFont("Formata-Italic-48.vlw");
+  //formataBI = loadFont("Formata-BoldItalic-48.vlw");  
 
   // Buttons             (Pos.x, Pos.y, Width, Height, radius, Text, R, G, B, Alpha)
   // extended button, +alpha 
@@ -107,7 +107,7 @@ void drawStage2g(){  // Setting Game page
   
   if(backSButton.isClicked() ){  // switch to Stage 1 Menu
       clickSound();
-         
+
       switchTog = false;
       switchToa = false;
       switchToc = false;

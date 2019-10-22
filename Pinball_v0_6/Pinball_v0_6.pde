@@ -74,7 +74,7 @@ void draw(){
   }
 
   
-  if (switchToSettings && switchToGame)  // switch to 3 Gaming
+  if (!switchToSettings && switchToGame)  // switch to 3 Gaming
   {
     drawStage3();
   }
