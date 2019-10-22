@@ -1,4 +1,6 @@
-  // GUI library
+   // GUI library
+  //Hello world
+  //ok, got it
   import controlP5.*;
 
   // Audio library
@@ -15,11 +17,6 @@
   boolean switchToSettings = false;
   boolean switchToGame = false;
   boolean switchToCeremony = false;
-
-  // switch between setting interface
-  boolean switchTog = false;
-  boolean switchToc = false;
-  boolean switchToa = false;
 
   // Font setting
   PFont formataB, formataI, formataBI;
@@ -41,7 +38,6 @@ void setup(){
   showStage1();
   showStage2();
   showStage3();
-  showStage4();
 
     mover = new Mover();
    for (int i = 0; i< barrierNum; i++)
@@ -49,64 +45,44 @@ void setup(){
     barriers[i] = new Barrier(random(400,1130),random(120,860),random(100,250), i, barriers);
    }
   
+  
 }
 
-void keyPressed() {  // 暂停游戏功能，仅限Stage 3有效
+void keyPressed() {
   final int k = keyCode;
 
  if (switchToGame)  //only pause while gaming
  {
-   looping ^= k == ' ';  
+   looping ^= k == 'P';  
    redraw = k == 'S';
 
-  // Pausing notification
-  fill(0, 120);
+  // Pausing screen notification
+  fill(0, 50);
   rect(0, 0, 1920, 1080);
-
-  fill(255);
   textFont(formataBI, 65);
   textAlign(CENTER);
-  text("Pause", 960, 520);
-    
-  fill(255, 100);
-  textFont(formataBI, 30);
-  text("Press Space Bar to resume", 960, 570);
+  text("Pause", height/2, width/2);
+
  }
   
 }
 
 void draw(){
-
   // default show Stage 1 Menu
   if (!switchToGame && !switchToSettings)
   {
     drawStage1();
   }
-
   
-<<<<<<< HEAD
-  if (!switchToSettings && switchToGame)  // switch to 3 Gaming
-=======
-  if (!switchToSettings && switchToGame)  // switch to Stage 3 Gaming
->>>>>>> 0673a10bdde194ad4e6ea6bbffb649387ebb134d
+  if (switchToSettings)  // switch to 2 Setting
+  {
+    drawStage2a();
+  }
+  
+  if (switchToGame)  // switch to 3 Gaming
   {
     drawStage3();
   }
 
-  // Setting page's sub-stage switching conditions
-  if (switchToSettings && switchToa)  // switch to 2 Setting
-  {
-      drawStage2a();   
-  }
-   
-  if (switchToSettings && switchToc)  // switch to Controller Setting
-  {
-      drawStage2c();   
-  }
-  
-  if (switchToSettings && switchTog)  // switch to Game Setting
-  {
-      drawStage2g();   
-  }
 
 }
