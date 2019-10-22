@@ -17,11 +17,11 @@ void showStage4(){  // 默认显示Stage4a ↓↓↓↓
   bgmCeremony = minim.loadFile("bgm_Ceremoney.mp3");
 
   // font load
-  formataB = loadFont("Formata-Bold-48.vlw");
-  formataI = loadFont("Formata-Italic-48.vlw");
-  formataBI = loadFont("Formata-BoldItalic-48.vlw");  
+  //formataB = loadFont("Formata-Bold-48.vlw");
+  //formataI = loadFont("Formata-Italic-48.vlw");
+  //formataBI = loadFont("Formata-BoldItalic-48.vlw");  
 
-  // Buttons             (Pos.x, Pos.y, Width, Height, radius, Text, R, G, B, Alpha)
+  // Buttons  (Pos.x, Pos.y, Width, Height, radius, Text, R, G, B, Alpha)
   textFont(formataBI);
   playAgainButton = new Button(1300, 500, 250, 50, 100, "Play Again", 129, 200, 177);
   menuButton = new Button(1300, 600, 250, 50, 100, "Menu", 129, 200, 177);

@@ -18,13 +18,13 @@ void showStage5(){
   img5icon4 = loadImage("Stage5_SM_Youtube.png");
 
   // font load
-  formataB = loadFont("Formata-Bold-48.vlw");
-  formataI = loadFont("Formata-Italic-48.vlw");
-  formataBI = loadFont("Formata-BoldItalic-48.vlw");  
+  //formataB = loadFont("Formata-Bold-48.vlw");
+  //formataI = loadFont("Formata-Italic-48.vlw");
+  //formataBI = loadFont("Formata-BoldItalic-48.vlw");  
 
   // Buttons             (Pos.x, Pos.y, Width, Height, radius, Text, R, G, B, Alpha)
   textFont(formataBI);
-  backCButton = new Button(860, 870, 200, 50, 100, "Back", 100, 129, 200, 177);
+  backCButton = new Button(860, 920, 200, 50, 100, "Back", 100, 129, 200, 177);
 
 }
 
@@ -33,18 +33,15 @@ void drawStage5(){  // the Credits page
   image(img5BG, 0, 0);
   image(img5Cover, 0, 0);
 
-  imageMode(CENTER);   // only display the icons below as center mode
+  //imageMode(CENTER);   // only display the icons below as center mode
   image(img5icon1, 1580, 950, 70, 70);
   image(img5icon2, 1670, 950, 70, 70);
   image(img5icon3, 1760, 950, 70, 70);
   image(img5icon4, 1850, 950, 70, 70);
 
   if(backCButton.isClicked() ){  // switch to Stage 1 Menu
-      clickSound();
-      if (switchToSettings){
-      drawStage1();  
-      switchToSettings = false;
-    }
+      clickSound();      
+      switchToCredit = false;
   }
 
   backCButton.update();

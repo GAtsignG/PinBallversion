@@ -1,4 +1,4 @@
-  /*
+/*
   * this page is for Menu interface
   */
 
@@ -51,12 +51,14 @@ void drawStage1(){
   
   if(settingButton.isClicked() ){  // switch to Stage 2 Setting     
       switchToSettings = true;
+      switchToa = true;
       clickSound();   
 
   }
 
   if(creditsButton.isClicked() ){  // switch to Stage 5 Credits
       clickSound();
+      switchToCredit = true;
  }
 
   
