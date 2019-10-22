@@ -7,7 +7,7 @@ class Mover {
   boolean reflect = false;
   
   Mover() {
-    position = new PVector(width/2, height/2);
+    position = new PVector(1578,550);
     velocity = new PVector(0, 0);
     acceleration = new PVector(0, 0);
     topspeed = 10;
