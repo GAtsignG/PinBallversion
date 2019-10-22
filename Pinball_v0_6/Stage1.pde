@@ -51,6 +51,7 @@ void drawStage1(){
   
   if(settingButton.isClicked() ){  // switch to Stage 2 Setting     
       switchToSettings = true;
+      switchToa = true;
       clickSound();   
 
   }
