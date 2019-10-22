@@ -16,6 +16,11 @@
   boolean switchToGame = false;
   boolean switchToCeremony = false;
 
+  // switch between setting interface
+  boolean switchTog = false;
+  boolean switchToc = false;
+  boolean switchToa = false;
+
   // Font setting
   PFont formataB, formataI, formataBI;
 
@@ -36,6 +41,7 @@ void setup(){
   showStage1();
   showStage2();
   showStage3();
+  showStage4();
 
     mover = new Mover();
    for (int i = 0; i< barrierNum; i++)
@@ -69,21 +75,31 @@ void keyPressed() {
 }
 
 void draw(){
+
   // default show Stage 1 Menu
   if (!switchToGame && !switchToSettings)
   {
     drawStage1();
   }
+
   
-  if (switchToSettings)  // switch to 2 Setting
-  {
-    drawStage2a();
-  }
-  
-  if (switchToGame)  // switch to 3 Gaming
+  if (switchToSettings && switchToGame)  // switch to 3 Gaming
   {
     drawStage3();
   }
 
+  if (switchToSettings && switchToa)  // switch to 2 Setting
+  {
+      drawStage2a();   
+  }
+   
+  if (switchToSettings && switchToc)  // switch to Controller Setting
+  {
+      drawStage2c();   
+  }
+   if (switchToSettings && switchTog)  // switch to Game Setting
+  {
+      drawStage2g();   
+  }
 
 }
