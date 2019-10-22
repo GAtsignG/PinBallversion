@@ -68,12 +68,17 @@ class Mover {
 */
  void checkReflect()
     {   
-      if (position.x > width-24 || position.x <= 24)
+      int xWidth = 1530;
+      int x = 400;
+      int yHeight = 980;
+      int y = 120;
+
+      if (position.x > xWidth-24 || position.x <= x + 24)
      {
        velocity.x *=-1;
      }
 
-      else if (position.y > height-24 || position.y <= 24)
+      else if (position.y > yHeight-24 || position.y <= y + 24)
      {
        velocity.y *=-1;
      }
