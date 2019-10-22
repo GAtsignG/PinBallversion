@@ -1,4 +1,6 @@
-  // GUI library
+   // GUI library
+  //Hello world
+  //ok, got it
   import controlP5.*;
 
   // Audio library
@@ -55,14 +57,11 @@ void keyPressed() {
    redraw = k == 'S';
 
   // Pausing screen notification
-  fill(0, 120);
+  fill(0, 50);
   rect(0, 0, 1920, 1080);
-
-  fill(255);
   textFont(formataBI, 65);
   textAlign(CENTER);
-  text("Pause", 960, 540);
-  text("Pause", 960, 540);
+  text("Pause", height/2, width/2);
 
  }
   
