@@ -1,4 +1,4 @@
-  // GUI library
+// GUI library
   //8.2
   import controlP5.*;
 
@@ -16,6 +16,12 @@
   boolean switchToSettings = false;
   boolean switchToGame = false;
   boolean switchToCeremony = false;
+  boolean switchToCredit = false;
+  
+  // switch between setting interface
+  boolean switchTog = false;
+  boolean switchToc = false;
+  boolean switchToa = false;
 
   // switch between setting interface
   boolean switchTog = false;
@@ -43,11 +49,11 @@ void setup(){
   showStage2();
   showStage3();
   showStage4();
-
+  showStage5();
     mover = new Mover();
    for (int i = 0; i< barrierNum; i++)
    {
-    barriers[i] = new Barrier(random(650,1280),random(370,730),random(100,250), i, barriers);
+    barriers[i] = new Barrier(random(400,1130),random(120,860),random(100,250), i, barriers);
    }
   
 }
@@ -79,14 +85,13 @@ void keyPressed() {  // 暂停游戏功能，仅限Stage 3有效
 void draw(){
 
   // default show Stage 1 Menu
-  if (!switchToGame && !switchToSettings)
+  if (!switchToGame && !switchToSettings && !switchToCredit)
   {
     drawStage1();
   }
 
   
   if (!switchToSettings && switchToGame)  // switch to Stage 3 Gaming
-
   {
     drawStage3();
   }
@@ -107,4 +112,8 @@ void draw(){
       drawStage2g();   
   }
 
+  if (switchToCredit)  // switch to Game Setting
+  {
+      drawStage5();   
+  }
 }
