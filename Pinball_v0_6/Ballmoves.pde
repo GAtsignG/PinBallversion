@@ -53,6 +53,13 @@ class Mover extends Ball{
       if(position.y<790 && position.y>290)
       {
         goalYes();
+        mover = new Mover();
+   for (int i = 0; i< barrierNum; i++)
+   {
+     //xx是将地图整分为barrierNum份时，每份地图的宽度
+    float xx = (1500-650)/barrierNum;
+    barriers[i] = new Barrier(random(650+xx*i,650+xx*(i+1)),random(270,710),random(75,150), i, barriers);
+   }
       }
     }
     else
@@ -62,6 +69,13 @@ class Mover extends Ball{
         if(position.y<790 && position.y>290)
         {
           goalYes();
+          mover = new Mover();
+   for (int i = 0; i< barrierNum; i++)
+   {
+     //xx是将地图整分为barrierNum份时，每份地图的宽度
+    float xx = (1500-650)/barrierNum;
+    barriers[i] = new Barrier(random(650+xx*i,650+xx*(i+1)),random(270,710),random(75,150), i, barriers);
+   }
         }
       }
     }
