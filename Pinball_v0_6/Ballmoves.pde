@@ -80,14 +80,18 @@ class Mover extends Ball{
       }
     }
   }
-  void score()
-  {
-    textFont(formataBI,120);
-    fill(255,0,0);
-    text(p1, 1760, 670);
-    fill(0,0,255);
-    text(p2, 1830, 780);
-  }
+
+  // Stage 3 的分数面板
+  // void score()
+  // {
+  //   textAlign(CENTER, CENTER);
+  //   textFont(formataBI,120);
+  //   fill(255, 34, 83);
+  //   text(p1, 1760, 670);
+  //   fill(62, 137, 218);
+  //   text(p2, 1830, 780);
+  // }
+
   void goalYes()
   {
     if(p1Play)

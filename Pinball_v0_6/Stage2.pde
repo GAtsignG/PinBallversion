@@ -25,7 +25,7 @@ void showStage2(){
   audioButton = new TitleButton(1021, 170, 358, 103, 0, "Audio", 100, 200, 100, 0);  
   controllerButton = new TitleButton(1380, 170, 400, 103, 0, "Controller", 100, 100, 200, 0);
   // general button
-  backSButton = new Button(860, 870, 200, 50, 100, "Back", 100, 129, 200, 177);
+  backSButton = new Button(860, 920, 200, 50, 100, "Back", 100, 129, 200, 177);
 
 }
 
@@ -128,7 +128,7 @@ void drawStage2g(){  // Setting Game page
 void drawStage2c(){  // Setting Controller page
 
   image(img2BG, 0, 0);
-  image(img2Controller, height/2, width/2);     // this is an operation indicator example image, need relpace
+  image(img2Controller, 560, 350, 800, 560);     // this is an operation indicator example image, need relpace
   
   // Option's text.
   //textFont(formataBI, 65);
