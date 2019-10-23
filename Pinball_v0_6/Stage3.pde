@@ -63,7 +63,8 @@ void drawStage3(){  // Gaming zone setting
       switchToGame = false;
  
  }
-
+  pauseButton.update();
+  pauseButton.render();
   backGButton.update();
   backGButton.render();
 }
