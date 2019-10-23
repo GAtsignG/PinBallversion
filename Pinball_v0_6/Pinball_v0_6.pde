@@ -50,12 +50,9 @@ void setup(){
     mover = new Mover();
    for (int i = 0; i< barrierNum; i++)
    {
-
-    barriers[i] = new Barrier(random(400,1130),random(120,860),random(100,250), i, barriers);
-
-    float xx = (1280-650)/barrierNum;
-    barriers[i] = new Barrier(random(650+xx*i,650+xx*(i+1)),random(370,730),random(75,150), i, barriers);
-
+     //xx是将地图整分为barrierNum份时，每份地图的宽度
+    float xx = (1500-650)/barrierNum;
+    barriers[i] = new Barrier(random(650+xx*i,650+xx*(i+1)),random(270,710),random(75,150), i, barriers);
    }
   
 }

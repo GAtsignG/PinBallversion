@@ -1,7 +1,7 @@
 int ballsize = 24;
 int barrierNum = 3;
 
-class Barrier
+class Barrier extends Ball
 {
   float x,y;
   float diameter;
@@ -9,15 +9,19 @@ class Barrier
   Barrier[] others;
   Barrier(float xin,float yin, float din, int id, Barrier[] other)
   {
-    x = xin;
-    y = yin;
+    position = new PVector(xin, yin);
+    velocity = new PVector(0, 0);
+    velocity.mult(1.2);
+    radius = din/2;
+    m = radius*.1;
+
     diameter = din;
     id = id;
     others = other;
   }
   void display()
   {
-    ellipse(x,y,diameter,diameter);
+    ellipse(position.x, position.y,diameter,diameter);
   }
   
   void barrierReflect()
@@ -35,6 +39,9 @@ class Barrier
      }
     }
   }
+
+
+
   /*boolean barrierReflect(PVector ballPosition)
   {
     for (int i = 0; i< barrierNum; i++)
