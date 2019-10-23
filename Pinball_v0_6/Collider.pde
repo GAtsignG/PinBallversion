@@ -11,6 +11,7 @@ class Barrier extends Ball
   {
     position = new PVector(xin, yin);
     velocity = new PVector(0, 0);
+    velocity.mult(1.2);
     radius = din/2;
     m = radius*.1;
 
