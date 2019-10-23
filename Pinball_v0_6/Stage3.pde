@@ -46,15 +46,7 @@ void drawStage3(){  // Gaming zone setting
   image(img3BGAudience, 0, 0);
 
 // 此处需要画一个3/5秒倒计时，先试试五秒看哪个比较合适
-void onTickEvent(CountdownTimer t, long timeLeftUntilFinish) {
-  //timerCallbackInfo = "[tick] - timeLeft: " + timeLeftUntilFinish + "ms"; 
-  countInfo = str(count);
-  countNum--;
-}
 
-void onFinishEvent(CountdownTimer t) {
-  countInfo = "Start !";   //or something to remind the player
-}
 
   if (switchToGame){
    bgmGaming.play();
@@ -86,4 +78,14 @@ void onFinishEvent(CountdownTimer t) {
   pauseButton.render();
   backGButton.update();
   backGButton.render();
+}
+
+void onTickEvent(CountdownTimer t, long timeLeftUntilFinish) {
+  //timerCallbackInfo = "[tick] - timeLeft: " + timeLeftUntilFinish + "ms"; 
+  countInfo = str(countNum);
+  countNum--;
+}
+
+void onFinishEvent(CountdownTimer t) {
+  countInfo = "Start !";   //or something to remind the player
 }
