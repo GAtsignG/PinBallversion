@@ -1,39 +1,6 @@
 int ballsize = 24;
 int barrierNum = 3;
-boolean p1Play = true;
 
-/*void goal()
-{
-  int p1 = 0;
-  int p2 = 0;
-  if(p1Play)
-  {
-    if((left<100)&&(top<810)&&(top>270))
-    {
-      clear();
-      p1++;
-      fill(0,255,0);
-      textSize(100);
-      textAlign(CENTER);
-      text(p1 + " : " + p2,width/2,height/2);
-      stop();
-    }
-  }
-  else
-  {
-    if((left<100)&&(top<810)&&(top>270))
-    {
-      clear();
-      p2++;
-      fill(0,255,0);
-      textSize(100);
-      textAlign(CENTER);
-      text(p1 + " : " + p2,width/2,height/2);
-      stop();
-    }
-  }
-}
-*/
 class Barrier
 {
   float x,y;

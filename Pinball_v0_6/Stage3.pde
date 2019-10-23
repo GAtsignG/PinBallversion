@@ -82,7 +82,6 @@ void onFinishEvent(CountdownTimer t) {
       switchToGame = false;
  
  }
-  
   pauseButton.update();
   pauseButton.render();
   backGButton.update();
