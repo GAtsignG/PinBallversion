@@ -8,7 +8,7 @@ class Mover {
   boolean p1Play = true;
   
   Mover() {
-    position = new PVector(1480,550);
+    position = new PVector(1578,550);
     velocity = new PVector(0, 0);
     acceleration = new PVector(0, 0);
     topspeed = 10;

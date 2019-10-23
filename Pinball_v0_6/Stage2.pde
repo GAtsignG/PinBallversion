@@ -1,4 +1,4 @@
-  /*
+/*
   * this page is for Setting interface
   */
 

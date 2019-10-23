@@ -1,4 +1,4 @@
-  /*
+/*
   * this page is for Game Page
   */
 
@@ -60,12 +60,11 @@ void drawStage3(){  // Gaming zone setting
 
   if(backGButton.isClicked() ){  // switch to Stage 1 Menu
     clickSound();
-    if (switchToGame)
-    {
       switchToGame = false;
-    }
+ 
  }
-
+  pauseButton.update();
+  pauseButton.render();
   backGButton.update();
   backGButton.render();
 }

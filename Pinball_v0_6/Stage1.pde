@@ -1,4 +1,4 @@
-  /*
+/*
   * this page is for Menu interface
   */
 
@@ -58,6 +58,7 @@ void drawStage1(){
 
   if(creditsButton.isClicked() ){  // switch to Stage 5 Credits
       clickSound();
+      switchToCredit = true;
  }
 
   
