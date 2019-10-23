@@ -23,10 +23,6 @@
   boolean switchToc = false;
   boolean switchToa = false;
 
-  // switch between setting interface
-  boolean switchTog = false;
-  boolean switchToc = false;
-  boolean switchToa = false;
 
   // Font setting
   PFont formataB, formataI, formataBI;
@@ -53,7 +49,12 @@ void setup(){
     mover = new Mover();
    for (int i = 0; i< barrierNum; i++)
    {
+
     barriers[i] = new Barrier(random(400,1130),random(120,860),random(100,250), i, barriers);
+
+    float xx = (1280-650)/barrierNum;
+    barriers[i] = new Barrier(random(650+xx*i,650+xx*(i+1)),random(370,730),random(75,150), i, barriers);
+
    }
   
 }
