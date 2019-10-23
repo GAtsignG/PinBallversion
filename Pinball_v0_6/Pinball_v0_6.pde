@@ -3,7 +3,8 @@
 
   // Audio library
   import ddf.minim.*;
-
+  import com.dhchoi.CountdownTimer;
+  import com.dhchoi.CountdownTimerService;
   // Audio player
   Minim minim;
   AudioPlayer aClick;         // use in all Stages
@@ -15,7 +16,16 @@
   boolean switchToSettings = false;
   boolean switchToGame = false;
   boolean switchToCeremony = false;
+  boolean switchToCredit = false;
+  
+  // switch between setting interface
+  boolean switchTog = false;
+  boolean switchToc = false;
+  boolean switchToa = false;
 
+   int p1;   //scores
+   int p2;
+   boolean p1Play; //player round
   // Font setting
   PFont formataB, formataI, formataBI;
 
@@ -27,52 +37,79 @@ void setup(){
  size(1920, 1080);
   frameRate(60);
 
-  //load all materials file
-  img1BG = loadImage("Stage1_BG_Menu.jpg");
-  img1Logo = loadImage("Stage1_Logo.png");
-  
   //-------------------------------------------------------
   //stage3
   showStage1();
   showStage2();
   showStage3();
-
+  showStage4();
+  showStage5();
     mover = new Mover();
    for (int i = 0; i< barrierNum; i++)
    {
-    barriers[i] = new Barrier(random(200,width/2),random(200,height-200),random(100,200), i, barriers);
+     //xx是将地图整分为barrierNum份时，每份地图的宽度
+    float xx = (1500-650)/barrierNum;
+    barriers[i] = new Barrier(random(650+xx*i,650+xx*(i+1)),random(270,710),random(75,150), i, barriers);
    }
-  
   
 }
 
-void keyPressed() {
+void keyPressed() {  // Pausing fuction, only available at Stage 3 Gaming
   final int k = keyCode;
 
  if (switchToGame)  //only pause while gaming
  {
-   looping ^= k == 'P';  
+   looping ^= k == ' ';  
    redraw = k == 'S';
+
+  // Pausing notification
+  fill(0, 120);
+  rect(0, 0, 1920, 1080);
+
+  fill(255);
+  textFont(formataBI, 65);
+  textAlign(CENTER);
+  text("Pause", 960, 520);
+    
+  fill(255, 100);
+  textFont(formataBI, 30);
+  text("Press Space Bar to resume", 960, 570);
  }
   
 }
 
 void draw(){
+
   // default show Stage 1 Menu
-  if (!switchToGame && !switchToSettings)
+  if (!switchToGame && !switchToSettings && !switchToCredit)
   {
     drawStage1();
   }
+
   
-  if (switchToSettings)  // switch to 2 Setting
-  {
-    drawStage2a();
-  }
-  
-  if (switchToGame)  // switch to 3 Gaming
+  if (!switchToSettings && switchToGame)  // switch to Stage 3 Gaming
   {
     drawStage3();
   }
 
+  // Setting page's sub-stage switching conditions
+  if (switchToSettings && switchToa)  // switch to 2 Setting
+  {
+      drawStage2a();   
+  }
+   
+  if (switchToSettings && switchToc)  // switch to Controller Setting
+  {
+      drawStage2c();   
+  }
+  
+  if (switchToSettings && switchTog)  // switch to Game Setting
+  {
+      drawStage2g();   
+  }
 
+  if (switchToCredit)  // switch to Game Setting
+  {
+      drawStage5();   
+  }
 }

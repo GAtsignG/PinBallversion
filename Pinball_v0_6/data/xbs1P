@@ -1,0 +1,7 @@
+Player1 Controller
+MoveY	Move Y axis	3	SLIDER	Y Öá	0	1.0	0.0
+MoveX	Move X axis	3	SLIDER	X Öá	0	1.0	0.0
+A	OK / Next	1	BUTTON	°´ť	0	0.0	0.0
+B	Back	1	BUTTON	°´ť	0	0.0	0.0
+Pause	pause the game(only in Stage3)	1	BUTTON	°´ť	0	0.0	0.0
+Start	start game	1	BUTTON	°´ť	0	0.0	0.0
