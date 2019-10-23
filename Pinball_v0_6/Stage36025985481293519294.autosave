@@ -5,7 +5,6 @@
   // Image var
   PImage img3BGframe, img3BGgrass, img3BGAudience;
   PImage barriersImage[];
-  boolean startGame = false;
 
   //set timer to 5 seconds
   CountdownTimer timer = CountdownTimerService.getNewCountdownTimer(this).configure(1000, 5000);
@@ -41,6 +40,7 @@ void showStage3(){
   textFont(formataBI);
   pauseButton = new Button(1700, 850, 200, 50, 100, "Start", 129, 200, 177);
   backGButton = new Button(1700, 930, 200, 50, 100, "Back", 129, 200, 177);
+
   
 }
 
@@ -71,12 +71,7 @@ void drawStage3(){  // Gaming zone setting
   }
 
 
-if (startGame)
-{
-  mover.update();
-  //mover.checkEdges();
-  mover.display();
-}
+
 
   if(backGButton.isClicked() ){  // switch to Stage 1 Menu
     clickSound();
@@ -97,5 +92,8 @@ void onTickEvent(CountdownTimer t, long timeLeftUntilFinish) {
 
 void onFinishEvent(CountdownTimer t) {
   countInfo = "Start !";   //or something to remind the player
-  startGame = true;
+  mover.update();
+  //mover.checkEdges();
+  mover.display();
+
 }
