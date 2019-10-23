@@ -68,17 +68,7 @@ void drawStage3(){  // Gaming zone setting
   }
   
 
-  // barrier setting
-  for(Barrier barrier : barriers)
-  {
-    barrier.display();
-    /*if(barrier.barrierReflect(mover.getPosition()))
-    {
-      mover.changeReflection();
-    }
-    */
-    barrier.barrierReflect();
-  }
+
 
 
 if (startGame)
@@ -90,6 +80,21 @@ if (startGame)
   mover.goalCheck();
 
 }
+
+  // barrier setting
+  for(Barrier barrier : barriers)
+  {
+    barrier.display();
+    mover.checkCollision(barrier);  //check collision
+    
+    /*if(barrier.barrierReflect(mover.getPosition()))
+    {
+      mover.changeReflection();
+    }
+    */
+    //barrier.barrierReflect();
+ 
+  }
 
   if(backGButton.isClicked() ){  // switch to Stage 1 Menu
     clickSound();
