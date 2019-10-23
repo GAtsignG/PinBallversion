@@ -1,16 +1,16 @@
 /*
-  * this page is for Setting interface
+  * this page is the settings for Setting interface
   */
 
   // Image var
-  PImage img2BG, img2Controller;
+  PImage img2Cover, img2Controller;
 
   // Buttons
   Button gameButton, audioButton, controllerButton, backSButton;
 
 void showStage2(){
   // image load
-  img2BG = loadImage("Stage2_BG_Setting.jpg");
+  img2Cover = loadImage("Stage2_Cover.png");
   img2Controller = loadImage("Stage2_ControllerIndicator.png");
 
   // font load
@@ -31,9 +31,13 @@ void showStage2(){
 
 void drawStage2a(){  // Setting default page - Audio
   
-  image(img2BG, 0, 0);
+  image(img0BG, 0, 0);
+  fill(0, 120);
+  rect(0, 0, 1920, 1080);
+  image(img2Cover, 0, 0);
 
   // Option's text.
+  fill(255);
   textFont(formataBI, 65);
   textAlign(RIGHT);
   text("Music", 850, 500);
@@ -82,9 +86,13 @@ void drawStage2a(){  // Setting default page - Audio
 
 void drawStage2g(){  // Setting Game page
 
-  image(img2BG, 0, 0);
+  image(img0BG, 0, 0);
+  fill(0, 120);
+  rect(0, 0, 1920, 1080);
+  image(img2Cover, 0, 0);
 
   // Option's text.
+  fill(255);
   textFont(formataBI, 65);
   textAlign(RIGHT);
   text("Full Screen", 850, 500);
@@ -127,7 +135,10 @@ void drawStage2g(){  // Setting Game page
 
 void drawStage2c(){  // Setting Controller page
 
-  image(img2BG, 0, 0);
+  image(img0BG, 0, 0);
+  fill(0, 120);
+  rect(0, 0, 1920, 1080);
+  image(img2Cover, 0, 0);
   image(img2Controller, 560, 350, 800, 560);     // this is an operation indicator example image, need relpace
   
   // Option's text.

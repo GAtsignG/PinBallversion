@@ -1,5 +1,5 @@
 /*
-  * this page is for Game Page
+  * this page is the settings for Game Page
   */
 
   // Image var
@@ -7,9 +7,9 @@
   PImage barriersImage[];
   boolean startGame = false;
 
-  //set timer to 5 seconds
+  //set a countdown timer before the game beginning
   CountdownTimer timer = CountdownTimerService.getNewCountdownTimer(this).configure(1000, 5000);
-  int countNum = 3; //displayer count down number starts with 5
+  int countNum = 3; //displayer count down number starts with 3
   String countInfo = ""; //display information when the countdown finishes
 
   // Buttons
@@ -50,16 +50,16 @@ void drawStage3(){  // Gaming zone setting
   image(img3BGgrass, 0, 0);
   image(img3BGframe, 0, 0);
   image(img3BGAudience, 0, 0);
-  //image(barriersImage[0], 0, 0);
-// 此处需要画一个3/5秒倒计时，先试试五秒看哪个比较合适
+  
+  // Countdown timer
   if(!startGame)
   {
-  fill(0, 120);
-  rect(0, 0, 1920, 1080);
-  fill(255);
-  textFont(formataBI, 65);
-  textAlign(CENTER);
-  text(countInfo, 960, 520);
+    fill(0, 120);
+    rect(0, 0, 1920, 1080);
+    fill(255);
+    textFont(formataBI, 100);
+    textAlign(CENTER);
+    text(countInfo, 960, 520);
   }
   
 
@@ -67,18 +67,14 @@ void drawStage3(){  // Gaming zone setting
    bgmGaming.play();
   }
   
-
-
-
-
-if (startGame)
-{
-  mover.update();
-  //mover.checkEdges();
-  mover.display();
-  mover.score();
-  mover.goalCheck();
-}
+  if (startGame)
+  {
+   mover.update();
+   //mover.checkEdges();
+   mover.display();
+   mover.score();
+   mover.goalCheck();
+  }
 
   // barrier setting
   for(Barrier barrier : barriers)

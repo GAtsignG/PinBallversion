@@ -55,11 +55,11 @@ class Button{
     // change color if cursor over the button
     if(mouseX >= Pos.x && mouseX <= Pos.x + Width && mouseY >= Pos.y && mouseY <= Pos.y + Height){
       cursor(HAND);         // 变不回原来的样子了
-      fill(Colour >> 109, 180, 157);     // button color Highlight 159, 230, 207     Darkness 109, 180, 157
+      fill(184, 49, 49);     // button color Highlight 159, 230, 207     Darkness 109, 180, 157
       rect(Pos.x, Pos.y, Width, Height, Radius);
     }else{
       cursor(ARROW);
-      fill(129, 200, 177);  // General color of the buttons, modify here if needed
+      fill(239, 75, 75);  // General color of the buttons, modify here if needed
       rect(Pos.x, Pos.y, Width, Height, Radius);
     }
     
