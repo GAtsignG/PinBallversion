@@ -1,18 +1,19 @@
 /*
-  * this page is for Menu interface
+  * this page is the settings for Menu interface
   */
 
   // Image var
-  PImage img1BG, img1Logo;
+  PImage img0BG, img1Logo;
 
   // Buttons
   Button startButton, settingButton, creditsButton;
 
 void showStage1(){
-  // image load
-  img1BG = loadImage("Stage1_BG_Menu.jpg");
-  img1Logo = loadImage("Stage1_Logo.png");
 
+  // load imgs of Stage 1 (Stage 0 represent General BG)
+  img0BG = loadImage("Stage0_General_BG.jpg");
+  img1Logo = loadImage("Stage1_Logo.png");
+  
   // bgm load
   minim = new Minim(this);
   bgmMenu = minim.loadFile("bgm_Menu&Setting.mp3");
@@ -35,7 +36,7 @@ void showStage1(){
 
 void drawStage1(){
 
-  image(img1BG, 0, 0);
+  image(img0BG, 0, 0);
   image(img1Logo, 750, 100);
 
   if (!switchToGame){

@@ -1,16 +1,17 @@
   /*
-  * this page is for Score & Ceremony Page
+  * this page is the settings for Score & Ceremony Page
   */
 
   // Image var
-  PImage img4BG, img4Winner;
+  PImage img4CoverScore, img4CoverResult, img4Winner;
 
   // Buttons
   Button playAgainButton, menuButton;
 
 void showStage4(){  // 默认显示Stage4a ↓↓↓↓
   // image load
-  img4BG = loadImage("Stage4_BG.jpg");
+  img4CoverScore = loadImage("Stage4_Cover_ShwoScore.png");
+  img4CoverResult = loadImage("Stage4_Cover_Result.png");
   img4Winner = loadImage("Stage4_Winner.png");
 
   // bgm load
@@ -30,9 +31,13 @@ void showStage4(){  // 默认显示Stage4a ↓↓↓↓
 
 void drawStage4a(){  // only display score
 
-  image(img4BG, 0, 0);
+  image(img0BG, 0, 0);
+  fill(0, 120);
+  rect(0, 0, 1920, 1080);
+  image(img4CoverScore, 0, 0);
+
   fill(255);
-  rect(width/2, 500, 60, 60);  // score split symbol
+  rect(width/2, 500, 60, 60);  // score split symbol, 冒号
   rect(width/2, 600, 60, 60);
 
   // 在上面两点的两侧读取Stage3的分数，分别显示在两边
@@ -50,7 +55,11 @@ void drawStage4a(){  // only display score
 // 过渡到下一个画面
 
 void drawStage4b(){  // display ceremoney screen
-  image(img4BG, 0, 0);
+
+  image(img0BG, 0, 0);
+  fill(0, 120);
+  rect(0, 0, 1920, 1080);
+  image(img4CoverResult, 0, 0); 
   // 界面过渡后显示出来下面的
   // fade in after switch screen from score to ceremoney
   //image(img4Winner, 0, 0);     

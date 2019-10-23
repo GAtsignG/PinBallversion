@@ -1,5 +1,5 @@
 /*
-  * this page is for Game Page
+  * this page is the settings for Game Page
   */
 
   // Image var
@@ -8,16 +8,18 @@
   PImage barrierImg1,barrierImg2,barrierImg3,barrierImg4,barrierImg5,barrierImg6,barrierImg7,barrierImg8,barrierImg9,pick;
   boolean startGame = false;
   boolean player1 = true;
-  int barrierImg = (int) random(1,9);
-  //set timer to 5 seconds
+  boolean pause = false;
+  boolean round = false;
+
+  //set a countdown timer before the game beginning
   CountdownTimer timer = CountdownTimerService.getNewCountdownTimer(this).configure(1000, 5000);
+  CountdownTimer timeLimit = CountdownTimerService.getNewCountdownTimer(this).configure(1000, 5000);
   int countNum = 3; //displayer count down number starts with 5
   String countInfo = ""; //display information when the countdown finishes
-
+  int roundTime = 10; //display each round's time limit
   // Buttons
   Button pauseButton, backGButton, resumeButton;
-  boolean pause = false;
-
+  
  
 
 void showStage3(){
@@ -99,6 +101,7 @@ void drawStage3(){  // Gaming zone setting
   image(img3BGAudience, 0, 0);
   //image(barriersImage[0], 0, 0);
 // 此处需要画一个3/5秒倒计时，先试试五秒看哪个比较合适
+
   if(!startGame)
   {
    p1 = 0;   //scores
@@ -110,38 +113,24 @@ void drawStage3(){  // Gaming zone setting
   textAlign(CENTER);
   text(countInfo, 960, 520);
   }
-  
+   
   if (switchToGame){
    bgmGaming.play();
   }
   
-
+  if(!round)
+  {
+    timeLimit.start();   //start the timer of each round 10s
+    round = true;
+  }
+   
 if (startGame)
 {
   mover.update();
   //mover.checkEdges();
   mover.display();
   mover.goalCheck();
-  // if (mover.getGoal())
-  // {
-  //   if(player1)
-  //   {
-  //     p1++;
-  //     player1 = false;   
-  //   }
-  //   else
-  //   {
-  //     p2++;
-  //     player1 = true;
-  //   }
-  //   mover.setGoal();
-  // }
   mover.score();
-    textFont(formataBI,120);
-    fill(255,0,0);
-    text(p1, 1760, 670);
-    fill(0,0,255);
-    text(p2, 1830, 780);
 }
 
   // barrier setting
@@ -173,19 +162,34 @@ if (startGame)
 }
 void onTickEvent(CountdownTimer t, long timeLeftUntilFinish) 
 {
-  //timerCallbackInfo = "[tick] - timeLeft: " + timeLeftUntilFinish + "ms"; 
-    if (countNum == 0)
+  if (t.getId() == 0)
   {
+   if (countNum == 0)
+   {
     countInfo = "Start !";
-  }
-  else
-  {
+   }
+   else
+   {
     countInfo = str(countNum);
+   }
+    countNum--;
   }
-  countNum--;
+  //timerCallbackInfo = "[tick] - timeLeft: " + timeLeftUntilFinish + "ms"; 
+  if (t.getId() == 1)
+  {
+    roundTime--; //each round limts in 10 sceounds
+  }
 }
 
 void onFinishEvent(CountdownTimer t) {
-  countInfo = "Start !";   //or something to remind the player
-  startGame = true;
+  //countInfo = "Start !";   //or something to remind the player
+  if (t.getId() == 0)
+  {
+    startGame = true; 
+  }
+  if (t.getId() == 1)
+  {
+    round = false;
+    mover.nextGame();
+  }
 }

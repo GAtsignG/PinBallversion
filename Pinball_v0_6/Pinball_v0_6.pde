@@ -1,5 +1,4 @@
-// GUI library
-  //8.2
+  // GUI library
   import controlP5.*;
 
   // Audio library
@@ -38,10 +37,6 @@ void setup(){
  size(1920, 1080);
   frameRate(60);
 
-  //load all materials file
-  img1BG = loadImage("Stage1_BG_Menu.jpg");
-  img1Logo = loadImage("Stage1_Logo.png");
-  
   //-------------------------------------------------------
   //stage3
   showStage1();
@@ -59,7 +54,7 @@ void setup(){
   
 }
 
-void keyPressed() {  // 暂停游戏功能，仅限Stage 3有效
+void keyPressed() {  // Pausing fuction, only available at Stage 3 Gaming
   final int k = keyCode;
 
  if (switchToGame)  //only pause while gaming
