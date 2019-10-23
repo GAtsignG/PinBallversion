@@ -5,6 +5,7 @@ class Mover {
   PVector acceleration;
   float topspeed;
   boolean reflect = false;
+  boolean p1Play = true;
   
   Mover() {
     position = new PVector(1480,550);
@@ -33,7 +34,32 @@ class Mover {
     */
     position.add(velocity); //ball moves
   }
-
+  void goal()
+  {
+    float p1 = 0;
+    float p2 = 0;
+    if(p1Play)
+    {
+      if(position.x<400)
+      {
+        if(position.y<790 &&position.y>290)
+        {
+          p1++;
+        }
+      }
+    }
+    else
+    {
+      if(position.x<400)
+      {
+        if(position.y<790||position.y>290)
+        {
+          p2++;
+        }
+      }
+    }
+    text(p1+":"+p2, 1700, 700);
+  }
   void display() {
     stroke(0);
     strokeWeight(4);
@@ -68,8 +94,8 @@ class Mover {
 */
  void checkReflect()
     {   
-      int xWidth = 1530;
-      int x = 400;
+      int xWidth = 1620;
+      int x = 340;
       int yHeight = 980;
       int y = 120;
 
