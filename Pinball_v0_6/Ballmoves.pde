@@ -6,6 +6,8 @@ class Mover {
   float topspeed;
   boolean reflect = false;
   boolean p1Play = true;
+  int p1 = 0;
+  int p2 = 0;
   
   Mover() {
     position = new PVector(1578,550);
@@ -34,31 +36,54 @@ class Mover {
     */
     position.add(velocity); //ball moves
   }
-  void goal()
+  void goalCheck()
   {
-    float p1 = 0;
-    float p2 = 0;
-    if(p1Play)
+    if(position.x<400)
     {
-      if(position.x<400)
+      if(position.y<790 && position.y>290)
       {
-        if(position.y<790 &&position.y>290)
-        {
-          p1++;
-        }
+        goalYes();
       }
     }
     else
     {
       if(position.x<400)
       {
-        if(position.y<790||position.y>290)
+        if(position.y<790 && position.y>290)
         {
-          p2++;
+          goalYes();
         }
       }
     }
-    text(p1+":"+p2, 1700, 700);
+  }
+  void score()
+  {
+    textFont(formataBI,120);
+    fill(255,0,0);
+    text(p1, 1760, 670);
+    fill(0,0,255);
+    text(p2, 1830, 780);
+  }
+  void goalYes()
+  {
+    if(p1Play)
+    {
+      p1++;
+      //交换球权
+      p1Play = !p1Play;
+    }
+    else
+    {
+      p2++;
+      //交换球权
+      p1Play = !p1Play;
+    }
+    nextGame();
+  }
+  void nextGame()
+  {
+    position.x = 1578;
+    position.y = 550;
   }
   void display() {
     stroke(0);
