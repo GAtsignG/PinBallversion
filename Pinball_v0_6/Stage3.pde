@@ -9,7 +9,7 @@
 
   //set timer to 5 seconds
   CountdownTimer timer = CountdownTimerService.getNewCountdownTimer(this).configure(1000, 5000);
-  int countNum = 5; //displayer count down number starts with 5
+  int countNum = 3; //displayer count down number starts with 5
   String countInfo = ""; //display information when the countdown finishes
 
   // Buttons
@@ -24,7 +24,8 @@ void showStage3(){
   img3BGframe = loadImage("Stage3_BG_Frame.png");
   img3BGgrass = loadImage("Stage3_BG_Grass.jpg");
   img3BGAudience = loadImage("Stage3_BG_Audience.png");
-  
+
+
   for (int i = 0; i < 8; i++)
   {
       //barriersImage[i] = loadImage(+i+".png");
@@ -51,7 +52,16 @@ void drawStage3(){  // Gaming zone setting
   image(img3BGAudience, 0, 0);
   //image(barriersImage[0], 0, 0);
 // 此处需要画一个3/5秒倒计时，先试试五秒看哪个比较合适
-
+  if(!startGame)
+  {
+  fill(0, 120);
+  rect(0, 0, 1920, 1080);
+  fill(255);
+  textFont(formataBI, 65);
+  textAlign(CENTER);
+  text(countInfo, 960, 520);
+  }
+  
 
   if (switchToGame){
    bgmGaming.play();
@@ -79,6 +89,7 @@ if (startGame)
   mover.score();
   mover.goalCheck();
 
+}
 
   if(backGButton.isClicked() ){  // switch to Stage 1 Menu
     clickSound();
@@ -89,11 +100,19 @@ if (startGame)
   pauseButton.render();
   backGButton.update();
   backGButton.render();
+ 
 }
-
-void onTickEvent(CountdownTimer t, long timeLeftUntilFinish) {
+void onTickEvent(CountdownTimer t, long timeLeftUntilFinish) 
+{
   //timerCallbackInfo = "[tick] - timeLeft: " + timeLeftUntilFinish + "ms"; 
-  countInfo = str(countNum);
+    if (countNum == 0)
+  {
+    countInfo = "Start !";
+  }
+  else
+  {
+    countInfo = str(countNum);
+  }
   countNum--;
 }
 
