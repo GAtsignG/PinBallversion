@@ -76,7 +76,9 @@ if (startGame)
   mover.update();
   //mover.checkEdges();
   mover.display();
-}
+  mover.score();
+  mover.goalCheck();
+
 
   if(backGButton.isClicked() ){  // switch to Stage 1 Menu
     clickSound();
