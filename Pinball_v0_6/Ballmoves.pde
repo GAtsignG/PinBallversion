@@ -53,13 +53,13 @@ class Mover extends Ball{
       if(position.y<790 && position.y>290)
       {
         goalYes();
+        //update new barrier
         mover = new Mover();
-   for (int i = 0; i< barrierNum; i++)
-   {
-     //xx是将地图整分为barrierNum份时，每份地图的宽度
-    float xx = (1500-650)/barrierNum;
-    barriers[i] = new Barrier(random(650+xx*i,650+xx*(i+1)),random(270,710),random(75,150), i, barriers);
-   }
+        for (int i = 0; i< barrierNum; i++)
+        {
+          float xx = (1500-650)/barrierNum;
+          barriers[i] = new Barrier(random(650+xx*i,650+xx*(i+1)),random(270,710),random(75,150), i, barriers);
+         }
       }
     }
     else
@@ -70,39 +70,36 @@ class Mover extends Ball{
         {
           goalYes();
           mover = new Mover();
-   for (int i = 0; i< barrierNum; i++)
-   {
-     //xx是将地图整分为barrierNum份时，每份地图的宽度
-    float xx = (1500-650)/barrierNum;
-    barriers[i] = new Barrier(random(650+xx*i,650+xx*(i+1)),random(270,710),random(75,150), i, barriers);
-   }
+          for (int i = 0; i< barrierNum; i++)
+          {
+             float xx = (1500-650)/barrierNum;
+             barriers[i] = new Barrier(random(650+xx*i,650+xx*(i+1)),random(270,710),random(75,150), i, barriers);
+          }
         }
       }
     }
   }
-
-  // Stage 3 的分数面板
-  // void score()
-  // {
-  //   textAlign(CENTER, CENTER);
-  //   textFont(formataBI,120);
-  //   fill(255, 34, 83);
-  //   text(p1, 1760, 670);
-  //   fill(62, 137, 218);
-  //   text(p2, 1830, 780);
-  // }
-
+  void score()
+  {
+    textFont(formataBI,120);
+    fill(255,0,0);
+    text(p1, 1760, 670);
+    fill(0,0,255);
+    text(p2, 1830, 780);
+  }
   void goalYes()
   {
     if(p1Play)
     {
       p1++;
+      score();
       //交换球权
       p1Play = !p1Play;
     }
     else
     {
       p2++;
+      score();
       //交换球权
       p1Play = !p1Play;
     }

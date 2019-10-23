@@ -75,10 +75,9 @@ if (startGame)
 {
   mover.update();
   //mover.checkEdges();
-  mover.display(); 
-  mover.goalCheck();
+  mover.display();
   mover.score();
-  
+  mover.goalCheck();
 }
 
   // barrier setting
