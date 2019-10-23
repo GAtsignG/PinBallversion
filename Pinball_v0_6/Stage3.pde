@@ -16,10 +16,13 @@
   Button pauseButton, backGButton, resumeButton;
   boolean pause = false;
 
+  int p1;   //scores
+  int p2;
+
 void showStage3(){
   
-  timer.start(); // start the timer
-
+  p1 = 0;   //scores
+  p2 = 0;
   // image load
   img3BGframe = loadImage("Stage3_BG_Frame.png");
   img3BGgrass = loadImage("Stage3_BG_Grass.jpg");
@@ -46,7 +49,8 @@ void showStage3(){
 }
 
 void drawStage3(){  // Gaming zone setting
-
+  
+  
   image(img3BGgrass, 0, 0);
   image(img3BGframe, 0, 0);
   image(img3BGAudience, 0, 0);
@@ -68,16 +72,13 @@ void drawStage3(){  // Gaming zone setting
   }
   
 
-
-
-
 if (startGame)
 {
   mover.update();
   //mover.checkEdges();
   mover.display();
-  mover.score();
   mover.goalCheck();
+  mover.score();
 }
 
   // barrier setting
@@ -97,6 +98,8 @@ if (startGame)
 
   if(backGButton.isClicked() ){  // switch to Stage 1 Menu
     clickSound();
+      startGame = false;
+      countNum = 3;  //restart the game
       switchToGame = false;
  
  }

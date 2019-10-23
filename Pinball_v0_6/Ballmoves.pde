@@ -14,8 +14,7 @@ class Mover extends Ball{
   float topspeed;
   boolean reflect = false;
   boolean p1Play = true;
-  int p1 = 0;
-  int p2 = 0;
+  
   
   Mover() { //Mover ball
     position = new PVector(1578,550); //start position
@@ -24,6 +23,7 @@ class Mover extends Ball{
     m = radius*.1;
     topspeed = 10;
     radius = 24;
+
   }
 
   void update() {
@@ -91,15 +91,13 @@ class Mover extends Ball{
   {
     if(p1Play)
     {
-      p1++;
-      score();
+      p1++;     
       //交换球权
       p1Play = !p1Play;
     }
     else
     {
-      p2++;
-      score();
+      p2++;     
       //交换球权
       p1Play = !p1Play;
     }
