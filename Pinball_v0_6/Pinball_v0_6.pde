@@ -47,7 +47,8 @@ void setup(){
     mover = new Mover();
    for (int i = 0; i< barrierNum; i++)
    {
-    barriers[i] = new Barrier(random(650,1280),random(370,730),random(100,250), i, barriers);
+    float xx = (1280-650)/barrierNum;
+    barriers[i] = new Barrier(random(650+xx*i,650+xx*(i+1)),random(370,730),random(75,150), i, barriers);
    }
   
 }
