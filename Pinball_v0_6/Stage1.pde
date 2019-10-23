@@ -47,6 +47,7 @@ void drawStage1(){
       bgmMenu.pause();
       bgmMenu.rewind();
       switchToGame = true;
+      p1Play = false;
       timer.start(); // start the timer
   }
   

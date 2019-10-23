@@ -13,8 +13,7 @@ class Mover extends Ball{
   float radius, m;
   float topspeed;
   boolean reflect = false;
-  boolean p1Play = true;
-  
+  boolean goal;
   
   Mover() { //Mover ball
     position = new PVector(1578,550); //start position
@@ -23,7 +22,7 @@ class Mover extends Ball{
     m = radius*.1;
     topspeed = 10;
     radius = 24;
-
+    goal = false;
   }
 
   void update() {
@@ -53,8 +52,10 @@ class Mover extends Ball{
       if(position.y<790 && position.y>290)
       {
         goalYes();
+        goal = true;
         //update new barrier
         mover = new Mover();
+        nextGame();
         for (int i = 0; i< barrierNum; i++)
         {
           float xx = (1500-650)/barrierNum;
@@ -69,7 +70,9 @@ class Mover extends Ball{
         if(position.y<790 && position.y>290)
         {
           goalYes();
+          goal = true;
           mover = new Mover();
+          nextGame();
           for (int i = 0; i< barrierNum; i++)
           {
              float xx = (1500-650)/barrierNum;
@@ -79,6 +82,17 @@ class Mover extends Ball{
       }
     }
   }
+  
+  boolean getGoal()
+  {
+      return goal;
+  } 
+
+  void setGoal()
+  {
+    goal = false;
+  }
+
   void score()
   {
     textFont(formataBI,120);
@@ -93,13 +107,13 @@ class Mover extends Ball{
     {
       p1++;     
       //交换球权
-      p1Play = !p1Play;
+      p1Play = false;
     }
     else
     {
       p2++;     
       //交换球权
-      p1Play = !p1Play;
+      p1Play = true;
     }
     nextGame();
   }

@@ -6,7 +6,8 @@
   PImage img3BGframe, img3BGgrass, img3BGAudience;
   PImage barriersImage[];
   boolean startGame = false;
-
+  boolean player1 = true;
+  
   //set timer to 5 seconds
   CountdownTimer timer = CountdownTimerService.getNewCountdownTimer(this).configure(1000, 5000);
   int countNum = 3; //displayer count down number starts with 5
@@ -16,18 +17,14 @@
   Button pauseButton, backGButton, resumeButton;
   boolean pause = false;
 
-  int p1;   //scores
-  int p2;
+ 
 
 void showStage3(){
   
-  p1 = 0;   //scores
-  p2 = 0;
   // image load
   img3BGframe = loadImage("Stage3_BG_Frame.png");
   img3BGgrass = loadImage("Stage3_BG_Grass.jpg");
   img3BGAudience = loadImage("Stage3_BG_Audience.png");
-
 
   for (int i = 0; i < 8; i++)
   {
@@ -58,6 +55,8 @@ void drawStage3(){  // Gaming zone setting
 // 此处需要画一个3/5秒倒计时，先试试五秒看哪个比较合适
   if(!startGame)
   {
+   p1 = 0;   //scores
+   p2 = 0;
   fill(0, 120);
   rect(0, 0, 1920, 1080);
   fill(255);
@@ -66,7 +65,6 @@ void drawStage3(){  // Gaming zone setting
   text(countInfo, 960, 520);
   }
   
-
   if (switchToGame){
    bgmGaming.play();
   }
@@ -78,15 +76,33 @@ if (startGame)
   //mover.checkEdges();
   mover.display();
   mover.goalCheck();
+  // if (mover.getGoal())
+  // {
+  //   if(player1)
+  //   {
+  //     p1++;
+  //     player1 = false;   
+  //   }
+  //   else
+  //   {
+  //     p2++;
+  //     player1 = true;
+  //   }
+  //   mover.setGoal();
+  // }
   mover.score();
+    textFont(formataBI,120);
+    fill(255,0,0);
+    text(p1, 1760, 670);
+    fill(0,0,255);
+    text(p2, 1830, 780);
 }
 
   // barrier setting
   for(Barrier barrier : barriers)
   {
     barrier.display();
-    mover.checkCollision(barrier);  //check collision
-    
+    mover.checkCollision(barrier);  //check collision 
     /*if(barrier.barrierReflect(mover.getPosition()))
     {
       mover.changeReflection();
