@@ -26,10 +26,10 @@ void showStage3(){
   // bgm load
   bgmGaming = minim.loadFile("bgm_Gaming.mp3");
 
-  // font load
-  //formataB = loadFont("Formata-Bold-48.vlw");
-  //formataI = loadFont("Formata-Italic-48.vlw");
-  //formataBI = loadFont("Formata-BoldItalic-48.vlw");  
+  // // font load
+  // formataB = loadFont("Formata-Bold-48.vlw");
+  // formataI = loadFont("Formata-Italic-48.vlw");
+  // formataBI = loadFont("Formata-BoldItalic-48.vlw");  
 
   // Buttons             (Pos.x, Pos.y, Width, Height, radius, Text, R, G, B, Alpha)
   textFont(formataBI);
@@ -44,6 +44,14 @@ void drawStage3(){  // Gaming zone setting
   image(img3BGgrass, 0, 0);
   image(img3BGframe, 0, 0);
   image(img3BGAudience, 0, 0);
+
+  // 显示得分
+  textAlign(CENTER, CENTER);
+  textFont(formataBI,120);
+  fill(255, 34, 83);
+  text(mover.p1, 1760, 670);
+  fill(62, 137, 218);
+  text(mover.p2, 1830, 780);
 
 // 此处需要画一个3/5秒倒计时，先试试五秒看哪个比较合适
 
@@ -67,7 +75,6 @@ void drawStage3(){  // Gaming zone setting
   mover.update();
   //mover.checkEdges();
   mover.display();
-  mover.score();
   mover.goalCheck();
 
 
@@ -91,3 +98,4 @@ void onTickEvent(CountdownTimer t, long timeLeftUntilFinish) {
 void onFinishEvent(CountdownTimer t) {
   countInfo = "Start !";   //or something to remind the player
 }
+  
