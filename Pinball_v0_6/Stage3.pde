@@ -6,25 +6,27 @@
   PImage img3BGframe, img3BGgrass, img3BGAudience;
   PImage barriersImage[];
   boolean startGame = false;
+  boolean player1 = true;
+  boolean pause = false;
+  boolean round = false;
 
   //set a countdown timer before the game beginning
   CountdownTimer timer = CountdownTimerService.getNewCountdownTimer(this).configure(1000, 5000);
-  int countNum = 3; //displayer count down number starts with 3
+  CountdownTimer timeLimit = CountdownTimerService.getNewCountdownTimer(this).configure(1000, 5000);
+  int countNum = 3; //displayer count down number starts with 5
   String countInfo = ""; //display information when the countdown finishes
-
+  int roundTime = 10; //display each round's time limit
   // Buttons
   Button pauseButton, backGButton, resumeButton;
-  boolean pause = false;
+  
+ 
 
 void showStage3(){
   
-  timer.start(); // start the timer
-
   // image load
   img3BGframe = loadImage("Stage3_BG_Frame.png");
   img3BGgrass = loadImage("Stage3_BG_Grass.jpg");
   img3BGAudience = loadImage("Stage3_BG_Audience.png");
-
 
   for (int i = 0; i < 8; i++)
   {
@@ -46,42 +48,50 @@ void showStage3(){
 }
 
 void drawStage3(){  // Gaming zone setting
-
+  
+  
   image(img3BGgrass, 0, 0);
   image(img3BGframe, 0, 0);
   image(img3BGAudience, 0, 0);
-  
-  // Countdown timer
+  //image(barriersImage[0], 0, 0);
+// 此处需要画一个3/5秒倒计时，先试试五秒看哪个比较合适
+
   if(!startGame)
   {
-    fill(0, 120);
-    rect(0, 0, 1920, 1080);
-    fill(255);
-    textFont(formataBI, 100);
-    textAlign(CENTER);
-    text(countInfo, 960, 520);
+   p1 = 0;   //scores
+   p2 = 0;
+  fill(0, 120);
+  rect(0, 0, 1920, 1080);
+  fill(255);
+  textFont(formataBI, 65);
+  textAlign(CENTER);
+  text(countInfo, 960, 520);
   }
-  
-
+   
   if (switchToGame){
    bgmGaming.play();
   }
   
-  if (startGame)
+  if(!round)
   {
-   mover.update();
-   //mover.checkEdges();
-   mover.display();
-   mover.score();
-   mover.goalCheck();
+    timeLimit.start();   //start the timer of each round 10s
+    round = true;
   }
+   
+if (startGame)
+{
+  mover.update();
+  //mover.checkEdges();
+  mover.display();
+  mover.goalCheck();
+  mover.score();
+}
 
   // barrier setting
   for(Barrier barrier : barriers)
   {
     barrier.display();
-    mover.checkCollision(barrier);  //check collision
-    
+    mover.checkCollision(barrier);  //check collision 
     /*if(barrier.barrierReflect(mover.getPosition()))
     {
       mover.changeReflection();
@@ -93,6 +103,8 @@ void drawStage3(){  // Gaming zone setting
 
   if(backGButton.isClicked() ){  // switch to Stage 1 Menu
     clickSound();
+      startGame = false;
+      countNum = 3;  //restart the game
       switchToGame = false;
  
  }
@@ -104,19 +116,34 @@ void drawStage3(){  // Gaming zone setting
 }
 void onTickEvent(CountdownTimer t, long timeLeftUntilFinish) 
 {
-  //timerCallbackInfo = "[tick] - timeLeft: " + timeLeftUntilFinish + "ms"; 
-    if (countNum == 0)
+  if (t.getId() == 0)
   {
+   if (countNum == 0)
+   {
     countInfo = "Start !";
-  }
-  else
-  {
+   }
+   else
+   {
     countInfo = str(countNum);
+   }
+    countNum--;
   }
-  countNum--;
+  //timerCallbackInfo = "[tick] - timeLeft: " + timeLeftUntilFinish + "ms"; 
+  if (t.getId() == 1)
+  {
+    roundTime--; //each round limts in 10 sceounds
+  }
 }
 
 void onFinishEvent(CountdownTimer t) {
-  countInfo = "Start !";   //or something to remind the player
-  startGame = true;
+  //countInfo = "Start !";   //or something to remind the player
+  if (t.getId() == 0)
+  {
+    startGame = true; 
+  }
+  if (t.getId() == 1)
+  {
+    round = false;
+    mover.nextGame();
+  }
 }

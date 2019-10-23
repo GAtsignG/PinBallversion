@@ -23,7 +23,9 @@
   boolean switchToc = false;
   boolean switchToa = false;
 
-
+   int p1;   //scores
+   int p2;
+   boolean p1Play; //player round
   // Font setting
   PFont formataB, formataI, formataBI;
 
