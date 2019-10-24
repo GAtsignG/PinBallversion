@@ -25,19 +25,19 @@
 void showStage3(){
   
   // image load
-  img3BGframe = loadImage("Stage3_BG_Frame.png");
-  img3BGgrass = loadImage("Stage3_BG_Grass.jpg");
-  img3BGAudience = loadImage("Stage3_BG_Audience.png");
+  // img3BGframe = loadImage("Stage3_BG_Frame.png");
+  // img3BGgrass = loadImage("Stage3_BG_Grass.jpg");
+  // img3BGAudience = loadImage("Stage3_BG_Audience.png");
 
-  barrierImg1 = loadImage("1.png");
-  barrierImg2 = loadImage("2.png");
-  barrierImg3 = loadImage("3.png");
-  barrierImg4 = loadImage("4.png");
-  barrierImg5 = loadImage("5.png");
-  barrierImg6 = loadImage("6.png");
-  barrierImg7 = loadImage("7.png");
-  barrierImg8 = loadImage("8.png");
-  barrierImg9 = loadImage("9.png");
+  // barrierImg1 = loadImage("1.png");
+  // barrierImg2 = loadImage("2.png");
+  // barrierImg3 = loadImage("3.png");
+  // barrierImg4 = loadImage("4.png");
+  // barrierImg5 = loadImage("5.png");
+  // barrierImg6 = loadImage("6.png");
+  // barrierImg7 = loadImage("7.png");
+  // barrierImg8 = loadImage("8.png");
+  // barrierImg9 = loadImage("9.png");
   // if(barrierImg == 1)
   // {
   //   pick = barrierImg1;
@@ -74,10 +74,10 @@ void showStage3(){
   // {
   //   pick = barrierImg9;
   // }
-  for (int i = 0; i < 8; i++)
-  {
-      //barriersImage[i] = loadImage(+i+".png");
-  }
+  // for (int i = 0; i < 8; i++)
+  // {
+  //     //barriersImage[i] = loadImage(+i+".png");
+  // }
   // bgm load
   bgmGaming = minim.loadFile("bgm_Gaming.mp3");
 
@@ -161,6 +161,8 @@ if (startGame)
   backGButton.render();
  
 }
+
+// countdown timer at the beginning of the game
 void onTickEvent(CountdownTimer t, long timeLeftUntilFinish) 
 {
   if (t.getId() == 0)

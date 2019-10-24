@@ -8,6 +8,9 @@
   // Buttons
   Button gameButton, audioButton, controllerButton, backSButton;
 
+  // GUI
+  ControlP5 cp5;
+
 void showStage2(){
   // image load
   img2Cover = loadImage("Stage2_Cover.png");
@@ -21,9 +24,9 @@ void showStage2(){
   // Buttons             (Pos.x, Pos.y, Width, Height, radius, Text, R, G, B, Alpha)
   // extended button, +alpha 
   textFont(formataBI);
-  gameButton = new TitleButton(680, 170, 340, 103, 0, "Game", 100, 100, 100, 0); // Setting 196, 125, 96
-  audioButton = new TitleButton(1021, 170, 358, 103, 0, "Audio", 100, 200, 100, 0);  
-  controllerButton = new TitleButton(1380, 170, 400, 103, 0, "Controller", 100, 100, 200, 0);
+  gameButton = new TitleButton(650, 170, 340, 100, 0, "Game", 100, 100, 100, 0);
+  audioButton = new TitleButton(990, 170, 350, 100, 0, "Audio", 150, 200, 100, 0);  
+  controllerButton = new TitleButton(1340, 170, 400, 100, 0, "Controller", 200, 100, 200, 0);
   // general button
   backSButton = new Button(860, 920, 200, 50, 100, "Back", 100, 129, 200, 177);
 
@@ -43,7 +46,8 @@ void drawStage2a(){  // Setting default page - Audio
   text("Music", 850, 500);
   text("Sound Effect", 850, 666);
 
-  // 这里加两个滑竿控制音量和音效，只需要3/5个可调节级别  ,  add slider!!!
+  // 这里加两个滑竿控制音量和音效，只需要3/5个可调节级别  ,  add slider!!!    // controlP5, 用滑竿模式或者切换按钮模式
+  gui();
     
   if(gameButton.isClicked() ){  // switch to Game page
       clickSound();
@@ -51,11 +55,6 @@ void drawStage2a(){  // Setting default page - Audio
       switchToa = false;
       switchToc = false;
   }
-
-  /* switch to Audio page, but this is default page
-  if(audioButton.isClicked() ){
-      clickSound();
-  }*/
 
   if(controllerButton.isClicked() ){   // switch to Controller page
       clickSound();
@@ -72,6 +71,19 @@ void drawStage2a(){  // Setting default page - Audio
       switchToSettings = false;    
   }
   
+  if(mouseX >= 651 && mouseX <= 990 && mouseY >= 170 && mouseY <= 270)
+  {  // when move mouse over the gameButton, draw a underline below it
+      noStroke();
+      fill(129, 200, 177);               
+      rect(726, 255, 187, 5);
+  }
+
+  if(mouseX >= 1340 && mouseX <= 1740 && mouseY >= 170 && mouseY <= 270)
+  {  // when move mouse over the controllerButton, draw a underline below it
+      noStroke();
+      fill(129, 200, 177);               
+      rect(1389, 255, 308, 5);
+  }
 
   gameButton.update();
   gameButton.render();
@@ -98,6 +110,9 @@ void drawStage2g(){  // Setting Game page
   text("Full Screen", 850, 500);
   text("Rounds", 850, 666);
 
+  // toggle to fullscreen mode,    use controlP5 - icon  (Frome examples)
+
+
 
   if(audioButton.isClicked() ){  // switch to Audio page
       clickSound();
@@ -120,9 +135,22 @@ void drawStage2g(){  // Setting Game page
       switchToa = false;
       switchToc = false;
       switchToSettings = false;
-    
   }
   
+  if(mouseX >= 990 && mouseX <= 1340 && mouseY >= 170 && mouseY <= 270)
+  {  // when move mouse over the audioButton, draw a underline below it
+      noStroke();
+      fill(129, 200, 177);               
+      rect(1068, 255, 187, 5);
+  }
+
+  if(mouseX >= 1340 && mouseX <= 1740 && mouseY >= 170 && mouseY <= 270)
+  {  // when move mouse over the controllerButton, draw a underline below it
+      noStroke();
+      fill(129, 200, 177);               
+      rect(1389, 255, 308, 5);
+  }
+
   gameButton.update();
   gameButton.render();
   audioButton.update();
@@ -169,9 +197,22 @@ void drawStage2c(){  // Setting Controller page
       switchToa = false;
       switchToc = false;
       switchToSettings = false;
-    
   }
   
+  if(mouseX >= 651 && mouseX <= 990 && mouseY >= 170 && mouseY <= 270)
+  {  // when move mouse over the gameButton, draw a underline below it
+      noStroke();
+      fill(129, 200, 177);               
+      rect(726, 255, 187, 5);
+  }
+
+  if(mouseX >= 990 && mouseX <= 1340 && mouseY >= 170 && mouseY <= 270)
+  {  // when move mouse over the audioButton, draw a underline below it
+      noStroke();
+      fill(129, 200, 177);               
+      rect(1068, 255, 187, 5);
+  }
+
   gameButton.update();
   gameButton.render();
   audioButton.update();
@@ -180,4 +221,28 @@ void drawStage2c(){  // Setting Controller page
   controllerButton.render();
   backSButton.update();
   backSButton.render();
+}
+
+void gui(){
+  cp5 = new ControlP5(this);
+  
+  cp5.addSlider("")
+     .setPosition(933, 455)
+     .setSize(450,45)
+     .setRange(100,500)
+     .setValue(100)
+     ;
+
+
+}
+
+void toggle()
+{
+  cp5.addIcon("sfs",10)  // switchFullScreen
+     .setPosition(933, 455)
+     .setSize(70,50)
+     .setRoundedCorners(20)
+     .setSwitch(true)
+     .hideBackground()
+     ;  
 }
