@@ -5,7 +5,10 @@
   // Image var
   PImage img3BGframe, img3BGgrass, img3BGAudience;
   //PImage barriersImage[];
+  //障碍物图片生成
   PImage barrierImg1,barrierImg2,barrierImg3,barrierImg4,barrierImg5,barrierImg6,barrierImg7,barrierImg8,barrierImg9,pick;
+  //球员图片生成
+  PImage defenseP1, defenseP2;
   boolean startGame = false;
   boolean player1 = true;
   boolean pause = false;
@@ -20,7 +23,7 @@
   int roundTime = 10; //display each round's time limit
   // Buttons
   Button pauseButton, backGButton, resumeButton;
-  
+  int barrierImg = (int) random(1,9);
  
 
 void showStage3(){
@@ -29,7 +32,10 @@ void showStage3(){
   img3BGframe = loadImage("Stage3_BG_Frame.png");
   img3BGgrass = loadImage("Stage3_BG_Grass.jpg");
   img3BGAudience = loadImage("Stage3_BG_Audience.png");
-
+  //球员图片加载
+  defenseP1 = loadImage("Stage3_Player1.png");
+  defenseP2 = loadImage("Stage3_Player2.png");
+  //障碍物图片加载
   barrierImg1 = loadImage("1.png");
   barrierImg2 = loadImage("2.png");
   barrierImg3 = loadImage("3.png");
@@ -39,46 +45,46 @@ void showStage3(){
   barrierImg7 = loadImage("7.png");
   barrierImg8 = loadImage("8.png");
   barrierImg9 = loadImage("9.png");
-  // if(barrierImg == 1)
-  // {
-  //   pick = barrierImg1;
-  // }
-  // if(barrierImg ==2)
-  // {
-  //   pick = barrierImg2;
-  // }
-  // if(barrierImg == 3)
-  // {
-  //   pick = barrierImg3;
-  // }
-  // if(barrierImg == 4)
-  // {
-  //   pick = barrierImg4;
-  // }
-  // if(barrierImg == 5)
-  // {
-  //   pick = barrierImg5;
-  // }
-  // if(barrierImg == 6)
-  // {
-  //   pick = barrierImg6;
-  // }
-  // if(barrierImg == 7)
-  // {
-  //   pick = barrierImg7;
-  // }
-  // if(barrierImg == 8)
-  // {
-  //   pick = barrierImg8;
-  // }
-  // if(barrierImg == 9)
-  // {
-  //   pick = barrierImg9;
-  // }
-  // for (int i = 0; i < 8; i++)
-  // {
-  //     //barriersImage[i] = loadImage(+i+".png");
-  // }
+  if(barrierImg == 1)
+  {
+    pick = barrierImg1;
+  }
+  if(barrierImg ==2)
+  {
+    pick = barrierImg2;
+  }
+  if(barrierImg == 3)
+  {
+    pick = barrierImg3;
+  }
+  if(barrierImg == 4)
+  {
+    pick = barrierImg4;
+  }
+  if(barrierImg == 5)
+  {
+    pick = barrierImg5;
+  }
+  if(barrierImg == 6)
+  {
+    pick = barrierImg6;
+  }
+  if(barrierImg == 7)
+  {
+    pick = barrierImg7;
+  }
+  if(barrierImg == 8)
+  {
+    pick = barrierImg8;
+  }
+  if(barrierImg == 9)
+  {
+    pick = barrierImg9;
+  }
+  for (int i = 0; i < 8; i++)
+  {
+      //barriersImage[i] = loadImage(+i+".png");
+  }
   // bgm load
   bgmGaming = minim.loadFile("bgm_Gaming.mp3");
 
@@ -102,10 +108,11 @@ void drawStage3(){  // Gaming zone setting
   image(img3BGAudience, 0, 0);
   //image(barriersImage[0], 0, 0);
 // 此处需要画一个3/5秒倒计时，先试试五秒看哪个比较合适
-  
-  if (switchToGame){
-   bgmGaming.play();
-  }
+  //break;	
+  //防守功能
+  defensePlayer();
+  //防守按键
+  defenseKeyTyped();
 
   if(!startGame)
   {
