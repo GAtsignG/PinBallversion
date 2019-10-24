@@ -257,14 +257,3 @@ void icon (boolean theValue)
         bgmCeremony.play();
     }
 }
-
-void toggle()
-{
-  cp5.addIcon("sfs",10)  // switchFullScreen
-     .setPosition(933, 455)
-     .setSize(70,50)
-     .setRoundedCorners(20)
-     .setSwitch(true)
-     .hideBackground()
-     ;  
-}
