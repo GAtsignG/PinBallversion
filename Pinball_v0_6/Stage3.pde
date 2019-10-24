@@ -38,42 +38,42 @@ void showStage3(){
   barrierImg7 = loadImage("7.png");
   barrierImg8 = loadImage("8.png");
   barrierImg9 = loadImage("9.png");
-  if(barrierImg == 1)
-  {
-    pick = barrierImg1;
-  }
-  if(barrierImg ==2)
-  {
-    pick = barrierImg2;
-  }
-  if(barrierImg == 3)
-  {
-    pick = barrierImg3;
-  }
-  if(barrierImg == 4)
-  {
-    pick = barrierImg4;
-  }
-  if(barrierImg == 5)
-  {
-    pick = barrierImg5;
-  }
-  if(barrierImg == 6)
-  {
-    pick = barrierImg6;
-  }
-  if(barrierImg == 7)
-  {
-    pick = barrierImg7;
-  }
-  if(barrierImg == 8)
-  {
-    pick = barrierImg8;
-  }
-  if(barrierImg == 9)
-  {
-    pick = barrierImg9;
-  }
+  // if(barrierImg == 1)
+  // {
+  //   pick = barrierImg1;
+  // }
+  // if(barrierImg ==2)
+  // {
+  //   pick = barrierImg2;
+  // }
+  // if(barrierImg == 3)
+  // {
+  //   pick = barrierImg3;
+  // }
+  // if(barrierImg == 4)
+  // {
+  //   pick = barrierImg4;
+  // }
+  // if(barrierImg == 5)
+  // {
+  //   pick = barrierImg5;
+  // }
+  // if(barrierImg == 6)
+  // {
+  //   pick = barrierImg6;
+  // }
+  // if(barrierImg == 7)
+  // {
+  //   pick = barrierImg7;
+  // }
+  // if(barrierImg == 8)
+  // {
+  //   pick = barrierImg8;
+  // }
+  // if(barrierImg == 9)
+  // {
+  //   pick = barrierImg9;
+  // }
   for (int i = 0; i < 8; i++)
   {
       //barriersImage[i] = loadImage(+i+".png");
@@ -149,6 +149,7 @@ if (startGame)
 
   if(backGButton.isClicked() ){  // switch to Stage 1 Menu
     clickSound();
+      bgmGaming.pause();
       startGame = false;
       countNum = 3;  //restart the game
       switchToGame = false;
