@@ -58,6 +58,7 @@ void drawStage1(){
       p1 = 0;   //scores
       p2 = 0;
       timer.start(); // the timer to count down 3s to start the game
+      bgmGaming.loop();
   }
   
   if(settingButton.isClicked() ){  // switch to Stage 2 Setting     
