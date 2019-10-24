@@ -16,11 +16,6 @@ void showStage5(){
   img5icon3 = loadImage("Stage5_SM_Twitter.png");
   img5icon4 = loadImage("Stage5_SM_Youtube.png");
 
-  // font load
-  //formataB = loadFont("Formata-Bold-48.vlw");
-  //formataI = loadFont("Formata-Italic-48.vlw");
-  //formataBI = loadFont("Formata-BoldItalic-48.vlw");  
-
   // Buttons             (Pos.x, Pos.y, Width, Height, radius, Text, R, G, B, Alpha)
   textFont(formataBI);
   backCButton = new Button(860, 920, 200, 50, 100, "Back", 100, 129, 200, 177);

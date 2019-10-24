@@ -38,6 +38,7 @@
 void setup(){
  size(1920, 1080);
   frameRate(60);
+  // Load all fonts
   formataR = createFont("Formata-Regular.otf", 32);
   formataB = createFont("Formata-Bold.otf", 32);
   formataI = createFont("Formata-Italic.otf", 32);
