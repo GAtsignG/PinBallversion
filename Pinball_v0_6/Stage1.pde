@@ -56,6 +56,9 @@ void drawStage1(){
       bgmMenu.rewind();
       switchToGame = true;
       p1Play = false;
+      round = true;
+      p1 = 0;   //scores
+      p2 = 0;
       timer.start(); // the timer to count down 3s to start the game
   }
   
