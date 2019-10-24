@@ -17,7 +17,7 @@
 
   //set a countdown timer before the game beginning
   CountdownTimer timer = CountdownTimerService.getNewCountdownTimer(this).configure(1000, 3000);
-  CountdownTimer timeLimit = CountdownTimerService.getNewCountdownTimer(this).configure(1000, 5000);
+  CountdownTimer timeLimit = CountdownTimerService.getNewCountdownTimer(this).configure(1000, 10000);
   int countNum = 3; //displayer count down number starts with 5
   String countInfo = ""; //display information when the countdown finishes
   int roundTime = 10; //display each round's time limit
@@ -165,6 +165,14 @@ if (startGame) //now the first round starts
       switchToGame = false;
       round = false;
  
+ //refresh the mover and barriers
+ mover = new Mover();
+        mover.nextGame();
+        for (int i = 0; i< barrierNum; i++)
+        {
+          float xx = (1500-650)/barrierNum;
+          barriers[i] = new Barrier(random(650+xx*i,650+xx*(i+1)),random(270,710),random(75,150), i, barriers);
+         }
  }
   pauseButton.update();
   pauseButton.render();
@@ -191,7 +199,8 @@ void onTickEvent(CountdownTimer t, long timeLeftUntilFinish)
   //timerCallbackInfo = "[tick] - timeLeft: " + timeLeftUntilFinish + "ms"; 
   if (t.getId() == 1)
   {
-    countInfo = str(roundTime);
+    //countInfo = str(roundTime);
+
     roundTime--; //each round limts in 10 sceounds 
   }
 }
