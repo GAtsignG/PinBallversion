@@ -4,30 +4,29 @@ float dy = 540;
 
 
 //防守按键
-void defenseKeyTyped()
+void defenseKeyPressed()
 {
     int keyIndex = -1;
     if(dx <= 340 && dx >= 280 && dy <= 790 && dy >= 290)
     {
-        if(keyCode == UP)
+        if(keyPressed)
         {
-            dy = dy-5;
-            keyReleased();
-        }
-        else if (keyCode == DOWN) 
-        {
-            dy = dy+5;
-            keyReleased();
-        }
-        else if (keyCode == LEFT)
-        {
-            dx--;
-            keyReleased();
-        }
-        else if (keyCode == RIGHT)
-        {
-            dx++;
-            keyReleased();
+            if(key == 'w' || key == 'W')
+            {
+                dy = dy-5;
+            }
+            if(key == 's' || key == 'S')
+            {
+                dy = dy+5;
+            }
+            if(key == 'a' || key == 'A')
+            {
+                dx--;
+            }
+            if(key == 'd' || key == 'D')
+            {
+                dx++;
+            }
         }
     }
     //出防守区域自动复位到边界
