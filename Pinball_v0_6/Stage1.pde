@@ -56,7 +56,7 @@ void drawStage1(){
       bgmMenu.rewind();
       switchToGame = true;
       p1Play = false;
-      timer.start(); // start the timer
+      timer.start(); // the timer to count down 3s to start the game
   }
   
   if(settingButton.isClicked() ){  // switch to Stage 2 Setting     
