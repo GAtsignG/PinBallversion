@@ -218,11 +218,13 @@ void onFinishEvent(CountdownTimer t) {
       if(p1Play)
     {          
       //交换球权
+      p1++;
       p1Play = false;
     }
     else
     {           
       //交换球权
+      p2++;
       p1Play = true;
     } 
       mover.nextGame(); //overtime !!!       
