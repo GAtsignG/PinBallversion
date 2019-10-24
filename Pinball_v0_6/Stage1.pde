@@ -21,14 +21,12 @@ void showStage1(){
   minim = new Minim(this);
   bgmMenu = minim.loadFile("bgm_Menu&Setting.mp3");
   bgmMenu.loop();
+  
   // sfx load
   aClick = minim.loadFile("a_click.wav");
   aSweep = minim.loadFile("a_sweep.wav");
 
   // font load
-  formataB = loadFont("Formata-Bold-48.vlw");
-  formataI = loadFont("Formata-Italic-48.vlw");
-  formataBI = loadFont("Formata-BoldItalic-48.vlw");
 
   // Buttons             (Pos.x, Pos.y, Width, Height, radius, Text, R, G, B, Alpha)
   textFont(formataBI);

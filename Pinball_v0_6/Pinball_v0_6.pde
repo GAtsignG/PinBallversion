@@ -30,7 +30,7 @@
   boolean p1Play; //player round
 
   // Font setting
-  PFont formataB, formataI, formataBI;
+  PFont formataR, formataB, formataI, formataBI, numFont;
 
   Mover mover;
   Barrier[] barriers = new Barrier[3];
@@ -38,6 +38,11 @@
 void setup(){
  size(1920, 1080);
   frameRate(60);
+  formataR = createFont("Formata-Regular.otf", 32);
+  formataB = createFont("Formata-Bold.otf", 32);
+  formataI = createFont("Formata-Italic.otf", 32);
+  formataBI = createFont("Formata-BoldItalic.otf", 32);
+  numFont = createFont("Gotham-UltraItalic.otf", 32);
 
   //-------------------------------------------------------
   //stage3
@@ -46,6 +51,7 @@ void setup(){
   showStage3();
   showStage4();
   showStage5();
+
     mover = new Mover();
    for (int i = 0; i< barrierNum; i++)
    {
