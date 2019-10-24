@@ -6,7 +6,7 @@
   PImage img3BGframe, img3BGgrass, img3BGAudience;
   //PImage barriersImage[];
   //障碍物图片生成
-  PImage barrierImg1,barrierImg2,barrierImg3,barrierImg4,barrierImg5,barrierImg6,barrierImg7,barrierImg8,barrierImg9,pick;
+  PImage barrierImg1,barrierImg2,barrierImg3,barrierImg4,barrierImg5,barrierImg6,barrierImg7,barrierImg8,barrierImg9,pick,barrierShadow;
   //球员图片生成
   PImage defenseP1, defenseP2;
   boolean startGame = false;
@@ -17,7 +17,7 @@
 
   //set a countdown timer before the game beginning
   CountdownTimer timer = CountdownTimerService.getNewCountdownTimer(this).configure(1000, 3000);
-  CountdownTimer timeLimit = CountdownTimerService.getNewCountdownTimer(this).configure(1000, 5000);
+  CountdownTimer timeLimit = CountdownTimerService.getNewCountdownTimer(this).configure(1000, 10000);
   int countNum = 3; //displayer count down number starts with 5
   String countInfo = ""; //display information when the countdown finishes
   int roundTime = 10; //display each round's time limit
@@ -45,6 +45,7 @@ void showStage3(){
   barrierImg7 = loadImage("7.png");
   barrierImg8 = loadImage("8.png");
   barrierImg9 = loadImage("9.png");
+  barrierShadow = loadImage("Stage3_BarrierShadow.png");
   if(barrierImg == 1)
   {
     pick = barrierImg1;
@@ -107,7 +108,7 @@ void drawStage3(){  // Gaming zone setting
   //防守功能
   defensePlayer();
   //防守按键
-  defenseKeyTyped();
+  defenseKeyPressed();
 
   if(!startGame)
   {
@@ -160,6 +161,14 @@ if (startGame) //now the first round starts
       switchToGame = false;
       round = false;
  
+ //refresh the mover and barriers
+ mover = new Mover();
+        mover.nextGame();
+        for (int i = 0; i< barrierNum; i++)
+        {
+          float xx = (1500-650)/barrierNum;
+          barriers[i] = new Barrier(random(650+xx*i,650+xx*(i+1)),random(270,710),random(75,150), i, barriers);
+         }
  }
   pauseButton.update();
   pauseButton.render();
@@ -186,7 +195,8 @@ void onTickEvent(CountdownTimer t, long timeLeftUntilFinish)
   //timerCallbackInfo = "[tick] - timeLeft: " + timeLeftUntilFinish + "ms"; 
   if (t.getId() == 1)
   {
-    countInfo = str(roundTime);
+    //countInfo = str(roundTime);
+
     roundTime--; //each round limts in 10 sceounds 
   }
 }
