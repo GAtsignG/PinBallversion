@@ -151,6 +151,7 @@ void drawStage3(){  // Gaming zone setting
 
   if(round && startGame)
   {
+    roundTime = 10;
     timeLimit.reset(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
     timeLimit.start();   //start the timer of each round 10s
     round = false;
