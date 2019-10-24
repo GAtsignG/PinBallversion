@@ -106,11 +106,10 @@ void drawStage3(){  // Gaming zone setting
   image(img3BGAudience, 0, 0);
 
 // 此处需要画一个3/5秒倒计时，先试试五秒看哪个比较合适
-  //break;	
   //防守功能
-  d = new Defender();
-  d.defenseKeyPressed();
-  d.defensePlayer();
+  d = new Defender(); //default postion
+  d.defenseKeyPressed();  //movement input
+  d.defensePlayer();     //update position
   //防守按键
   
 

@@ -17,6 +17,7 @@ class Defender extends Ball{
   PVector position;
   PVector velocity;
   float radius, m;
+  float x,y;
 
   Defender()
   {
@@ -24,6 +25,8 @@ class Defender extends Ball{
     velocity = new PVector(0, 0);   //null speed 
     m = radius*.1;
     radius = 100;
+    x = 310;
+    y = 540;
   }
 
   void defensePlayer()
@@ -32,51 +35,83 @@ class Defender extends Ball{
     image(defenseP2, 1528, 500, 100, 100);
   }
 
+//update the position
+void setP()  
+{
+   x = this.position.x;
+   y = this.position.y; 
+}
+
 //防守按键
 void defenseKeyPressed()
 {
     int keyIndex = -1;
-    if(position.x <= 340 && position.x >= 280 && position.y <= 790 && position.y >= 290)
-    {
-        if(keyPressed)
+    if(keyPressed)
         {
             if(key == 'w' || key == 'W')
             {
-                position.y -= 5;
+                this.position.y -= 5;               
             }
             if(key == 's' || key == 'S')
             {
-                position.y += 5;
+                this.position.y += 5 ;
             }
             if(key == 'a' || key == 'A')
             {
-                position.x--;
+                this.position.x--;
             }
             if(key == 'd' || key == 'D')
             {
-                position.x++;
+                this.position.x++;
             }
         }
-    }
+    // if(position.x <= 340 && position.x >= 280 && position.y <= 790 && position.y >= 290)
+    // {
+    //     if(keyPressed)
+    //     {
+    //         if(key == 'w' || key == 'W')
+    //         {
+    //             position.y -= 5;
+    //         }
+    //         if(key == 's' || key == 'S')
+    //         {
+    //             position.y += 5;
+    //         }
+    //         if(key == 'a' || key == 'A')
+    //         {
+    //             position.x--;
+    //         }
+    //         if(key == 'd' || key == 'D')
+    //         {
+    //             position.x++;
+    //         }
+    //     }
+    // }
     //出防守区域自动复位到边界
-    else if(position.x > 340)
-    {
-        position.x = 340;
-    }
-    else if(position.x < 280)
-    {
-        position.x = 280;
-    }
-    else if(position.y > 790)
-    {
-        position.y = 790;
-    }
-    else if(position.y < 290)
-    {
-        position.y = 290;
-    }
+    // else if(position.x > 340)
+    // {
+    //     position.x = 340;
+    // }
+    // else if(position.x < 280)
+    // {
+    //     position.x = 280;
+    // }
+    // else if(position.y > 790)
+    // {
+    //     position.y = 790;
+    // }
+    // else if(position.y < 290)
+    // {
+    //     position.y = 290;
+    // }
     
-}
+  }
+
+  PVector getPosition()
+  {
+      return this.position;
+  }
+
   void saveBall(Mover b)
   {
         // Get distances between the balls components
