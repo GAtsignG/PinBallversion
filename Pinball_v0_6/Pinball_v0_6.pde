@@ -33,7 +33,7 @@
   PFont formataR, formataB, formataI, formataBI, numFont;
 
   Mover mover;
-  Barrier[] barriers = new Barrier[3];
+  Barrier[] barriers = new Barrier[5];
 
 void setup(){
  size(1920, 1080);
@@ -105,7 +105,7 @@ void keyPressed() {  // Pausing fuction, only available at Stage 3 Gaming
   }
   if(key == 'c')
   {
-    p1 == 2;  //cheat
+    //p1 == 2;  //cheat
   }
  }
 
