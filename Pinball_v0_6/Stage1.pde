@@ -20,7 +20,7 @@ void showStage1(){
   // bgm load
   minim = new Minim(this);
   bgmMenu = minim.loadFile("bgm_Menu&Setting.mp3");
-
+  bgmMenu.loop();
   // sfx load
   aClick = minim.loadFile("a_click.wav");
   aSweep = minim.loadFile("a_sweep.wav");
@@ -46,7 +46,7 @@ void drawStage1(){
 
   if(!switchToGame )
   {   // menu界面无效但是setting界面是有效的？？？？？？？？？？
-    bgmMenu.loop();
+    
   }
 
  

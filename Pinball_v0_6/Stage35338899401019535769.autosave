@@ -155,12 +155,7 @@ if (startGame) //now the first round starts
     clickSound();
       bgmGaming.pause();
       bgmGaming.rewind();
-      bgmMenu.play();
-
-      timer.stop(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
-      timeLimit.stop(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
       timer.reset(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
-      timeLimit.reset(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
       startGame = false;
       countNum = 3;  //restart the game
       switchToGame = false;
