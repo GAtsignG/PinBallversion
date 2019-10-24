@@ -76,7 +76,19 @@ void keyPressed() {  // Pausing fuction, only available at Stage 3 Gaming
   textFont(formataBI, 30);
   text("Press Space Bar to resume", 960, 570);
  }
-  
+
+ if (switchToGame)
+ {
+  if(key=='k')
+  {
+    if (!looping)
+    {
+      loop();
+      round = true;
+    }     
+  }
+ }
+
 }
 
 void draw(){

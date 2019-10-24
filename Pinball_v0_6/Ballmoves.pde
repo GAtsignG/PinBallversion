@@ -116,9 +116,10 @@ class Mover extends Ball{
       p1Play = true;
     }
     nextGame();
+    confirmNext();
   }
   void nextGame()
-  {
+  {   
     position.x = 1578;
     position.y = 550;
   }
@@ -131,8 +132,6 @@ class Mover extends Ball{
 
   void checkEdges() {
     //continue the play
-
-
     if (position.x > 400) {
       position.x = 0;
     } 

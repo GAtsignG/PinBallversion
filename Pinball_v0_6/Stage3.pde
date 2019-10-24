@@ -12,10 +12,11 @@
   boolean startGame = false;
   boolean player1 = true;
   boolean pause = false;
-  boolean round = false;
+  boolean round;
+  boolean roundCount = false;
 
   //set a countdown timer before the game beginning
-  CountdownTimer timer = CountdownTimerService.getNewCountdownTimer(this).configure(1000, 5000);
+  CountdownTimer timer = CountdownTimerService.getNewCountdownTimer(this).configure(1000, 3000);
   CountdownTimer timeLimit = CountdownTimerService.getNewCountdownTimer(this).configure(1000, 5000);
   int countNum = 3; //displayer count down number starts with 5
   String countInfo = ""; //display information when the countdown finishes
@@ -116,27 +117,23 @@ void drawStage3(){  // Gaming zone setting
 
   if(!startGame)
   {
-   p1 = 0;   //scores
-   p2 = 0;
-  fill(0, 120);
+  fill(0, 120);  //countdown lable
   rect(0, 0, 1920, 1080);
   fill(255);
   textFont(formataBI, 65);
   textAlign(CENTER);
   text(countInfo, 960, 520);
   }
-   
-  if (switchToGame){
-   bgmGaming.play();
-  }
-  
-  if(!round)
+
+
+  if(round && startGame)
   {
+    timeLimit.reset(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
     timeLimit.start();   //start the timer of each round 10s
-    round = true;
+    round = false;
   }
    
-if (startGame)
+if (startGame) //now the first round starts
 {
   mover.update();
   //mover.checkEdges();
@@ -162,9 +159,12 @@ if (startGame)
   if(backGButton.isClicked() ){  // switch to Stage 1 Menu
     clickSound();
       bgmGaming.pause();
+      bgmGaming.rewind();
+      timer.reset(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
       startGame = false;
       countNum = 3;  //restart the game
       switchToGame = false;
+      round = false;
  
  }
   pauseButton.update();
@@ -192,7 +192,8 @@ void onTickEvent(CountdownTimer t, long timeLeftUntilFinish)
   //timerCallbackInfo = "[tick] - timeLeft: " + timeLeftUntilFinish + "ms"; 
   if (t.getId() == 1)
   {
-    roundTime--; //each round limts in 10 sceounds
+    countInfo = str(roundTime);
+    roundTime--; //each round limts in 10 sceounds 
   }
 }
 
@@ -200,11 +201,39 @@ void onFinishEvent(CountdownTimer t) {
   //countInfo = "Start !";   //or something to remind the player
   if (t.getId() == 0)
   {
-    startGame = true; 
+    startGame = true;
   }
   if (t.getId() == 1)
-  {
-    round = false;
-    mover.nextGame();
+  { 
+      confirmNext();
+      if(p1Play)
+    {          
+      //交换球权
+      p1Play = false;
+    }
+    else
+    {           
+      //交换球权
+      p1Play = true;
+    } 
+      mover.nextGame(); //overtime !!!       
   }
+}
+
+void confirmNext()
+{
+  // Pausing notification
+  fill(0, 120);
+  rect(0, 0, 1920, 1080);
+
+  fill(255);
+  textFont(formataBI, 65);
+  textAlign(CENTER);
+  text("Next round?", 960, 520);
+    
+  fill(255, 100);
+  textFont(formataBI, 30);
+  text("Press K to start", 960, 570);
+  
+  noLoop();
 }

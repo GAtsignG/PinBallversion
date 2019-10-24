@@ -34,11 +34,12 @@ void drawStage5(){  // the Credits page
   rect(0, 0, 1920, 1080);
   image(img5Cover, 0, 0);
 
-  //imageMode(CENTER);   // only display the icons below as center mode
-  image(img5icon1, 1550, 930, 70, 70);
-  image(img5icon2, 1640, 930, 70, 70);
-  image(img5icon3, 1730, 930, 70, 70);
-  image(img5icon4, 1820, 930, 70, 70);
+  // imageMode(CENTER);   // only display the icons below as center mode
+  image(img5icon1, 1550, 910, 70, 70);
+  image(img5icon2, 1640, 910, 70, 70);
+  image(img5icon3, 1730, 910, 70, 70);
+  image(img5icon4, 1820, 910, 70, 70);
+
 
   if(backCButton.isClicked() ){  // switch to Stage 1 Menu
       clickSound();      
