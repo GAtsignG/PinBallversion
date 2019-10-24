@@ -17,16 +17,13 @@ class Defender extends Ball{
   PVector position;
   PVector velocity;
   float radius, m;
-  float dx = 310;
-  float dy = 540;
-
 
   Defender()
   {
-    position = new PVector(dx, dy); //start position
+    position = new PVector(310, 540); //start position
     velocity = new PVector(0, 0);   //null speed 
     m = radius*.1;
-    radius = 200;
+    radius = 100;
   }
 
   void defensePlayer()
@@ -45,11 +42,11 @@ void defenseKeyPressed()
         {
             if(key == 'w' || key == 'W')
             {
-                position.y = position.y-5;
+                position.y -= 5;
             }
             if(key == 's' || key == 'S')
             {
-                position.y = position.y+5;
+                position.y += 5;
             }
             if(key == 'a' || key == 'A')
             {
@@ -124,8 +121,8 @@ void defenseKeyPressed()
         new PVector(), new PVector()
       };
 
-      //vTemp[0].x  = cosine * velocity.x + sine * velocity.y;
-      //vTemp[0].y  = cosine * velocity.y - sine * velocity.x;
+      vTemp[0].x  = cosine * velocity.x + sine * velocity.y;
+      vTemp[0].y  = cosine * velocity.y - sine * velocity.x;
       vTemp[1].x  = cosine * b.velocity.x + sine * b.velocity.y;
       vTemp[1].y  = cosine * b.velocity.y - sine * b.velocity.x;
 
@@ -137,15 +134,15 @@ void defenseKeyPressed()
       };
 
       // final rotated velocity for b[0]
-      //vFinal[0].x = ((m - b.m) * vTemp[0].x + 2 * b.m * vTemp[1].x) / (m + b.m);
-      //vFinal[0].y = vTemp[0].y;
+      vFinal[0].x = ((m - b.m) * vTemp[0].x + 2 * b.m * vTemp[1].x) / (m + b.m);
+      vFinal[0].y = vTemp[0].y;
 
       // final rotated velocity for b[0]
       vFinal[1].x = ((b.m - m) * vTemp[1].x + 2 * m * vTemp[0].x) / (m + b.m);
       vFinal[1].y = vTemp[1].y;
 
       // hack to avoid clumping
-      //bTemp[0].x += vFinal[0].x;
+      bTemp[0].x += vFinal[0].x;
       bTemp[1].x += vFinal[1].x;
 
       /* Rotate ball positions and velocities back
@@ -156,8 +153,8 @@ void defenseKeyPressed()
         new PVector(), new PVector()
       };
 
-      //bFinal[0].x = cosine * bTemp[0].x - sine * bTemp[0].y;
-      //bFinal[0].y = cosine * bTemp[0].y + sine * bTemp[0].x;
+      bFinal[0].x = cosine * bTemp[0].x - sine * bTemp[0].y;
+      bFinal[0].y = cosine * bTemp[0].y + sine * bTemp[0].x;
       bFinal[1].x = cosine * bTemp[1].x - sine * bTemp[1].y;
       bFinal[1].y = cosine * bTemp[1].y + sine * bTemp[1].x;
 
@@ -168,8 +165,8 @@ void defenseKeyPressed()
       position.add(bFinal[0]);
 
       // update velocities
-      //velocity.x = cosine * vFinal[0].x - sine * vFinal[0].y;
-      //velocity.y = cosine * vFinal[0].y + sine * vFinal[0].x;
+      velocity.x = cosine * vFinal[0].x - sine * vFinal[0].y;
+      velocity.y = cosine * vFinal[0].y + sine * vFinal[0].x;
       b.velocity.x = cosine * vFinal[1].x - sine * vFinal[1].y;
       b.velocity.y = cosine * vFinal[1].y + sine * vFinal[1].x;
     }
