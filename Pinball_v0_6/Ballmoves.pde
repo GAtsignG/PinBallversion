@@ -93,9 +93,9 @@ class Mover extends Ball{
     goal = false;
   }
 
+  // 游戏界面————显示当前比分，同时将比分传到 Stage4-a 里显示
   void score()
   {
-
     textFont(numFont, 140);
     fill(239, 75, 75);
     text(p1, 1750, 765);

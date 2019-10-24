@@ -117,22 +117,22 @@ void draw(){
   // Setting page's sub-stage switching conditions
   if (switchToSettings && switchToa)  // switch to 2 Setting
   {
-      drawStage2a();   
+    drawStage2a();   
   }
    
   if (switchToSettings && switchToc)  // switch to Controller Setting
   {
-      drawStage2c();   
+    drawStage2c();   
   }
   
   if (switchToSettings && switchTog)  // switch to Game Setting
   {
-      drawStage2g();   
+    drawStage2g();   
   }
 
-  if (switchToCredit)  // switch to Game Setting
+  if (switchToCredit)  // switch to 5 Credits
   {
-      drawStage5();   
+    drawStage5();   
   }
 
   if (switchToCeremony && !switchToGame)  //switch to Ceremony

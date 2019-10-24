@@ -256,6 +256,7 @@ void onFinishEvent(CountdownTimer t) {
   }
 }
 
+// 确认进入下一回合之前的提示
 void confirmNext()
 {
   // Pausing notification
