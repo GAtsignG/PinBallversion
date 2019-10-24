@@ -8,7 +8,6 @@
   // Audio player
   Minim minim;
   AudioPlayer aClick;         // use in all Stages
-  AudioPlayer aSweep;         // use in all Stages
   AudioPlayer bgmMenu;        // use in Stage 1/2/5
   AudioPlayer bgmGaming;      // use in Stage 3
   AudioPlayer bgmCeremony;    // use in Stage 4
@@ -24,15 +23,15 @@
   boolean switchToc = false;
   boolean switchToa = false;
 
-  int p1;   //scores
-  int p2;
-  boolean p1Play; //player round
-
+   int p1;   //scores
+   int p2;
+   boolean p1Play; //player round
   // Font setting
   PFont formataB, formataI, formataBI;
 
-  Mover mover;
-  Barrier[] barriers = new Barrier[3];
+
+Mover mover;
+Barrier[] barriers = new Barrier[3];
 
 void setup(){
  size(1920, 1080);
