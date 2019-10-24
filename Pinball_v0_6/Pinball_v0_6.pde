@@ -102,6 +102,10 @@ void keyPressed() {  // Pausing fuction, only available at Stage 3 Gaming
       round = true;
     }     
   }
+  if(key == 'c')
+  {
+    p1 == 2;  //cheat
+  }
  }
 
 }
