@@ -113,7 +113,7 @@ void drawStage3(){  // Gaming zone setting
   //防守功能
   defensePlayer();
   //防守按键
-  defenseKeyTyped();
+  defenseKeyPressed();
 
   if(!startGame)
   {
