@@ -25,9 +25,9 @@
 void showStage3(){
   
   // image load
-  // img3BGframe = loadImage("Stage3_BG_Frame.png");
-  // img3BGgrass = loadImage("Stage3_BG_Grass.jpg");
-  // img3BGAudience = loadImage("Stage3_BG_Audience.png");
+  img3BGframe = loadImage("Stage3_BG_Frame.png");
+  img3BGgrass = loadImage("Stage3_BG_Grass.jpg");
+  img3BGAudience = loadImage("Stage3_BG_Audience.png");
 
   // barrierImg1 = loadImage("1.png");
   // barrierImg2 = loadImage("2.png");

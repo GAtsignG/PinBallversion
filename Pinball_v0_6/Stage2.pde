@@ -47,7 +47,10 @@ void drawStage2a(){  // Setting default page - Audio
   text("Sound Effect", 850, 666);
 
   // 这里加两个滑竿控制音量和音效，只需要3/5个可调节级别  ,  add slider!!!    // controlP5, 用滑竿模式或者切换按钮模式
-  gui();
+  if (switchToSettings && switchToa)  // switch to 2 Setting
+  {
+    gui();
+  }
     
   if(gameButton.isClicked() ){  // switch to Game page
       clickSound();
