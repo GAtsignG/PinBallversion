@@ -57,8 +57,8 @@ void setup(){
 
 void keyPressed() {  // Pausing fuction, only available at Stage 3 Gaming
   final int k = keyCode;
-
- if (switchToGame)  //only pause while gaming
+ 
+ if (switchToGame && k == ' ')  //only pause while gaming
  {
    looping ^= k == ' ';  
    redraw = k == 'S';
