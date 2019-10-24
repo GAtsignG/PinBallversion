@@ -88,11 +88,6 @@ void showStage3(){
   // bgm load
   bgmGaming = minim.loadFile("bgm_Gaming.mp3");
 
-  // // font load
-  // formataB = loadFont("Formata-Bold-48.vlw");
-  // formataI = loadFont("Formata-Italic-48.vlw");
-  // formataBI = loadFont("Formata-BoldItalic-48.vlw");  
-
   // Buttons             (Pos.x, Pos.y, Width, Height, radius, Text, R, G, B, Alpha)
   textFont(formataBI);
   pauseButton = new Button(1700, 850, 200, 50, 100, "Start", 129, 200, 177);
@@ -106,7 +101,7 @@ void drawStage3(){  // Gaming zone setting
   image(img3BGgrass, 0, 0);
   image(img3BGframe, 0, 0);
   image(img3BGAudience, 0, 0);
-  //image(barriersImage[0], 0, 0);
+
 // 此处需要画一个3/5秒倒计时，先试试五秒看哪个比较合适
   //break;	
   //防守功能
