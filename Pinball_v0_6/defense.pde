@@ -32,7 +32,7 @@ class Defender extends Ball{
   void defensePlayer()
   {
     image(defenseP1, position.x-50, position.y-50,100,100);
-    image(defenseP2, 1528, 500, 100, 100);
+    //image(defenseP2, 1528, 500, 100, 100);
   }
 
 //update the position

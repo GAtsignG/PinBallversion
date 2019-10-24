@@ -33,7 +33,7 @@
   PFont formataR, formataB, formataI, formataBI, numFont;
 
   Mover mover;
-  Barrier[] barriers = new Barrier[3];
+  Barrier[] barriers = new Barrier[5];
 
 void setup(){
  size(1920, 1080);
@@ -62,7 +62,14 @@ void setup(){
    }
   
 }
-
+void mousePressed()
+{
+  if (switchToCeremony)
+  {
+  switchToFinal = true;
+  switchToCeremony = false;
+  }
+}
 void keyPressed() {  // Pausing fuction, only available at Stage 3 Gaming
   final int k = keyCode;
  
@@ -95,6 +102,10 @@ void keyPressed() {  // Pausing fuction, only available at Stage 3 Gaming
       loop();
       round = true;
     }     
+  }
+  if(key == 'c')
+  {
+    //p1 == 2;  //cheat
   }
  }
 
