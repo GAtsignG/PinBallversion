@@ -51,6 +51,10 @@ void drawStage4a(){  // only display score
   if (switchToCeremony){
    bgmCeremony.play();
   }
+
+  delay(5000);  //wait 5 seconds
+  switchToFinal = true;
+  switchToCeremony = false;
 }
 // 过渡到下一个画面
 
@@ -65,13 +69,26 @@ void drawStage4b(){  // display ceremoney screen
   //image(img4Winner, 0, 0);     
 
 
-  if(playAgainButton.isClicked() ){  // switch to Stage 3 Gaming
-    
+  if(playAgainButton.isClicked() ){  // switch to Stage 3 Gaming   
     clickSound();
+      bgmMenu.pause();
+      bgmMenu.rewind();
+      switchToGame = true;
+      p1Play = false;
+      round = true;
+      p1 = 0;   //scores
+      p2 = 0;
+      timer.start(); // the timer to count down 3s to start the game
+      bgmGaming.loop();
   }
 
   if(menuButton.isClicked() ){  // switch to Stage 1 Menu
     clickSound();
+    switchToGame = false;
+    switchToSettings = false;
+    switchToCredit = false;
+    switchToFinal = false;  
+    bgmMenu.loop();
   }
   
   playAgainButton.update();

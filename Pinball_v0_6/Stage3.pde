@@ -173,7 +173,7 @@ void drawStage3(){  // Gaming zone setting
       round = false;
  
  //refresh the mover and barriers
-    mover = new Mover();
+      mover = new Mover();
       mover.nextGame();
       for (int i = 0; i< barrierNum; i++)
       {
@@ -181,11 +181,28 @@ void drawStage3(){  // Gaming zone setting
         barriers[i] = new Barrier(random(650+xx*i,650+xx*(i+1)),random(270,710),random(75,150), i, barriers);
       }
  }
+
   // pauseButton.update();
   // pauseButton.render();
   backGButton.update();
   backGButton.render();
- 
+  
+   if (p1 == 2 || p2 == 2) //end the game and switch to ceremony
+  {
+      bgmGaming.pause();
+      bgmGaming.rewind();
+
+      timer.stop(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
+      timeLimit.stop(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
+      timer.reset(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
+      timeLimit.reset(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
+      startGame = false;
+      countNum = 3;  //restart the game
+      round = false;
+
+    switchToCeremony = true;
+    switchToGame = false;
+  }
 }
 
 // countdown timer at the beginning of the game

@@ -19,12 +19,12 @@
   boolean switchToGame = false;
   boolean switchToCeremony = false;
   boolean switchToCredit = false;
-  
+  boolean switchToFinal = false;
   // switch among setting sub-stages
   boolean switchTog = false;
   boolean switchToc = false;
   boolean switchToa = false;
-
+  
   int p1;   //scores
   int p2;
   boolean p1Play; //player round
@@ -128,10 +128,13 @@ void draw(){
       drawStage5();   
   }
 
-  if (p1 == 5 || p2 == 5)
+  if (switchToCeremony && !switchToGame)  //switch to Ceremony
   {
-    switchToGame = false;
-    switchToCeremony = true;
     drawStage4a(); 
+  }
+
+   if (switchToFinal && !switchToGame)  //switch to Final
+  {
+    drawStage4b(); 
   }
 }
