@@ -160,6 +160,7 @@ if (startGame)
 
   if(backGButton.isClicked() ){  // switch to Stage 1 Menu
     clickSound();
+      bgmGaming.pause();
       startGame = false;
       countNum = 3;  //restart the game
       switchToGame = false;
@@ -171,6 +172,8 @@ if (startGame)
   backGButton.render();
  
 }
+
+// countdown timer at the beginning of the game
 void onTickEvent(CountdownTimer t, long timeLeftUntilFinish) 
 {
   if (t.getId() == 0)

@@ -48,19 +48,28 @@ class Button{
   }
 
 
-    
+
   void render(){      // must be placed in void draw() to render the button to the screen
     noStroke();
     
     // change color if cursor over the button
     if(mouseX >= Pos.x && mouseX <= Pos.x + Width && mouseY >= Pos.y && mouseY <= Pos.y + Height){
       cursor(HAND);         // 变不回原来的样子了
-      fill(184, 49, 49);     // button color Highlight 159, 230, 207     Darkness 109, 180, 157
+      fill(184, 49, 49);    // button color darkness
       rect(Pos.x, Pos.y, Width, Height, Radius);
+      if(!aSweep.isPlaying() )    // 这个音效的循环也有问题
+      {
+        aSweep.play();
+      }
+
     }else{
       cursor(ARROW);
       fill(239, 75, 75);  // General color of the buttons, modify here if needed
       rect(Pos.x, Pos.y, Width, Height, Radius);
+      if(aSweep.isPlaying() )
+      {
+        aSweep.pause();
+      }
     }
     
     
@@ -88,8 +97,8 @@ class TitleButton extends Button{      // Title use ONLY, change size
     rect(Pos.x, Pos.y, Width, Height, Radius);
     
     if(mouseX >= Pos.x && mouseX <= Pos.x + Width && mouseY >= Pos.y && mouseY <= Pos.y + Height){
-      fill(129, 200, 177);               // 移动到button区域后出现下划线，匹配button区域的话不好看
-      rect(Pos.x, Pos.y + 85, 300, 5);
+      // fill(129, 200, 177);               // 移动到button区域后出现下划线，匹配button区域的话不好看
+      // rect(Pos.x, Pos.y + 85, 300, 5);
       
       fill(215);  // button text color
     }else{
