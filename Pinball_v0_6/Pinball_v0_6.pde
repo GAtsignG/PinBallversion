@@ -9,6 +9,7 @@
   Minim minim;
   AudioPlayer aClick;         // use in all Stages
   AudioPlayer aSweep;         // use in all Stages
+  AudioPlayer aCollision;     // use in all Stages 3
   AudioPlayer bgmMenu;        // use in Stage 1/2/5
   AudioPlayer bgmGaming;      // use in Stage 3
   AudioPlayer bgmCeremony;    // use in Stage 4
@@ -73,8 +74,9 @@ void keyPressed() {  // Pausing fuction, only available at Stage 3 Gaming
   text("Pause", 960, 520);
     
   fill(255, 100);
-  textFont(formataBI, 30);
+  textFont(formataI, 30);
   text("Press Space Bar to resume", 960, 570);
+  textFont(formataBI, 30);
  }
 
  if (switchToGame)

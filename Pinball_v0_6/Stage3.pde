@@ -88,11 +88,12 @@ void showStage3(){
   }
   // bgm load
   bgmGaming = minim.loadFile("bgm_Gaming.mp3");
+  aCollision = minim.loadFile("a_collision.mp3");   // 产生碰撞就会激发这个音效
 
   // Buttons             (Pos.x, Pos.y, Width, Height, radius, Text, R, G, B, Alpha)
   textFont(formataBI);
-  pauseButton = new Button(1700, 850, 200, 50, 100, "Start", 129, 200, 177);
-  backGButton = new Button(1700, 930, 200, 50, 100, "Back", 129, 200, 177);
+  // pauseButton = new Button(1700, 850, 200, 50, 100, "Start", 129, 200, 177);
+  backGButton = new Button(1700, 980, 200, 50, 100, "Back", 129, 200, 177);
   
 }
 
@@ -167,16 +168,16 @@ if (startGame) //now the first round starts
       round = false;
  
  //refresh the mover and barriers
- mover = new Mover();
-        mover.nextGame();
-        for (int i = 0; i< barrierNum; i++)
-        {
-          float xx = (1500-650)/barrierNum;
-          barriers[i] = new Barrier(random(650+xx*i,650+xx*(i+1)),random(270,710),random(75,150), i, barriers);
-         }
+    mover = new Mover();
+      mover.nextGame();
+      for (int i = 0; i< barrierNum; i++)
+      {
+        float xx = (1500-650)/barrierNum;
+        barriers[i] = new Barrier(random(650+xx*i,650+xx*(i+1)),random(270,710),random(75,150), i, barriers);
+      }
  }
-  pauseButton.update();
-  pauseButton.render();
+  // pauseButton.update();
+  // pauseButton.render();
   backGButton.update();
   backGButton.render();
  
