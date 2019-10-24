@@ -51,10 +51,7 @@ void drawStage4a(){  // only display score
   if (switchToCeremony){
    bgmCeremony.play();
   }
-
-  delay(5000);  //wait 5 seconds
-  switchToFinal = true;
-  switchToCeremony = false;
+  
 }
 // 过渡到下一个画面
 

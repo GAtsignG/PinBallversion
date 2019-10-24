@@ -55,7 +55,14 @@ void setup(){
    }
   
 }
-
+void mousePressed()
+{
+  if (switchToCeremony)
+  {
+  switchToFinal = true;
+  switchToCeremony = false;
+  }
+}
 void keyPressed() {  // Pausing fuction, only available at Stage 3 Gaming
   final int k = keyCode;
  
