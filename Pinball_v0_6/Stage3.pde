@@ -24,7 +24,8 @@
   // Buttons
   Button pauseButton, backGButton, resumeButton;
   int barrierImg = (int) random(1,9);
- 
+  
+  Defender d;
 
 void showStage3(){
   
@@ -107,9 +108,34 @@ void drawStage3(){  // Gaming zone setting
 // 此处需要画一个3/5秒倒计时，先试试五秒看哪个比较合适
   //break;	
   //防守功能
-  defensePlayer();
+  d = new Defender();
+  d.defenseKeyPressed();
+  d.defensePlayer();
   //防守按键
-  defenseKeyPressed();
+  
+
+  if (startGame) //now the first round starts
+ {
+  mover.update();
+  //mover.checkEdges();
+  mover.display();
+  mover.goalCheck();
+  mover.score();
+ }
+ d.saveBall(mover);
+
+  // barrier setting
+  for(Barrier barrier : barriers)
+  {
+    barrier.display();
+    mover.checkCollision(barrier);  //check collision 
+    /*if(barrier.barrierReflect(mover.getPosition()))
+    {
+      mover.changeReflection();
+    }
+    */
+    //barrier.barrierReflect();
+  }
 
   if(!startGame)
   {
@@ -129,28 +155,6 @@ void drawStage3(){  // Gaming zone setting
     round = false;
   }
    
-if (startGame) //now the first round starts
-{
-  mover.update();
-  //mover.checkEdges();
-  mover.display();
-  mover.goalCheck();
-  mover.score();
-}
-
-  // barrier setting
-  for(Barrier barrier : barriers)
-  {
-    barrier.display();
-    mover.checkCollision(barrier);  //check collision 
-    /*if(barrier.barrierReflect(mover.getPosition()))
-    {
-      mover.changeReflection();
-    }
-    */
-    //barrier.barrierReflect();
- 
-  }
 
   if(backGButton.isClicked() ){  // switch to Stage 1 Menu
     clickSound();
@@ -219,11 +223,13 @@ void onFinishEvent(CountdownTimer t) {
       if(p1Play)
     {          
       //交换球权
+      p1++;
       p1Play = false;
     }
     else
     {           
       //交换球权
+      p2++;
       p1Play = true;
     } 
       mover.nextGame(); //overtime !!!       
