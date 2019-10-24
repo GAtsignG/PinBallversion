@@ -110,6 +110,28 @@ void drawStage3(){  // Gaming zone setting
   //防守按键
   defenseKeyPressed();
 
+  if (startGame) //now the first round starts
+ {
+  mover.update();
+  //mover.checkEdges();
+  mover.display();
+  mover.goalCheck();
+  mover.score();
+ }
+
+  // barrier setting
+  for(Barrier barrier : barriers)
+  {
+    barrier.display();
+    mover.checkCollision(barrier);  //check collision 
+    /*if(barrier.barrierReflect(mover.getPosition()))
+    {
+      mover.changeReflection();
+    }
+    */
+    //barrier.barrierReflect();
+  }
+
   if(!startGame)
   {
   fill(0, 120);  //countdown lable
@@ -128,28 +150,6 @@ void drawStage3(){  // Gaming zone setting
     round = false;
   }
    
-if (startGame) //now the first round starts
-{
-  mover.update();
-  //mover.checkEdges();
-  mover.display();
-  mover.goalCheck();
-  mover.score();
-}
-
-  // barrier setting
-  for(Barrier barrier : barriers)
-  {
-    barrier.display();
-    mover.checkCollision(barrier);  //check collision 
-    /*if(barrier.barrierReflect(mover.getPosition()))
-    {
-      mover.changeReflection();
-    }
-    */
-    //barrier.barrierReflect();
- 
-  }
 
   if(backGButton.isClicked() ){  // switch to Stage 1 Menu
     clickSound();
