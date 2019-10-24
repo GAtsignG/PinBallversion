@@ -24,7 +24,8 @@
   // Buttons
   Button pauseButton, backGButton, resumeButton;
   int barrierImg = (int) random(1,9);
- 
+  
+  Defender d;
 
 void showStage3(){
   
@@ -106,9 +107,11 @@ void drawStage3(){  // Gaming zone setting
 // 此处需要画一个3/5秒倒计时，先试试五秒看哪个比较合适
   //break;	
   //防守功能
-  defensePlayer();
+  d = new Defender();
+  d.defenseKeyPressed();
+  d.defensePlayer();
   //防守按键
-  defenseKeyPressed();
+  
 
   if (startGame) //now the first round starts
  {
@@ -118,6 +121,7 @@ void drawStage3(){  // Gaming zone setting
   mover.goalCheck();
   mover.score();
  }
+ d.saveBall(mover);
 
   // barrier setting
   for(Barrier barrier : barriers)
