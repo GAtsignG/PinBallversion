@@ -90,7 +90,7 @@ void showStage3(){
   // bgm load
   bgmGaming = minim.loadFile("bgm_Gaming.mp3");
   aCollision = minim.loadFile("a_collision.mp3");   // 产生碰撞就会激发这个音效
-
+  
   // Buttons             (Pos.x, Pos.y, Width, Height, radius, Text, R, G, B, Alpha)
   textFont(formataBI);
   // pauseButton = new Button(1700, 850, 200, 50, 100, "Start", 129, 200, 177);
@@ -116,12 +116,14 @@ void drawStage3(){  // Gaming zone setting
   if (startGame) //now the first round starts
  {
   mover.update();
+  mover.defBall();
   //mover.checkEdges();
   mover.display();
   mover.goalCheck();
   mover.score();
  }
- d.saveBall(mover);
+ //d.saveBall(mover);
+
 
   // barrier setting
   for(Barrier barrier : barriers)

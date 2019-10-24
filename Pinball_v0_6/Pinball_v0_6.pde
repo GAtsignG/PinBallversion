@@ -127,4 +127,11 @@ void draw(){
   {
       drawStage5();   
   }
+
+  if (p1 == 5 || p2 == 5)
+  {
+    switchToGame = false;
+    switchToCeremony = true;
+    drawStage4a(); 
+  }
 }

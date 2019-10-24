@@ -66,6 +66,7 @@ void drawStage4b(){  // display ceremoney screen
 
 
   if(playAgainButton.isClicked() ){  // switch to Stage 3 Gaming
+    
     clickSound();
   }
 
