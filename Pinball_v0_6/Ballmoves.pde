@@ -95,10 +95,13 @@ class Mover extends Ball{
 
   void score()
   {
+
+    textFont(numFont, 140);
     fill(239, 75, 75);
-    text(p1, 1760, 670);
+    text(p1, 1750, 765);
     fill(62, 137, 218);
-    text(p2, 1830, 780);
+    text(p2, 1840, 880);
+    textFont(formataBI);
   }
   void goalYes()
   {
