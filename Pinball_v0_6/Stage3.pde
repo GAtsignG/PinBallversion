@@ -4,7 +4,10 @@
 
   // Image var
   PImage img3BGframe, img3BGgrass, img3BGAudience;
-  //PImage barriersImage[];
+
+  // Buttons
+  Button pauseButton, backGButton, resumeButton;
+
   //障碍物图片生成
   PImage barrierImg1,barrierImg2,barrierImg3,barrierImg4,barrierImg5,barrierImg6,barrierImg7,barrierImg8,barrierImg9,pick,barrierShadow;
   //球员图片生成
@@ -21,8 +24,7 @@
   int countNum = 3; //displayer count down number starts with 5
   String countInfo = ""; //display information when the countdown finishes
   int roundTime = 10; //display each round's time limit
-  // Buttons
-  Button pauseButton, backGButton, resumeButton;
+
   int barrierImg = (int) random(1,9);
   
   Defender d;
@@ -35,7 +37,7 @@ void showStage3(){
   img3BGAudience = loadImage("Stage3_BG_Audience.png");
   //球员图片加载
   defenseP1 = loadImage("Stage3_Player1.png");
-  defenseP2 = loadImage("Stage3_Player2.png");
+  //defenseP2 = loadImage("Stage3_Player2.png");
   //障碍物图片加载
   barrierImg1 = loadImage("1.png");
   barrierImg2 = loadImage("2.png");
@@ -103,7 +105,7 @@ void drawStage3(){  // Gaming zone setting
   image(img3BGgrass, 0, 0);
   image(img3BGframe, 0, 0);
   image(img3BGAudience, 0, 0);
-  // 每回合倒计时面板
+  // round countdown timer display
   displayTimeLeft();
 
 // 此处需要画一个3/5秒倒计时，先试试五秒看哪个比较合适
@@ -115,15 +117,15 @@ void drawStage3(){  // Gaming zone setting
   
 
   if (startGame) //now the first round starts
- {
-  mover.update();
-  mover.defBall();
-  //mover.checkEdges();
-  mover.display();
-  mover.goalCheck();
-  mover.score();
- }
- //d.saveBall(mover);
+  {
+    mover.update();
+    mover.defBall();
+    //mover.checkEdges();
+    mover.display();
+    mover.goalCheck();
+    mover.score();
+  }
+  //d.saveBall(mover);
 
 
   // barrier setting
@@ -141,12 +143,12 @@ void drawStage3(){  // Gaming zone setting
 
   if(!startGame)
   {
-  fill(0, 120);  //countdown lable
-  rect(0, 0, 1920, 1080);
-  fill(255);
-  textFont(formataBI, 65);
-  textAlign(CENTER);
-  text(countInfo, 960, 520);
+    fill(0, 120);  //countdown lable
+    rect(0, 0, 1920, 1080);
+    fill(255);
+    textFont(formataBI, 65);
+    textAlign(CENTER);
+    text(countInfo, 960, 520);
   }
 
 
@@ -161,46 +163,45 @@ void drawStage3(){  // Gaming zone setting
 
   if(backGButton.isClicked() ){  // switch to Stage 1 Menu
     clickSound();
-      bgmGaming.pause();
-      bgmGaming.rewind();
-      bgmMenu.play();
+    bgmGaming.pause();
+    bgmGaming.rewind();
+    bgmMenu.play();
 
-      timer.stop(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
-      timeLimit.stop(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
-      timer.reset(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
-      timeLimit.reset(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
-      startGame = false;
-      countNum = 3;  //restart the game
-      switchToGame = false;
-      round = false;
+    timer.stop(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
+    timeLimit.stop(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
+    timer.reset(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
+    timeLimit.reset(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
+    startGame = false;
+    countNum = 3;  //restart the game
+    switchToGame = false;
+    round = false;
  
  //refresh the mover and barriers
-      mover = new Mover();
-      mover.nextGame();
-      for (int i = 0; i< barrierNum; i++)
-      {
-        float xx = (1500-650)/barrierNum;
-        barriers[i] = new Barrier(random(650+xx*i,650+xx*(i+1)),random(270,710),random(75,150), i, barriers);
-      }
+    mover = new Mover();
+    mover.nextGame();
+    for (int i = 0; i< barrierNum; i++)
+    {
+      float xx = (1500-650)/barrierNum;
+      barriers[i] = new Barrier(random(650+xx*i,650+xx*(i+1)),random(270,710),random(75,150), i, barriers);
+    }
  }
 
-  // pauseButton.update();
-  // pauseButton.render();
+
   backGButton.update();
   backGButton.render();
   
    if (p1 == 2 || p2 == 2) //end the game and switch to ceremony
   {
-      bgmGaming.pause();
-      bgmGaming.rewind();
+    bgmGaming.pause();
+    bgmGaming.rewind();
 
-      timer.stop(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
-      timeLimit.stop(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
-      timer.reset(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
-      timeLimit.reset(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
-      startGame = false;
-      countNum = 3;  //restart the game
-      round = false;
+    timer.stop(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
+    timeLimit.stop(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
+    timer.reset(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
+    timeLimit.reset(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
+    startGame = false;
+    countNum = 3;  //restart the game
+    round = false;
 
     switchToCeremony = true;
     switchToGame = false;
@@ -265,21 +266,21 @@ void confirmNext()
   fill(255);
   textFont(formataBI, 65);
   textAlign(CENTER);
-  text("Next round?", 960, 520);
+  text("Next round", 960, 520);
     
   fill(255, 100);
   textFont(formataBI, 30);
-  text("Press K to start", 960, 570);
+  text("Press any key to start", 960, 570);
   
   noLoop();
 }
 
 void displayTimeLeft() 
 {   // 显示右上角的   >>>每回合剩余计时<<<
-    textFont(numFont, 150);
-    fill(255);
-    textAlign(CENTER, CENTER);
-    text(roundTime, 1795, 250);
-    textFont(formataBI);
+  textFont(numFont, 150);
+  fill(255);
+  textAlign(CENTER, CENTER);
+  text(roundTime, 1795, 250);
+  textFont(formataBI);
 
 }

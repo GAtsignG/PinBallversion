@@ -16,11 +16,6 @@ void showStage2(){
   img2Cover = loadImage("Stage2_Cover.png");
   img2Controller = loadImage("Stage2_ControllerIndicator.png");
 
-  // font load
-  //formataB = loadFont("Formata-Bold-48.vlw");
-  //formataI = loadFont("Formata-Italic-48.vlw");
-  //formataBI = loadFont("Formata-BoldItalic-48.vlw");  
-
   // Buttons             (Pos.x, Pos.y, Width, Height, radius, Text, R, G, B, Alpha)
   // extended button, +alpha 
   textFont(formataBI);
@@ -256,15 +251,4 @@ void icon (boolean theValue)
         bgmGaming.play();
         bgmCeremony.play();
     }
-}
-
-void toggle()
-{
-  cp5.addIcon("sfs",10)  // switchFullScreen
-     .setPosition(933, 455)
-     .setSize(70,50)
-     .setRoundedCorners(20)
-     .setSwitch(true)
-     .hideBackground()
-     ;  
 }
