@@ -64,7 +64,7 @@ class Button{
 
     }else{
       cursor(ARROW);
-      fill(239, 75, 75);    // General color of the buttons, modify here if needed
+      fill(239, 75, 75);  // General color of the buttons, modify here if needed
       rect(Pos.x, Pos.y, Width, Height, Radius);
       if(aSweep.isPlaying() )
       {

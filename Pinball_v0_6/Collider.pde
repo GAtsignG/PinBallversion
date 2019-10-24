@@ -21,7 +21,7 @@ class Barrier extends Ball
   }
   void display()
   {
-    ellipse(position.x, position.y,diameter,diameter);
+    image(pick, position.x-radius, position.y-radius, diameter, diameter);
   }
   
   void barrierReflect()
