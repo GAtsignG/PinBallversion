@@ -37,7 +37,7 @@ void showStage3(){
   img3BGAudience = loadImage("Stage3_BG_Audience.png");
   //球员图片加载
   defenseP1 = loadImage("Stage3_Player1.png");
-  defenseP2 = loadImage("Stage3_Player2.png");
+  //defenseP2 = loadImage("Stage3_Player2.png");
   //障碍物图片加载
   barrierImg1 = loadImage("1.png");
   barrierImg2 = loadImage("2.png");
