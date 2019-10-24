@@ -21,7 +21,9 @@ class Barrier extends Ball
   }
   void display()
   {
+    image(barrierShadow, position.x-radius-10,position.y-radius-10,diameter+20,diameter+20);
     image(pick, position.x-radius, position.y-radius, diameter, diameter);
+    
   }
   
   void barrierReflect()

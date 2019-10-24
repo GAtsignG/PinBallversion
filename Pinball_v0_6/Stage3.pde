@@ -6,7 +6,7 @@
   PImage img3BGframe, img3BGgrass, img3BGAudience;
   //PImage barriersImage[];
   //障碍物图片生成
-  PImage barrierImg1,barrierImg2,barrierImg3,barrierImg4,barrierImg5,barrierImg6,barrierImg7,barrierImg8,barrierImg9,pick;
+  PImage barrierImg1,barrierImg2,barrierImg3,barrierImg4,barrierImg5,barrierImg6,barrierImg7,barrierImg8,barrierImg9,pick,barrierShadow;
   //球员图片生成
   PImage defenseP1, defenseP2;
   boolean startGame = false;
@@ -44,6 +44,7 @@ void showStage3(){
   barrierImg7 = loadImage("7.png");
   barrierImg8 = loadImage("8.png");
   barrierImg9 = loadImage("9.png");
+  barrierShadow = loadImage("Stage3_BarrierShadow.png");
   if(barrierImg == 1)
   {
     pick = barrierImg1;
