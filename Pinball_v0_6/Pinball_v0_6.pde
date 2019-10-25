@@ -105,7 +105,7 @@ void keyPressed() {  // Pausing fuction, only available at Stage 3 Gaming
   }
   if(key == 'c')
   {
-    p1 == 2;  //cheat
+    p1 = 5;  //cheat
   }
  }
 
