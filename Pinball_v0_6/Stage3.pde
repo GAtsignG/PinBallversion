@@ -17,10 +17,11 @@
   boolean pause = false;
   boolean round;
   boolean roundCount = false;
-
+  boolean trans = false;
   //set a countdown timer before the game beginning
   CountdownTimer timer = CountdownTimerService.getNewCountdownTimer(this).configure(1000, 3000);
   CountdownTimer timeLimit = CountdownTimerService.getNewCountdownTimer(this).configure(1000, 10000);
+  CountdownTimer fireworkTime = CountdownTimerService.getNewCountdownTimer(this).configure(1000, 7000);
   int countNum = 3; //displayer count down number starts with 5
   String countInfo = ""; //display information when the countdown finishes
   int roundTime = 10; //display each round's time limit
@@ -109,17 +110,17 @@ void drawStage3(){  // Gaming zone setting
   image(img3BGgrass, 0, 0);
   image(img3BGframe, 0, 0);
   image(img3BGAudience, 0, 0);
-  // round countdown timer display
-  if( p1 >= 1 || p2 >= 1)
-  {
-    gravity = new PVector(0, random(0, 0.02));
-    ps.addParticle();
-    ps2.addParticle();
-    //ps.applyForce(gravity);
-    ps.run();
-    ps2.run();
-    rectMode(CORNER);
-  } 
+  
+  // if( p1 >= 1 || p2 >= 1)
+  // {
+  //   gravity = new PVector(0, random(0, 0.02));
+  //   ps.addParticle();
+  //   ps2.addParticle();
+  //   //ps.applyForce(gravity);
+  //   ps.run();
+  //   ps2.run();
+  //   rectMode(CORNER);
+  // } 
  
   if (startGame) //now the first round starts
   {
@@ -169,6 +170,7 @@ void drawStage3(){  // Gaming zone setting
     d = new Defender(); //default postion
     roundTime = 10;
     timer.stop(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
+    timer.reset(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
     timeLimit.reset(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
     timeLimit.start();   //start the timer of each round 10s
     round = false;
@@ -207,13 +209,16 @@ void drawStage3(){  // Gaming zone setting
   backGButton.update();
   backGButton.render();
   
-   if (p1 == 5 || p2 == 5) //end the game and switch to ceremony
+  if(!trans)
   {
+     if (p1 == 5 || p2 == 5) //end the game and switch to ceremony
+    {
     if(!mute)
     {
       bgmGaming.pause();
       bgmGaming.rewind();
     }
+    
     timer.stop(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
     timeLimit.stop(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
     timer.reset(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
@@ -221,10 +226,32 @@ void drawStage3(){  // Gaming zone setting
     startGame = false;
     countNum = 3;  //restart the game
     round = false;
-
-    switchToCeremony = true;
-    switchToGame = false;
+    
+    //fireworkTime.start();
+    trans = true;
+    }
   }
+  
+  
+  if (trans)
+  {
+  transition();
+  fill(255, 100);
+  textFont(formataI, 30);
+  text("Click mouse to continue", 960, 570);
+  textFont(formataBI, 30);
+  }
+
+
+}
+
+void transition()
+{
+  fill(0, 120);
+  rect(0, 0, 1920, 1080);
+  launch();
+  setRocket();
+  explode();
 }
 
 // countdown timer at the beginning of the game
@@ -275,12 +302,19 @@ void onFinishEvent(CountdownTimer t) {
       
       mover.nextGame(); //overtime !!!       
   }
+  if (t.getId() == 2)
+  {
+    switchToCeremony = true;
+    switchToGame = false;
+  }
 }
 
 // 确认进入下一回合之前的提示
 void confirmNext()
 {
   timer.stop(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
+  timer.reset(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
+  timeLimit.stop(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
   timeLimit.reset(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
   // Pausing notification
   fill(0, 120);

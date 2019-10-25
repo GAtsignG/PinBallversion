@@ -72,7 +72,7 @@ void drawStage1(){
         bgmMenu.rewind();
         bgmGaming.loop();
       }
-      
+      trans = false;
       switchToGame = true;
       p1Play = false;
       round = true;

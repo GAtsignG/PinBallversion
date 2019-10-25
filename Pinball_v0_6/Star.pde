@@ -64,7 +64,7 @@ class Star{
   void display(){
     /*在屏幕上绘制该星星
       每一个星星是一个白色的、没有边的圆*/
-    fill(255);
+    fill(255, 125);
     noStroke();
     ellipse(screenPosition.x, screenPosition.y, diam, diam);
   }

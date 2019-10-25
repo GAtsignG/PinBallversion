@@ -42,6 +42,10 @@
   ParticleSystem ps2;
   PVector gravity;
   StarField sf;
+ArrayList<Explosion> explosion;
+ArrayList<Rocket> rocket;
+ArrayList<City> city;
+
   //particle system
 
 void setup(){
@@ -73,6 +77,9 @@ void setup(){
      //.hideBackground();
      
   //particle system
+ explosion = new ArrayList<Explosion>();
+ rocket = new ArrayList<Rocket>();
+ smooth();
       // int xWidth = 1620;
       // int x = 340;
       // int yHeight = 980;
@@ -97,7 +104,15 @@ void mousePressed()
   switchToFinal = true;
   switchToCeremony = false;
   }
+
+  if (trans && !switchToCeremony)
+ {
+    switchToCeremony = true;
+    switchToGame = false;
+    trans = false;
+ }
 }
+
 void keyPressed() {  // Pausing fuction, only available at Stage 3 Gaming
   final int k = keyCode;
  
@@ -120,7 +135,7 @@ void keyPressed() {  // Pausing fuction, only available at Stage 3 Gaming
   text("Press Space Bar to resume", 960, 570);
   textFont(formataBI, 30);
  }
-
+ 
  if (switchToGame)
  {
   if(key=='k')
@@ -144,12 +159,14 @@ void draw(){
   // default show Stage 1 Menu
   if (!switchToGame && !switchToSettings && !switchToCredit)
   {
+    cp5.hide();
     drawStage1();
   }
 
   
   if (!switchToSettings && switchToGame)  // switch to Stage 3 Gaming
   {
+    cp5.hide();
     drawStage3();
   }
 
@@ -176,11 +193,13 @@ void draw(){
 
   if (switchToCeremony && !switchToGame)  //switch to Ceremony
   {
+    cp5.hide();
     drawStage4a(); 
   }
 
    if (switchToFinal && !switchToGame)  //switch to Final
   {
+    cp5.hide();
     drawStage4b(); 
   }
 
