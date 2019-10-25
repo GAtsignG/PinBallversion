@@ -39,15 +39,23 @@ void showStage1(){
 
 }
 
+void mouseMoved(){
+  /*根据鼠标的位置来更新消失点的位置
+    达到改变视角的目的*/
+  sf.updateEndpoint(mouseX, mouseY);
+}
+
 void drawStage1(){
 
   image(img0BG, 0, 0);
   image(img1Logo, 750, 100);
-   
+  sf.run();
+  sf.speedDown();
   //firework
   //ps.addParticle();
   //ps.applyForce(gravity);
   //ps.run();
+  //rectMode(CORNER);
 
   if(!switchToGame )
   {   // menu界面无效但是setting界面是有效的？？？？？？？？？？
@@ -100,10 +108,6 @@ void drawStage1(){
   quitButton.update();
   quitButton.render();
 
-  ps.addParticle();
-  //ps.applyForce(gravity);
-  ps.run();
-  rectMode(CORNER);
 }
 
 
