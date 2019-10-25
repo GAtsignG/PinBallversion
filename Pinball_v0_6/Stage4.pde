@@ -15,7 +15,11 @@ void showStage4(){  // 默认显示Stage4a ↓↓↓↓
   img4Winner = loadImage("Stage4_Winner.png");
 
   // bgm load
-  bgmCeremony = minim.loadFile("bgm_Ceremoney.mp3");
+  if(!mute)
+  {
+    bgmCeremony = minim.loadFile("bgm_Ceremoney.mp3");
+  }
+  
 
   // Buttons  (Pos.x, Pos.y, Width, Height, radius, Text, R, G, B, Alpha)
   textFont(formataBI);
@@ -52,7 +56,7 @@ void drawStage4a(){  // only display score
   text("Click anywhere to continue", width/2, 1000);
   textFont(formataBI, 50);
 
-  if (switchToCeremony)
+  if (switchToCeremony && !mute)
   {
    bgmCeremony.play();
   }
@@ -75,27 +79,37 @@ void drawStage4b(){  // display ceremoney screen
 
   if(playAgainButton.isClicked() ){  // switch to Stage 3 Gaming   
     clickSound();
-    bgmMenu.pause();
-    bgmMenu.rewind();
+    if(!mute)
+    {
+      bgmMenu.pause();
+      bgmMenu.rewind();
+      bgmGaming.loop();
+    }
+    
     switchToGame = true;
     p1Play = false;
     round = true;
     p1 = 0;   //scores
     p2 = 0;
     timer.start(); // the timer to count down 3s to start the game
-    bgmGaming.loop();
+    
   }
 
   if(menuButton.isClicked() ){  // switch to Stage 1 Menu
     clickSound();
-    bgmCeremony.pause();
-    bgmCeremony.rewind();
+    if(!mute)
+    {
+      bgmCeremony.pause();
+      bgmCeremony.rewind();
+      bgmMenu.loop();
+    }
+    
 
     switchToGame = false;
     switchToSettings = false;
     switchToCredit = false;
     switchToFinal = false;  
-    bgmMenu.loop();
+    
   }
   
   playAgainButton.update();
