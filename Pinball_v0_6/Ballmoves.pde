@@ -15,6 +15,7 @@ class Mover extends Ball{
   boolean reflect = false;
   boolean goal;
   int stop = 0;
+  ArrayList history = new ArrayList();
   Mover() { //Mover ball
     position = new PVector(1578,550); //start position
     velocity = new PVector(0, 0);   //null speed 
@@ -124,6 +125,7 @@ class Mover extends Ball{
   {   
     position.x = 1578;
     position.y = 550;
+    stop = 0;
   }
   void display() {
     stroke(0);
