@@ -203,7 +203,16 @@ void drawStage3(){  // Gaming zone setting
     for (int i = 0; i< barrierNum; i++)
     {
       float xx = (1500-650)/barrierNum;
-      barriers[i] = new Barrier(random(650+xx*i,650+xx*(i+1)),random(270,710),random(75,150), i, barriers);
+      float yy;
+      if(i%2 == 0)
+      {
+        yy = random(270,430);
+      }
+      else
+      {
+        yy = random(550,710);
+      }
+      barriers[i] = new Barrier(random(650+xx*i,650+xx*(i+1)),yy,random(150,200), i, barriers);
     }
  }
 

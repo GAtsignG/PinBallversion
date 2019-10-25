@@ -92,8 +92,18 @@ void setup(){
    for (int i = 0; i< barrierNum; i++)
    {
      //xx是将地图整分为barrierNum份时，每份地图的宽度
+     //yy用来判断i的奇偶性从而使障碍物更分散，偶数在上，奇数在下
     float xx = (1500-650)/barrierNum;
-    barriers[i] = new Barrier(random(650+xx*i,650+xx*(i+1)),random(270,710),random(75,150), i, barriers);
+    float yy;
+    if(i%2 == 0)
+    {
+      yy = random(270,430);
+    }
+    else
+    {
+      yy = random(550,710);
+    }
+    barriers[i] = new Barrier(random(650+xx*i,650+xx*(i+1)),yy,random(150,200), i, barriers);
    }
 }
 
