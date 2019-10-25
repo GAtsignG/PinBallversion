@@ -290,9 +290,5 @@ class Mover extends Ball{
         velocity.y *= -2;
         stop ++;
     }
-    if (stop>0)
-    {
-      d = new Defender();
-    }
   }
 }
