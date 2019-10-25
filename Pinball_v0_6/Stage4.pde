@@ -86,6 +86,9 @@ void drawStage4b(){  // display ceremoney screen
 
   if(menuButton.isClicked() ){  // switch to Stage 1 Menu
     clickSound();
+    bgmCeremony.pause();
+    bgmCeremony.rewind();
+
     switchToGame = false;
     switchToSettings = false;
     switchToCredit = false;
