@@ -24,6 +24,9 @@
   boolean switchTog = false;
   boolean switchToc = false;
   boolean switchToa = false;
+
+  //mute
+  boolean mute = false;
   
   int p1;   //scores
   int p2;

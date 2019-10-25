@@ -244,11 +244,13 @@ void icon (boolean theValue)
         bgmMenu.pause();
         bgmGaming.pause();
         bgmCeremony.pause();
+        mute = true;
     }
     else
     {
-        bgmMenu.play();
-        bgmGaming.play();
-        bgmCeremony.play();
+        // bgmMenu.play();
+        // bgmGaming.play();
+        // bgmCeremony.play();
+        mute = false;
     }
 }

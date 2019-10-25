@@ -18,10 +18,12 @@ void showStage1(){
   img1Logo = loadImage("Stage1_Logo.png");
   
   // bgm load
-  minim = new Minim(this);
-  bgmMenu = minim.loadFile("bgm_Menu&Setting.mp3");
-  bgmMenu.loop();
-  
+  if(!mute)
+  {
+    minim = new Minim(this);
+    bgmMenu = minim.loadFile("bgm_Menu&Setting.mp3");
+    bgmMenu.loop();
+  }
   // sfx load
   aClick = minim.loadFile("a_click.wav");
   aSweep = minim.loadFile("a_sweep.wav");
@@ -50,15 +52,20 @@ void drawStage1(){
  
   if(startButton.isClicked() ){  // switch to Stage 3 Gaming
       clickSound();
-      bgmMenu.pause();
-      bgmMenu.rewind();
+      if(!mute)
+      {
+        bgmMenu.pause();
+        bgmMenu.rewind();
+        bgmGaming.loop();
+      }
+      
       switchToGame = true;
       p1Play = false;
       round = true;
       p1 = 0;   //scores
       p2 = 0;
       timer.start(); // the timer to count down 3s to start the game
-      bgmGaming.loop();
+      
   }
   
   if(settingButton.isClicked() ){  // switch to Stage 2 Setting     

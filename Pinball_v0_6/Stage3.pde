@@ -90,8 +90,12 @@ void showStage3(){
       //barriersImage[i] = loadImage(+i+".png");
   }
   // bgm load
-  bgmGaming = minim.loadFile("bgm_Gaming.mp3");
-  aCollision = minim.loadFile("a_collision.wav");   // 产生碰撞就会激发这个音效
+  if(!mute)
+  {
+    bgmGaming = minim.loadFile("bgm_Gaming.mp3");
+    aCollision = minim.loadFile("a_collision.wav"); 
+  }
+  // 产生碰撞就会激发这个音效
 
   // Buttons             (Pos.x, Pos.y, Width, Height, radius, Text, R, G, B, Alpha)
   textFont(formataBI);
@@ -163,9 +167,13 @@ void drawStage3(){  // Gaming zone setting
 
   if(backGButton.isClicked() ){  // switch to Stage 1 Menu
     clickSound();
-    bgmGaming.pause();
-    bgmGaming.rewind();
-    bgmMenu.play();
+    if(!mute)
+    {
+      bgmGaming.pause();
+      bgmGaming.rewind();
+      bgmMenu.play();
+    }
+    
 
     timer.stop(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
     timeLimit.stop(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
@@ -192,9 +200,11 @@ void drawStage3(){  // Gaming zone setting
   
    if (p1 == 5 || p2 == 5) //end the game and switch to ceremony
   {
-    bgmGaming.pause();
-    bgmGaming.rewind();
-
+    if(!mute)
+    {
+      bgmGaming.pause();
+      bgmGaming.rewind();
+    }
     timer.stop(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
     timeLimit.stop(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
     timer.reset(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
