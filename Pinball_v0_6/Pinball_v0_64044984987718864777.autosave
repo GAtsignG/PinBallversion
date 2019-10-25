@@ -68,15 +68,15 @@ void setup(){
   showStage3();
   showStage4();
   showStage5();
-  // cp5 = new ControlP5(this);
-  // cp5.addIcon("icon",10)
-  //    .setPosition(933, 455)
-  //    .setSize(70,50)
-  //    .setRoundedCorners(20)
-  //    .setFont(createFont("fontawesome-webfont.ttf", 40))
-  //    .setFontIcons(#00f205,#00f204)
-  //    .setColorBackground(color(255,100))
-  //    .setSwitch(true);
+  cp5 = new ControlP5(this);
+  cp5.addIcon("icon",10)
+     .setPosition(933, 455)
+     .setSize(70,50)
+     .setRoundedCorners(20)
+     .setFont(createFont("fontawesome-webfont.ttf", 40))
+     .setFontIcons(#00f205,#00f204)
+     .setColorBackground(color(255,100))
+     .setSwitch(true);
      //.hideBackground();
      
   //particle system
@@ -95,9 +95,8 @@ void setup(){
     float xx = (1500-650)/barrierNum;
     barriers[i] = new Barrier(random(650+xx*i,650+xx*(i+1)),random(270,710),random(75,150), i, barriers);
    }
+  
 }
-
-// jump to Stage4b
 void mousePressed()
 {
   if (switchToCeremony)
@@ -106,14 +105,13 @@ void mousePressed()
   switchToCeremony = false;
   }
 }
-
 void keyPressed() {  // Pausing fuction, only available at Stage 3 Gaming
   final int k = keyCode;
  
- if (switchToGame && k == 'P')  //only pause while gaming
+ if (switchToGame && k == ' ')  //only pause while gaming
  {
-   looping ^= k == 'P';  
-   redraw = k == 'K';
+   looping ^= k == ' ';  
+   redraw = k == 'S';
 
   // Pausing notification
   fill(0, 120);
@@ -126,14 +124,13 @@ void keyPressed() {  // Pausing fuction, only available at Stage 3 Gaming
     
   fill(255, 100);
   textFont(formataI, 30);
-  text("Press P to resume", 960, 570);
+  text("Press Space Bar to resume", 960, 570);
   textFont(formataBI, 30);
  }
 
- // next round
  if (switchToGame)
  {
-  if(key==' ')
+  if(key=='k')
   {
     if (!looping)
     {
@@ -141,11 +138,9 @@ void keyPressed() {  // Pausing fuction, only available at Stage 3 Gaming
       round = true;
     }     
   }
-
-  // cheat fuction, only use to testing
   if(key == 'c')
   {
-    p1 = 5;
+    p1 = 5;  //cheat
   }
  }
 
@@ -199,10 +194,10 @@ void draw(){
   if (switchToSettings && switchToa)  // switch to 2 Setting
   {
     //gui();
-    //cp5.show();
+    cp5.show();
   }
   if (!switchToSettings && !switchToa)
   {
-    //cp5.hide();
+    cp5.hide();
   }
 }
