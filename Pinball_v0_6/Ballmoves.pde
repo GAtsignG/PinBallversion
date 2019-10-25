@@ -14,7 +14,7 @@ class Mover extends Ball{
   float topspeed;
   boolean reflect = false;
   boolean goal;
-  
+  int stop = 0;
   Mover() { //Mover ball
     position = new PVector(1578,550); //start position
     velocity = new PVector(0, 0);   //null speed 
@@ -288,7 +288,11 @@ class Mover extends Ball{
     {
         velocity.x *= -1;  
         velocity.y *= -1;
+        stop ++;
+    }
+    if (stop>0)
+    {
+      d = new Defender();
     }
   }
-
 }
