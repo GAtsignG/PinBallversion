@@ -177,4 +177,14 @@ void draw(){
   {
     drawStage4b(); 
   }
+
+  if (switchToSettings && switchToa)  // switch to 2 Setting
+  {
+    //gui();
+    cp5.show();
+  }
+  if (!switchToSettings && !switchToa)
+  {
+    cp5.hide();
+  }
 }

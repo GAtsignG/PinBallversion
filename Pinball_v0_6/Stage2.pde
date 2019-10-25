@@ -45,23 +45,17 @@ void drawStage2a(){  // Setting default page - Audio
   text("Sound Effect", 850, 666);
 
   // 这里加两个滑竿控制音量和音效，只需要3/5个可调节级别  ,  add slider!!!    // controlP5, 用滑竿模式或者切换按钮模式
-  if (switchToSettings && switchToa)  // switch to 2 Setting
-  {
-    //gui();
-    cp5.show();
-  }
+ 
     
   if(gameButton.isClicked() ){  // switch to Game page
       clickSound();
-      cp5.hide();
       switchTog = true;
       switchToa = false;
       switchToc = false;
   }
 
   if(controllerButton.isClicked() ){   // switch to Controller page
-      clickSound();
-      cp5.hide();
+      clickSound();    
       switchTog = false;
       switchToa = false;
       switchToc = true;
@@ -69,7 +63,6 @@ void drawStage2a(){  // Setting default page - Audio
 
   if(backSButton.isClicked() ){  // switch to Stage 1 Menu
       clickSound();
-      cp5.hide();
       switchTog = false;
       switchToa = false;
       switchToc = false;
@@ -118,8 +111,7 @@ void drawStage2g(){  // Setting Game page
   text("Rounds", 850, 666);
   // toggle to fullscreen mode,    use controlP5 - icon  (Frome examples)
   cp5.hide();
-
-
+  
   if(audioButton.isClicked() ){  // switch to Audio page
       clickSound();
       switchTog = false;
@@ -129,7 +121,6 @@ void drawStage2g(){  // Setting Game page
 
   if(controllerButton.isClicked() ){  // switch to Controller page
       clickSound();
-      cp5.hide();
       switchTog = false;
       switchToa = false;
       switchToc = true;
@@ -137,7 +128,6 @@ void drawStage2g(){  // Setting Game page
   
   if(backSButton.isClicked() ){  // switch to Stage 1 Menu
       clickSound();
-      cp5.hide();
       switchTog = false;
       switchToa = false;
       switchToc = false;
@@ -184,10 +174,9 @@ void drawStage2c(){  // Setting Controller page
   //text("Music", 850, 500);
   //text("Sound Effect", 850, 666);
   cp5.hide();
-  
+
   if(gameButton.isClicked() ){  // switch to Game page
       clickSound();
-      cp5.hide();
       switchTog = true;
       switchToa = false;
       switchToc = false;
@@ -202,7 +191,6 @@ void drawStage2c(){  // Setting Controller page
 
   if(backSButton.isClicked() ){  // switch to Stage 1 Menu
       clickSound();
-      cp5.hide(); 
       switchTog = false;
       switchToa = false;
       switchToc = false;
