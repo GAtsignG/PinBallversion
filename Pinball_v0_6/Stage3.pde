@@ -144,6 +144,7 @@ void drawStage3(){  // Gaming zone setting
 
   if(!startGame)
   {
+    d = new Defender(); //default postion
     fill(0, 120);  //countdown lable
     rect(0, 0, 1920, 1080);
     fill(255);
@@ -173,7 +174,6 @@ void drawStage3(){  // Gaming zone setting
       bgmMenu.play();
     }
     
-
     timer.stop(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
     timeLimit.stop(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
     timer.reset(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);

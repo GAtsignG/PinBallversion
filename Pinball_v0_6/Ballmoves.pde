@@ -286,8 +286,8 @@ class Mover extends Ball{
     //check collide with defender
     if (dist(d.getPosition().x, d.getPosition().y, position.x, position.y) < 100)
     {
-        velocity.x *= -1;  
-        velocity.y *= -1;
+        velocity.x *= -2;  
+        velocity.y *= -2;
         stop ++;
     }
     if (stop>0)
