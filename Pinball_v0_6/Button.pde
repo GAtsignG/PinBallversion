@@ -54,7 +54,7 @@ class Button{
     
     // change color if cursor over the button
     if(mouseX >= Pos.x && mouseX <= Pos.x + Width && mouseY >= Pos.y && mouseY <= Pos.y + Height){
-      cursor(HAND);         // 变不回原来的样子了
+      // cursor(HAND);         // 变不回原来的样子了
       fill(184, 49, 49);    // button color darkness
       rect(Pos.x, Pos.y, Width, Height, Radius);
       if(!aSweep.isPlaying() )    // 这个音效的循环也有问题
@@ -63,7 +63,7 @@ class Button{
       }
 
     }else{
-      cursor(ARROW);
+      // cursor(ARROW);
       fill(239, 75, 75);  // General color of the buttons, modify here if needed
       rect(Pos.x, Pos.y, Width, Height, Radius);
       if(aSweep.isPlaying() )

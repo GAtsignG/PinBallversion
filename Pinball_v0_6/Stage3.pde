@@ -12,6 +12,8 @@
   PImage barrierImg1,barrierImg2,barrierImg3,barrierImg4,barrierImg5,barrierImg6,barrierImg7,barrierImg8,barrierImg9,pick,barrierShadow;
   //球员图片生成
   PImage defenseP1, defenseP2;
+  //球的图片生成
+  PImage ball;
   boolean startGame = false;
   boolean player1 = true;
   boolean pause = false;
@@ -39,6 +41,8 @@ void showStage3(){
   //球员图片加载
   defenseP1 = loadImage("Stage3_Player1.png");
   //defenseP2 = loadImage("Stage3_Player2.png");
+  //球的图片加载
+  ball = loadImage("Stage3_Ball.png");
   //障碍物图片加载
   barrierImg1 = loadImage("1.png");
   barrierImg2 = loadImage("2.png");
@@ -201,7 +205,16 @@ void drawStage3(){  // Gaming zone setting
     for (int i = 0; i< barrierNum; i++)
     {
       float xx = (1500-650)/barrierNum;
-      barriers[i] = new Barrier(random(650+xx*i,650+xx*(i+1)),random(270,710),random(75,150), i, barriers);
+      float yy;
+      if(i%2 == 0)
+      {
+        yy = random(270,430);
+      }
+      else
+      {
+        yy = random(550,710);
+      }
+      barriers[i] = new Barrier(random(650+xx*i,650+xx*(i+1)),yy,random(150,200), i, barriers);
     }
  }
 
@@ -327,7 +340,7 @@ void confirmNext()
     
   fill(255, 100);
   textFont(formataI, 30);
-  text("Press any key to start", 960, 570);
+  text("Press space to start", 960, 570);
   textFont(formataBI, 65);
   // global paused
   noLoop();

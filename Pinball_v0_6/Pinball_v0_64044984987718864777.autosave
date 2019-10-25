@@ -45,10 +45,6 @@
   ParticleSystem ps2;
   PVector gravity;
   StarField sf;
-ArrayList<Explosion> explosion;
-ArrayList<Rocket> rocket;
-ArrayList<City> city;
-
   //particle system
 
 void setup(){
@@ -72,21 +68,18 @@ void setup(){
   showStage3();
   showStage4();
   showStage5();
-  // cp5 = new ControlP5(this);
-  // cp5.addIcon("icon",10)
-  //    .setPosition(933, 455)
-  //    .setSize(70,50)
-  //    .setRoundedCorners(20)
-  //    .setFont(createFont("fontawesome-webfont.ttf", 40))
-  //    .setFontIcons(#00f205,#00f204)
-  //    .setColorBackground(color(255,100))
-  //    .setSwitch(true);
+  cp5 = new ControlP5(this);
+  cp5.addIcon("icon",10)
+     .setPosition(933, 455)
+     .setSize(70,50)
+     .setRoundedCorners(20)
+     .setFont(createFont("fontawesome-webfont.ttf", 40))
+     .setFontIcons(#00f205,#00f204)
+     .setColorBackground(color(255,100))
+     .setSwitch(true);
      //.hideBackground();
      
   //particle system
- explosion = new ArrayList<Explosion>();
- rocket = new ArrayList<Rocket>();
- smooth();
       // int xWidth = 1620;
       // int x = 340;
       // int yHeight = 980;
@@ -99,22 +92,11 @@ void setup(){
    for (int i = 0; i< barrierNum; i++)
    {
      //xx是将地图整分为barrierNum份时，每份地图的宽度
-     //yy用来判断i的奇偶性从而使障碍物更分散，偶数在上，奇数在下
     float xx = (1500-650)/barrierNum;
-    float yy;
-    if(i%2 == 0)
-    {
-      yy = random(270,430);
-    }
-    else
-    {
-      yy = random(550,710);
-    }
-    barriers[i] = new Barrier(random(650+xx*i,650+xx*(i+1)),yy,random(150,200), i, barriers);
+    barriers[i] = new Barrier(random(650+xx*i,650+xx*(i+1)),random(270,710),random(75,150), i, barriers);
    }
+  
 }
-
-// jump to Stage4b
 void mousePressed()
 {
   if (switchToCeremony)
@@ -122,22 +104,14 @@ void mousePressed()
   switchToFinal = true;
   switchToCeremony = false;
   }
-
-  if (trans && !switchToCeremony)
- {
-    switchToCeremony = true;
-    switchToGame = false;
-    trans = false;
- }
 }
-
 void keyPressed() {  // Pausing fuction, only available at Stage 3 Gaming
   final int k = keyCode;
  
- if (switchToGame && k == 'P')  //only pause while gaming
+ if (switchToGame && k == ' ')  //only pause while gaming
  {
-   looping ^= k == 'P';  
-   redraw = k == 'K';
+   looping ^= k == ' ';  
+   redraw = k == 'S';
 
   // Pausing notification
   fill(0, 120);
@@ -150,14 +124,13 @@ void keyPressed() {  // Pausing fuction, only available at Stage 3 Gaming
     
   fill(255, 100);
   textFont(formataI, 30);
-  text("Press P to resume", 960, 570);
+  text("Press Space Bar to resume", 960, 570);
   textFont(formataBI, 30);
  }
 
- // next round
  if (switchToGame)
  {
-  if(key==' ')
+  if(key=='k')
   {
     if (!looping)
     {
@@ -165,11 +138,9 @@ void keyPressed() {  // Pausing fuction, only available at Stage 3 Gaming
       round = true;
     }     
   }
-
-  // cheat fuction, only use to testing
   if(key == 'c')
   {
-    p1 = 5;
+    p1 = 5;  //cheat
   }
  }
 
@@ -180,14 +151,12 @@ void draw(){
   // default show Stage 1 Menu
   if (!switchToGame && !switchToSettings && !switchToCredit)
   {
-    cp5.hide();
     drawStage1();
   }
 
   
   if (!switchToSettings && switchToGame)  // switch to Stage 3 Gaming
   {
-    cp5.hide();
     drawStage3();
   }
 
@@ -214,23 +183,21 @@ void draw(){
 
   if (switchToCeremony && !switchToGame)  //switch to Ceremony
   {
-    cp5.hide();
     drawStage4a(); 
   }
 
    if (switchToFinal && !switchToGame)  //switch to Final
   {
-    cp5.hide();
     drawStage4b(); 
   }
 
   if (switchToSettings && switchToa)  // switch to 2 Setting
   {
     //gui();
-    //cp5.show();
+    cp5.show();
   }
   if (!switchToSettings && !switchToa)
   {
-    //cp5.hide();
+    cp5.hide();
   }
 }
