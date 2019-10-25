@@ -258,6 +258,7 @@ void onFinishEvent(CountdownTimer t) {
   }
 }
 
+// 确认进入下一回合之前的提示
 void confirmNext()
 {
   timer.stop(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);

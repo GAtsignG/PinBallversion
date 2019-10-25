@@ -1,5 +1,5 @@
 int ballsize = 24;
-int barrierNum = 3;
+int barrierNum = 5;
 
 class Barrier extends Ball
 {

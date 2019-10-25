@@ -33,7 +33,7 @@
   PFont formataR, formataB, formataI, formataBI, numFont;
 
   Mover mover;
-  Barrier[] barriers = new Barrier[3];
+  Barrier[] barriers = new Barrier[5];
 
 void setup(){
  size(1920, 1080);
@@ -105,7 +105,7 @@ void keyPressed() {  // Pausing fuction, only available at Stage 3 Gaming
   }
   if(key == 'c')
   {
-    p1 = 5;  //cheat
+    p1 = 2;  //cheat
   }
  }
 
@@ -128,22 +128,22 @@ void draw(){
   // Setting page's sub-stage switching conditions
   if (switchToSettings && switchToa)  // switch to 2 Setting
   {
-      drawStage2a();   
+    drawStage2a();   
   }
    
   if (switchToSettings && switchToc)  // switch to Controller Setting
   {
-      drawStage2c();   
+    drawStage2c();   
   }
   
   if (switchToSettings && switchTog)  // switch to Game Setting
   {
-      drawStage2g();   
+    drawStage2g();   
   }
 
-  if (switchToCredit)  // switch to Game Setting
+  if (switchToCredit)  // switch to 5 Credits
   {
-      drawStage5();   
+    drawStage5();   
   }
 
   if (switchToCeremony && !switchToGame)  //switch to Ceremony

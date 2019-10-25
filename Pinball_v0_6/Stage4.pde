@@ -31,11 +31,19 @@ void drawStage4a(){  // only display score
   rect(0, 0, 1920, 1080);
   image(img4CoverScore, 0, 0);
 
+  // 屏幕正中间的冒号，用于区分两个player的分数
   fill(255);
   rect(width/2, 500, 60, 60);  // score split symbol, 冒号
   rect(width/2, 600, 60, 60);
 
-  // 在上面两点的两侧读取Stage3的分数，分别显示在两边
+  // 读取BallMoves里的分数，分别显示在冒号两边
+  textFont(numFont, 140);
+  fill(239, 75, 75);
+  text(p1, 860, height/2);
+  fill(62, 137, 218);
+  text(p2, 1060, height/2);
+  textFont(formataBI);
+
 
   // text on the buttom center, gray color
   fill(50, 50, 50);
@@ -43,7 +51,9 @@ void drawStage4a(){  // only display score
   textAlign(CENTER);
   text("Click anywhere to continue", width/2, 970);
 
-  if (switchToCeremony){
+  // 从
+  if (switchToCeremony)
+  {
    bgmCeremony.play();
   }
   
