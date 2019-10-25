@@ -34,7 +34,10 @@ void drawStage5(){  // the Credits page
   image(img5icon2, 1640, 910, 70, 70);
   image(img5icon3, 1730, 910, 70, 70);
   image(img5icon4, 1820, 910, 70, 70);
-
+  
+  sf.run();
+  sf.speedDown();
+  sf.speedDown();
 
   if(backCButton.isClicked() ){  // switch to Stage 1 Menu
       clickSound();      

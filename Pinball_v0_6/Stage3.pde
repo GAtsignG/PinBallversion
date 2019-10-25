@@ -110,16 +110,14 @@ void drawStage3(){  // Gaming zone setting
   image(img3BGframe, 0, 0);
   image(img3BGAudience, 0, 0);
   // round countdown timer display
-
-  //防守功能
-  d = new Defender(); //default postion
-  d.defenseKeyPressed();  //movement input
-  d.defensePlayer();     //update position
-  //防守按键
   
 
   if (startGame) //now the first round starts
   {
+      //防守功能
+  d.defenseKeyPressed();  //movement input
+  d.defensePlayer();     //update position
+  //防守按键
     displayTimeLeft();
     mover.update();
     mover.defBall();
@@ -157,6 +155,7 @@ void drawStage3(){  // Gaming zone setting
 
   if(round && startGame)
   {
+    d = new Defender(); //default postion
     roundTime = 10;
     timer.stop(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
     timeLimit.reset(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);

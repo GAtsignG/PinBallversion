@@ -22,8 +22,8 @@ class Defender extends Ball{
   Defender()
   {
     //position = new PVector(310, 540); //start position
-    position = new PVector(1000, 1000);
-    velocity = new PVector(0, 0);   //null speed 
+    position = new PVector(310, 540);
+    velocity = new PVector(1, 1);   //null speed 
     m = radius*.1;
     radius = 100;
     x = 310;
