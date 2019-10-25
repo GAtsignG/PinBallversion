@@ -47,7 +47,7 @@ void setP()
 void defenseKeyPressed()
 {
     int keyIndex = -1;
-    if(keyPressed)
+    if(keyPressed && mover.stop == 0)
         {
             if(key == 'w' || key == 'W')
             {
