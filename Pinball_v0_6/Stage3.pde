@@ -117,6 +117,7 @@ void drawStage3(){  // Gaming zone setting
       //防守功能
   d.defenseKeyPressed();  //movement input
   d.defensePlayer();     //update position
+  //d.saveBall(mover);
   //防守按键
     displayTimeLeft();
     mover.update();
