@@ -33,6 +33,10 @@ void drawStage2a(){  // Setting default page - Audio
   fill(0, 120);
   rect(0, 0, 1920, 1080);
   image(img2Cover, 0, 0);
+  
+  sf.run();
+  sf.speedDown();
+  sf.speedDown();
 
   // Option's text.
   fill(255);
@@ -100,7 +104,9 @@ void drawStage2g(){  // Setting Game page
   fill(0, 120);
   rect(0, 0, 1920, 1080);
   image(img2Cover, 0, 0);
-
+  sf.run();
+  sf.speedDown();
+  sf.speedDown();
   // Option's text.
   fill(255);
   textFont(formataBI, 65);
@@ -166,7 +172,9 @@ void drawStage2c(){  // Setting Controller page
   rect(0, 0, 1920, 1080);
   image(img2Cover, 0, 0);
   image(img2Controller, 560, 350, 800, 560);     // this is an operation indicator example image, need relpace
-  
+  sf.run();
+  sf.speedDown();
+  sf.speedDown();
   // Option's text.
   //textFont(formataBI, 65);
   //textAlign(CENTER);

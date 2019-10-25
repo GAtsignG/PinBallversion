@@ -1,7 +1,7 @@
 class Star{
   /*星星在屏幕坐标系直径的最大值
     用于控制星星在屏幕上的整体大小*/
-  final float MAX_DIAM = 16;
+  final float MAX_DIAM = 12;
 
   /*星星里屏幕最远的距离
     用来控制星域的立体感*/

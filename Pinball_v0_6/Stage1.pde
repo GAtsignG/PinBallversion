@@ -51,6 +51,7 @@ void drawStage1(){
   image(img1Logo, 750, 100);
   sf.run();
   sf.speedDown();
+  sf.speedDown();
   //firework
   //ps.addParticle();
   //ps.applyForce(gravity);

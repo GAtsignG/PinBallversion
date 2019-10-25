@@ -1,11 +1,11 @@
 class StarField{
   /*该粒子系统包含的星星的个数
     星星越多画面越密*/
-  final int STAR_COUNT = width / 2;
+  final int STAR_COUNT = width / 3;
 
   /*分别代表星星移动的最大速度，最小速度，
     用来控制星星移动速度的范围*/
-  final int MAX_SPEED = 11, MIN_SPEED = 1;
+  final int MAX_SPEED = 8, MIN_SPEED = 1;
 
   /*速度改变的步长
     每一次增加或者减小速度的时速度改变的最小值*/
