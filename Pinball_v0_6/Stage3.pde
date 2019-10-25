@@ -293,7 +293,7 @@ void confirmNext()
     
   fill(255, 100);
   textFont(formataI, 30);
-  text("Press any key to start", 960, 570);
+  text("Press space to start", 960, 570);
   textFont(formataBI, 65);
   // global paused
   noLoop();

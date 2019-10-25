@@ -95,9 +95,8 @@ void setup(){
     float xx = (1500-650)/barrierNum;
     barriers[i] = new Barrier(random(650+xx*i,650+xx*(i+1)),random(270,710),random(75,150), i, barriers);
    }
+  
 }
-
-// jump to Stage4b
 void mousePressed()
 {
   if (switchToCeremony)
@@ -106,14 +105,13 @@ void mousePressed()
   switchToCeremony = false;
   }
 }
-
 void keyPressed() {  // Pausing fuction, only available at Stage 3 Gaming
   final int k = keyCode;
  
- if (switchToGame && k == 'P')  //only pause while gaming
+ if (switchToGame && k == ' ')  //only pause while gaming
  {
-   looping ^= k == 'P';  
-   redraw = k == 'K';
+   looping ^= k == ' ';  
+   redraw = k == 'S';
 
   // Pausing notification
   fill(0, 120);
@@ -126,14 +124,13 @@ void keyPressed() {  // Pausing fuction, only available at Stage 3 Gaming
     
   fill(255, 100);
   textFont(formataI, 30);
-  text("Press P to resume", 960, 570);
+  text("Press Space Bar to resume", 960, 570);
   textFont(formataBI, 30);
  }
 
- // next round
  if (switchToGame)
  {
-  if(key==' ')
+  if(key=='k')
   {
     if (!looping)
     {
@@ -141,11 +138,9 @@ void keyPressed() {  // Pausing fuction, only available at Stage 3 Gaming
       round = true;
     }     
   }
-
-  // cheat fuction, only use to testing
   if(key == 'c')
   {
-    p1 = 5;
+    p1 = 5;  //cheat
   }
  }
 
