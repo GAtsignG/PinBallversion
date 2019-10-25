@@ -18,7 +18,7 @@ class Confetti extends Particle {
     //rotation
     float theta = map(position.x,0,width,0,TWO_PI*2);
     rotate(theta);
-    rect(0,0,12,12);
+    rect(0,0,4,4);
     popMatrix(); //release
   }
 }

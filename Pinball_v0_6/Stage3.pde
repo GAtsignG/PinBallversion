@@ -110,8 +110,17 @@ void drawStage3(){  // Gaming zone setting
   image(img3BGframe, 0, 0);
   image(img3BGAudience, 0, 0);
   // round countdown timer display
-  
-
+  if( p1 >= 1 || p2 >= 1)
+  {
+    gravity = new PVector(0, random(0, 0.02));
+    ps.addParticle();
+    ps2.addParticle();
+    //ps.applyForce(gravity);
+    ps.run();
+    ps2.run();
+    rectMode(CORNER);
+  } 
+ 
   if (startGame) //now the first round starts
   {
       //防守功能

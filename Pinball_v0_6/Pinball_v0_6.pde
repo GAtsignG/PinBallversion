@@ -39,6 +39,7 @@
   Barrier[] barriers = new Barrier[5];
   
   ParticleSystem ps;
+  ParticleSystem ps2;
   PVector gravity;
   StarField sf;
   //particle system
@@ -72,7 +73,12 @@ void setup(){
      //.hideBackground();
      
   //particle system
-  //ps = new ParticleSystem(new PVector(width/2,50));
+      // int xWidth = 1620;
+      // int x = 340;
+      // int yHeight = 980;
+      // int y = 120;
+  ps = new ParticleSystem(new PVector(1620,980));
+  ps2 = new ParticleSystem(new PVector(340,120));
   sf = new StarField();
 
     mover = new Mover();
