@@ -106,9 +106,7 @@ void drawStage3(){  // Gaming zone setting
   image(img3BGframe, 0, 0);
   image(img3BGAudience, 0, 0);
   // round countdown timer display
-  displayTimeLeft();
 
-// 此处需要画一个3/5秒倒计时，先试试五秒看哪个比较合适
   //防守功能
   d = new Defender(); //default postion
   d.defenseKeyPressed();  //movement input
@@ -118,6 +116,7 @@ void drawStage3(){  // Gaming zone setting
 
   if (startGame) //now the first round starts
   {
+    displayTimeLeft();
     mover.update();
     mover.defBall();
     //mover.checkEdges();
@@ -155,6 +154,7 @@ void drawStage3(){  // Gaming zone setting
   if(round && startGame)
   {
     roundTime = 10;
+    timer.stop(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
     timeLimit.reset(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
     timeLimit.start();   //start the timer of each round 10s
     round = false;
@@ -190,7 +190,7 @@ void drawStage3(){  // Gaming zone setting
   backGButton.update();
   backGButton.render();
   
-   if (p1 == 2 || p2 == 2) //end the game and switch to ceremony
+   if (p1 == 5 || p2 == 5) //end the game and switch to ceremony
   {
     bgmGaming.pause();
     bgmGaming.rewind();
@@ -253,6 +253,7 @@ void onFinishEvent(CountdownTimer t) {
       p2++;
       p1Play = true;
     } 
+      
       mover.nextGame(); //overtime !!!       
   }
 }
@@ -260,6 +261,8 @@ void onFinishEvent(CountdownTimer t) {
 // 确认进入下一回合之前的提示
 void confirmNext()
 {
+  timer.stop(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
+  timeLimit.reset(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
   // Pausing notification
   fill(0, 120);
   rect(0, 0, 1920, 1080);
