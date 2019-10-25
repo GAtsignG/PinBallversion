@@ -85,7 +85,7 @@ void keyPressed() {  // Pausing fuction, only available at Stage 3 Gaming
   fill(255);
   textFont(formataBI, 65);
   textAlign(CENTER);
-  text("Pause", 960, 520);
+  text("Paused", 960, 520);
     
   fill(255, 100);
   textFont(formataI, 30);
@@ -105,7 +105,7 @@ void keyPressed() {  // Pausing fuction, only available at Stage 3 Gaming
   }
   if(key == 'c')
   {
-    //p1 == 2;  //cheat
+    p1 = 2;  //cheat
   }
  }
 

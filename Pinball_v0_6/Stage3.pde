@@ -270,9 +270,10 @@ void confirmNext()
   text("Next round", 960, 520);
     
   fill(255, 100);
-  textFont(formataBI, 30);
+  textFont(formataI, 30);
   text("Press any key to start", 960, 570);
-  
+  textFont(formataBI, 65);
+  // global paused
   noLoop();
 }
 
