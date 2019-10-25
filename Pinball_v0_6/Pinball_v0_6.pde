@@ -40,6 +40,8 @@
   
   ParticleSystem ps;
   PVector gravity;
+  StarField sf;
+  //particle system
 
 void setup(){
  size(1920, 1080);
@@ -59,8 +61,8 @@ void setup(){
   showStage4();
   showStage5();
   //particle system
-  ps = new ParticleSystem(new PVector(width/2,50));
-
+  //ps = new ParticleSystem(new PVector(width/2,50));
+  sf = new StarField();
 
     mover = new Mover();
    for (int i = 0; i< barrierNum; i++)
