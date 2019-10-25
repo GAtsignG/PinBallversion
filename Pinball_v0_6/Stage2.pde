@@ -9,7 +9,7 @@
   Button gameButton, audioButton, controllerButton, backSButton;
 
   // GUI
-  ControlP5 cp5;
+  //ControlP5 cp5;
 
 void showStage2(){
   // image load
@@ -42,7 +42,7 @@ void drawStage2a(){  // Setting default page - Audio
   textFont(formataBI, 65);
   textAlign(RIGHT);
   text("Music", 850, 500);
-  text("Sound Effect", 850, 666);
+  text("Full Screen", 850, 666);
 
   // 这里加两个滑竿控制音量和音效，只需要3/5个可调节级别  ,  add slider!!!    // controlP5, 用滑竿模式或者切换按钮模式
  
@@ -110,7 +110,7 @@ void drawStage2g(){  // Setting Game page
   text("Full Screen", 850, 500);
   text("Rounds", 850, 666);
   // toggle to fullscreen mode,    use controlP5 - icon  (Frome examples)
-  cp5.hide();
+  //cp5.hide();
   
   if(audioButton.isClicked() ){  // switch to Audio page
       clickSound();
@@ -173,7 +173,7 @@ void drawStage2c(){  // Setting Controller page
   //textAlign(CENTER);
   //text("Music", 850, 500);
   //text("Sound Effect", 850, 666);
-  cp5.hide();
+  //cp5.hide();
 
   if(gameButton.isClicked() ){  // switch to Game page
       clickSound();
@@ -221,31 +221,31 @@ void drawStage2c(){  // Setting Controller page
   backSButton.render();
 }
 
-void gui(){
-  cp5.addIcon("icon",10)
-     .setPosition(933, 455)
-     .setSize(70,50)
-     .setRoundedCorners(20)
-     .setFont(createFont("fontawesome-webfont.ttf", 40))
-     .setFontIcons(#00f205,#00f204)
-     .setColorBackground(color(255,100))
-     .hideBackground()
-     ;
-}
-void icon (boolean theValue)
-{
-    if(theValue)
-    {
-        bgmMenu.pause();
-        bgmGaming.pause();
-        bgmCeremony.pause();
-        mute = true;
-    }
-    else
-    {
-        // bgmMenu.play();
-        // bgmGaming.play();
-        // bgmCeremony.play();
-        mute = false;
-    }
-}
+// void gui(){
+//   cp5.addIcon("icon",10)
+//      .setPosition(933, 455)
+//      .setSize(70,50)
+//      .setRoundedCorners(20)
+//      .setFont(createFont("fontawesome-webfont.ttf", 40))
+//      .setFontIcons(#00f205,#00f204)
+//      .setColorBackground(color(255,100))
+//      .hideBackground()
+//      ;
+// }
+// void icon (boolean theValue)
+// {
+//     if(theValue)
+//     {
+//         bgmMenu.pause();
+//         bgmGaming.pause();
+//         bgmCeremony.pause();
+//         mute = true;
+//     }
+//     else
+//     {
+//         // bgmMenu.play();
+//         // bgmGaming.play();
+//         // bgmCeremony.play();
+//         mute = false;
+//     }
+// }

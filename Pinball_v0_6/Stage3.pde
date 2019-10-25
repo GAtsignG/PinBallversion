@@ -12,6 +12,8 @@
   PImage barrierImg1,barrierImg2,barrierImg3,barrierImg4,barrierImg5,barrierImg6,barrierImg7,barrierImg8,barrierImg9,pick,barrierShadow;
   //球员图片生成
   PImage defenseP1, defenseP2;
+  //球的图片生成
+  PImage ball;
   boolean startGame = false;
   boolean player1 = true;
   boolean pause = false;
@@ -38,6 +40,8 @@ void showStage3(){
   //球员图片加载
   defenseP1 = loadImage("Stage3_Player1.png");
   //defenseP2 = loadImage("Stage3_Player2.png");
+  //球的图片加载
+  ball = loadImage("Stage3_Ball.png");
   //障碍物图片加载
   barrierImg1 = loadImage("1.png");
   barrierImg2 = loadImage("2.png");

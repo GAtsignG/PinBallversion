@@ -131,7 +131,8 @@ class Mover extends Ball{
     stroke(0);
     strokeWeight(4);
     fill(255);
-    ellipse(position.x, position.y, 48, 48);
+    image(ball,position.x-24,position.y-24,48,48);
+    //ellipse(position.x, position.y, 48, 48);
   }
 
   void checkEdges() {
