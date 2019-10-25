@@ -34,6 +34,9 @@
 
   Mover mover;
   Barrier[] barriers = new Barrier[5];
+  
+  ParticleSystem ps;
+  PVector gravity;
 
 void setup(){
  size(1920, 1080);
@@ -52,6 +55,9 @@ void setup(){
   showStage3();
   showStage4();
   showStage5();
+  //particle system
+  ps = new ParticleSystem(new PVector(width/2,50));
+
 
     mover = new Mover();
    for (int i = 0; i< barrierNum; i++)

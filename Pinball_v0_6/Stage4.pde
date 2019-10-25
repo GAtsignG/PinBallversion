@@ -69,8 +69,8 @@ void drawStage4b(){  // display ceremoney screen
   // 界面过渡后显示出来下面的
   // fade in after switch screen from score to ceremoney
 
-  imageMode(CENTER);
-  image(img4Winner, 300, 200, );     
+  //imageMode(CENTER);
+  image(img4Winner, 300, 200);     
 
 
   if(playAgainButton.isClicked() ){  // switch to Stage 3 Gaming   

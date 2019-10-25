@@ -41,6 +41,11 @@ void drawStage1(){
 
   image(img0BG, 0, 0);
   image(img1Logo, 750, 100);
+   
+  //firework
+  //ps.addParticle();
+  //ps.applyForce(gravity);
+  //ps.run();
 
   if(!switchToGame )
   {   // menu界面无效但是setting界面是有效的？？？？？？？？？？
@@ -87,6 +92,11 @@ void drawStage1(){
   creditsButton.render();
   quitButton.update();
   quitButton.render();
+
+  ps.addParticle();
+  //ps.applyForce(gravity);
+  ps.run();
+  rectMode(CORNER);
 }
 
 
