@@ -1,12 +1,10 @@
-  /*
-  * this page is the settings for Credits interface
-  */
+//this page is the settings for Credits interface
 
-  // Image var
-  PImage img5Cover, img5icon1, img5icon2, img5icon3, img5icon4;
+// Image var
+PImage img5Cover, img5icon1, img5icon2, img5icon3, img5icon4;
 
-  // Buttons
-  Button backCButton;
+// Buttons
+Button backCButton;
 
 void showStage5(){
   // image load

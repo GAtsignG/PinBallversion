@@ -2,7 +2,7 @@ class Confetti extends Particle {
   float R = random(255);
   float G = random(255);
   float B = random(255);
-
+  
   Confetti(PVector l) {
     super(l);
   }

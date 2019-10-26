@@ -1,22 +1,3 @@
-
-// void setup(){
-//  size(1000,700);
-//  explosion = new ArrayList<Explosion>();
-//  rocket = new ArrayList<Rocket>();
-//  city = new ArrayList<City>();
-//  setCity();
-//  smooth();
-// }
-
-// void draw(){
-//  fill(37, 36, 49, 15);          //a transparent rectangle instead of a background can create a trail for the rocket
-//  rect(0,0,width,height);
-//  launch();
-//  setRocket();
-//  explode();
-//  drawCity();
-// }
-
 void setCity(){             //set coordinates for city building shadows
   for(float a = -random(25,5); a < width; a += 50){
     city.add(new City(a));
@@ -58,24 +39,21 @@ void explode(){    //explode once rocket reaches its height, then disappear afte
 }
 
 class City{  //setting buildings for a city
+  float x,y,w,h;
   
- float x,y,w,h;
+  City(float xx){ 
+    x = xx;
+    y = height;
+    w = 50;
+    h = -random(90,150); 
+  } 
   
- City(float xx){ 
-  x = xx;
-  y = height;
-  w = 50;
-  h = -random(90,150); 
- } 
- 
- void draw(){
-   fill(0);
-   rect(x,y,w, h);
- }
- 
+  void draw(){
+    fill(0);
+    rect(x,y,w, h);
+  }
 }
 class Explosion{        //Explosion phase of fireworks
-  
   ArrayList<Particles> particle;
   float x,y,xa,ya,dis,fin;
   color col;
@@ -105,71 +83,67 @@ class Explosion{        //Explosion phase of fireworks
   
   boolean over(){
     return dis > fin;
-  }
-  
+  } 
 }
 class Particles{       //Partilces from the explosion
+  float x,y,dia,dis;
+  color c;
   
- float x,y,dia,dis;
- color c;
- 
- Particles(float xx, float yy, color col){
+  Particles(float xx, float yy, color col){
   x = xx;
   y = yy;
   dia = 4;
   c = col;
   dis = 10;
- } 
- 
- void draw(){
-   noStroke();
-   fill(c);
-   ellipse(x,y,dia,dia);
- }
- 
- float getDist(){
-   return dis;
- }
- 
+  } 
+
+  void draw(){
+    noStroke();
+    fill(c);
+    ellipse(x,y,dia,dia);
+  }
+
+  float getDist(){
+    return dis;
+  }
 }
+
 class Rocket{     //the launch sequence
-  
   color c;
   float dia, x,y,beginx, beginy, endy, r, g, b;
   
- Rocket(){
-  dia = 5;
-  x = random(width);
-  y = height;
-  endy = random(50,500);
-  r = random(120,250);
-  g = random(120,250);
-  b = random(120,250);
-  c = color(r,g,b);
- } 
+  Rocket(){
+    dia = 5;
+    x = random(width);
+    y = height;
+    endy = random(50,500);
+    r = random(120,250);
+    g = random(120,250);
+    b = random(120,250);
+    c = color(r,g,b);
+  } 
   
   void draw(){
-   noStroke();
-   fill(c); 
-   ellipse(x,y,dia,dia);
-   y -= 3;
+    noStroke();
+    fill(c); 
+    ellipse(x,y,dia,dia);
+    y -= 3;
   }
   
   float getX(){
-   return x;
+    return x;
   }
   float getY(){
-   return  y;
+    return  y;
   }
   float getEnd(){
-   return endy; 
+    return endy; 
   }
   color getColor(){
-   return c; 
+    return c; 
   }
   boolean reached(){
-   return y < endy;
+    return y < endy;
   }
-  
 }
 

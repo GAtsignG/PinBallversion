@@ -26,11 +26,11 @@ class Star{
   }
   
   void move(float speed){
-     worldPosition.z -= speed;
+      worldPosition.z -= speed;
 
-     /*限制星星世界坐标系的位置
+      /*限制星星世界坐标系的位置
        防止出现星星移动到屏幕外的情况*/
-     worldPosition.z = constrain(worldPosition.z, 0, MAX_DEPTH);
+      worldPosition.z = constrain(worldPosition.z, 0, MAX_DEPTH);
   }
   
   void transform(PVector endpoint){

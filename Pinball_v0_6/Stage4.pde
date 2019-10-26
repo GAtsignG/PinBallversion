@@ -1,12 +1,10 @@
-  /*
-  * this page is the settings for Score & Ceremony Page
-  */
+//this page is the settings for Score & Ceremony Page
 
-  // Image var
-  PImage img4CoverScore, img4CoverResult, img4Winner;
+// Image var
+PImage img4CoverScore, img4CoverResult, img4Winner;
 
-  // Buttons
-  Button playAgainButton, menuButton;
+// Buttons
+Button playAgainButton, menuButton;
 
 void showStage4(){  // 默认显示Stage4a ↓↓↓↓
   // image load
@@ -15,9 +13,8 @@ void showStage4(){  // 默认显示Stage4a ↓↓↓↓
   img4Winner = loadImage("Stage4_Winner.png");
 
   // bgm load
-    bgmCeremony = minim.loadFile("bgm_Ceremoney.mp3");
+  bgmCeremony = minim.loadFile("bgm_Ceremoney.mp3");
   
-
   // Buttons  (Pos.x, Pos.y, Width, Height, radius, Text, R, G, B, Alpha)
   textFont(formataBI);
   playAgainButton = new Button(1300, 500, 250, 60, 100, "Play Again", 129, 200, 177);
@@ -57,9 +54,9 @@ void drawStage4a(){  // only display score
   {
     bgmGaming.pause();
     bgmMenu.pause();
-   bgmCeremony.pause();
-   bgmCeremony.rewind();
-   bgmCeremony.play();
+    bgmCeremony.pause();
+    bgmCeremony.rewind();
+    bgmCeremony.play();
   }else{
     bgmCeremony.pause();  
   }
@@ -68,7 +65,7 @@ void drawStage4a(){  // only display score
 // 过渡到下一个画面
 
 void drawStage4b(){  // display ceremoney screen
-
+  
   image(img0BG, 0, 0);
   fill(0, 120);
   rect(0, 0, 1920, 1080);
@@ -105,14 +102,12 @@ void drawStage4b(){  // display ceremoney screen
       bgmMenu.pause();
       bgmGaming.pause();
     }
-    
     switchToGame = true;
     p1Play = false;
     round = true;
     p1 = 0;   //scores
     p2 = 0;
     timer.start(); // the timer to count down 3s to start the game
-    
   }
 
   if(menuButton.isClicked() ){  // switch to Stage 1 Menu
@@ -126,13 +121,10 @@ void drawStage4b(){  // display ceremoney screen
       bgmCeremony.pause();
       bgmMenu.pause();
     }
-    
-
     switchToGame = false;
     switchToSettings = false;
     switchToCredit = false;
-    switchToFinal = false;  
-    
+    switchToFinal = false;
   }
   
   playAgainButton.update();

@@ -1,39 +1,36 @@
-/*
-  * this page is the settings for Game Page
-  */
+//this page is the settings for Game Page
 
-  // Image var
-  PImage img3BGframe, img3BGgrass, img3BGAudience;
 
-  // Buttons
-  Button pauseButton, backGButton, resumeButton;
+// Image var
+PImage img3BGframe, img3BGgrass, img3BGAudience;
 
-  //障碍物图片生成
-  PImage barrierImg1,barrierImg2,barrierImg3,barrierImg4,barrierImg5,barrierImg6,barrierImg7,barrierImg8,barrierImg9,pick,barrierShadow;
-  //球员图片生成
-  PImage defenseP1, defenseP2;
-  //球的图片生成
-  PImage ball;
-  boolean startGame = false;
-  boolean player1 = true;
-  boolean pause = false;
-  boolean round;
-  boolean roundCount = false;
-  boolean trans = false;
-  //set a countdown timer before the game beginning
-  CountdownTimer timer = CountdownTimerService.getNewCountdownTimer(this).configure(1000, 3000);
-  CountdownTimer timeLimit = CountdownTimerService.getNewCountdownTimer(this).configure(1000, 10000);
-  CountdownTimer fireworkTime = CountdownTimerService.getNewCountdownTimer(this).configure(1000, 7000);
-  int countNum = 3; //displayer count down number starts with 5
-  String countInfo = ""; //display information when the countdown finishes
-  int roundTime = 10; //display each round's time limit
+// Buttons
+Button pauseButton, backGButton, resumeButton;
 
-  int barrierImg = (int) random(1,9);
+//障碍物图片生成
+PImage barrierImg1,barrierImg2,barrierImg3,barrierImg4,barrierImg5,barrierImg6,barrierImg7,barrierImg8,barrierImg9,pick,barrierShadow;
+//球员图片生成
+PImage defenseP1, defenseP2;
+//球的图片生成
+PImage ball;
+boolean startGame = false;
+boolean player1 = true;
+boolean pause = false;
+boolean round;
+boolean roundCount = false;
+boolean trans = false;
+//set a countdown timer before the game beginning
+CountdownTimer timer = CountdownTimerService.getNewCountdownTimer(this).configure(1000, 3000);
+CountdownTimer timeLimit = CountdownTimerService.getNewCountdownTimer(this).configure(1000, 10000);
+CountdownTimer fireworkTime = CountdownTimerService.getNewCountdownTimer(this).configure(1000, 7000);
+int countNum = 3; //displayer count down number starts with 5
+String countInfo = ""; //display information when the countdown finishes
+int roundTime = 10; //display each round's time limit
+int barrierImg = (int) random(1,9);
   
-  Defender d;
+Defender d;
 
 void showStage3(){
-  
   // image load
   img3BGframe = loadImage("Stage3_BG_Frame.png");
   img3BGgrass = loadImage("Stage3_BG_Grass.jpg");
@@ -90,69 +87,41 @@ void showStage3(){
   {
     pick = barrierImg9;
   }
-  for (int i = 0; i < 8; i++)
-  {
-      //barriersImage[i] = loadImage(+i+".png");
-  }
   // bgm load
-    bgmGaming = minim.loadFile("bgm_Gaming.mp3");
-    aCollision = minim.loadFile("a_collision.mp3");
-    aWhistle = minim.loadFile("a_whistle.wav");       // when game end, play this sound only once
+  bgmGaming = minim.loadFile("bgm_Gaming.mp3");
+  aCollision = minim.loadFile("a_collision.mp3");
+  aWhistle = minim.loadFile("a_whistle.wav");       // when game end, play this sound only once
   // 产生碰撞就会激发这个音效
 
   // Buttons             (Pos.x, Pos.y, Width, Height, radius, Text, R, G, B, Alpha)
   textFont(formataBI);
   // pauseButton = new Button(1700, 850, 200, 50, 100, "Start", 129, 200, 177);
   backGButton = new Button(1700, 980, 200, 50, 100, "Back", 129, 200, 177);
-  
 }
 
 void drawStage3(){  // Gaming zone setting
-  
   image(img3BGgrass, 0, 0);
   image(img3BGframe, 0, 0);
   image(img3BGAudience, 0, 0);
   
-  // if( p1 >= 1 || p2 >= 1)
-  // {
-  //   gravity = new PVector(0, random(0, 0.02));
-  //   ps.addParticle();
-  //   ps2.addParticle();
-  //   //ps.applyForce(gravity);
-  //   ps.run();
-  //   ps2.run();
-  //   rectMode(CORNER);
-  // } 
- 
   if (startGame) //now the first round starts
   {
-      //防守功能
-  d.defenseKeyPressed();  //movement input
-  d.defensePlayer();     //update position
-  //d.saveBall(mover);
-  //防守按键
+    //防守功能
+    d.defenseKeyPressed();  //movement input
+    d.defensePlayer();     //update position
+    //防守按键
     displayTimeLeft();
     mover.update();
     mover.defBall();
-    //mover.checkEdges();
     mover.display();
     mover.goalCheck();
     mover.score();
   }
-  //d.saveBall(mover);
-
-
   // barrier setting
   for(Barrier barrier : barriers)
   {
     barrier.display();
     mover.checkCollision(barrier);  //check collision 
-    /*if(barrier.barrierReflect(mover.getPosition()))
-    {
-      mover.changeReflection();
-    }
-    */
-    //barrier.barrierReflect();
   }
 
   if(!startGame && !trans)
@@ -165,7 +134,6 @@ void drawStage3(){  // Gaming zone setting
     textAlign(CENTER);
     text(countInfo, 960, 520);
   }
-
 
   if(round && startGame)
   {
@@ -220,13 +188,12 @@ void drawStage3(){  // Gaming zone setting
     }
    }
 
-
   backGButton.update();
   backGButton.render();
   
   if(!trans)
   {
-     if (p1 == 5 || p2 == 5) //end the game and switch to ceremony
+    if (p1 == 5 || p2 == 5) //end the game and switch to ceremony
     {
       whistleSound();
     if(!mute)
@@ -252,17 +219,14 @@ void drawStage3(){  // Gaming zone setting
     }
   }
   
-  
   if (trans)
   {
-  transition();
-  fill(255, 100);
-  textFont(formataI, 30);
-  text("Click mouse to continue", 960, 570);
-  textFont(formataBI, 30);
+    transition();
+    fill(255, 100);
+    textFont(formataI, 30);
+    text("Click mouse to continue", 960, 570);
+    textFont(formataBI, 30);
   }
-
-
 }
 
 void transition()
@@ -279,21 +243,19 @@ void onTickEvent(CountdownTimer t, long timeLeftUntilFinish)
 {
   if (t.getId() == 0)
   {
-   if (countNum == 0)
-   {
-    countInfo = "Start !";
-   }
-   else
-   {
-    countInfo = str(countNum);
-   }
+    if (countNum == 0)
+    {
+      countInfo = "Start !";
+    }
+    else
+    {
+      countInfo = str(countNum);
+    }
     countNum--;
   }
   //timerCallbackInfo = "[tick] - timeLeft: " + timeLeftUntilFinish + "ms"; 
   if (t.getId() == 1)
   {
-    //countInfo = str(roundTime);
-
     roundTime--; //each round limts in 10 sceounds 
   }
 }
@@ -305,10 +267,10 @@ void onFinishEvent(CountdownTimer t) {
     startGame = true;
   }
   if (t.getId() == 1)
-  { 
-      confirmNext();
-      if(p1Play)
-    {          
+  {
+    confirmNext();
+    if(p1Play)
+    { 
       //交换球权
       p1++;
       p1Play = false;
@@ -318,8 +280,8 @@ void onFinishEvent(CountdownTimer t) {
       //交换球权
       p2++;
       p1Play = true;
-    } 
-      mover.nextGame(); //overtime !!!       
+    }
+    mover.nextGame(); //overtime !!!       
   }
   if (t.getId() == 2)
   {
@@ -359,5 +321,4 @@ void displayTimeLeft()
   textAlign(CENTER, CENTER);
   text(roundTime, 1795, 250);
   textFont(formataBI);
-
 }

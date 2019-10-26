@@ -30,35 +30,15 @@ class Barrier extends Ball
   {
     for (int i = 0; i< barrierNum; i++)
     {
-     float xd = mover.position.x-x;//distance of ball and barrier
-     float yd = mover.position.y-y;
-     float disS = (xd*xd)+(yd*yd);
-     float sqrR = (48+diameter)*(48+diameter)/4;
-     if(disS<=sqrR)
-     {      
-       mover.velocity.x *=-1;
-       mover.velocity.y *=-1;
-     }
+      float xd = mover.position.x-x;//distance of ball and barrier
+      float yd = mover.position.y-y;
+      float disS = (xd*xd)+(yd*yd);
+      float sqrR = (48+diameter)*(48+diameter)/4;
+      if(disS<=sqrR)
+      {
+        mover.velocity.x *=-1;
+        mover.velocity.y *=-1;
+      }
     }
   }
-
-
-
-  /*boolean barrierReflect(PVector ballPosition)
-  {
-    for (int i = 0; i< barrierNum; i++)
-    {
-     float xd = ballPosition.x-x;//distance of ball and barrier
-     float yd = ballPosition.y-y;
-     float disS = (xd*xd)+(yd*yd);
-     float sqrR = (48+diameter)*(48+diameter)/4;
-     if(disS<=sqrR)
-     {      
-       return true;
-     }
-     
-   }
-   return false;
-  }
-  */
 }

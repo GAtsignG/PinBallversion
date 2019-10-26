@@ -1,4 +1,3 @@
-
 class Ball {
   PVector position;
   PVector velocity;
@@ -70,7 +69,7 @@ class Mover extends Ball{
             yy = random(550,710);
           }
           barriers[i] = new Barrier(random(650+xx*i,650+xx*(i+1)),yy,random(150,200), i, barriers);
-         }
+        }
       }
     }
     else
@@ -177,42 +176,47 @@ class Mover extends Ball{
 }
 */
  void checkReflect()
-    {   
-      int xWidth = 1620;
-      int x = 340;
-      int yHeight = 980;
-      int y = 120;
-
-     if (position.x > xWidth-radius) {
-       collisionSound();
-      position.x = xWidth-radius;
-      velocity.x *= -1;
-    } else if (position.x < x + radius) {
+ {
+   int xWidth = 1620;
+   int x = 340;
+   int yHeight = 980;
+   int y = 120;
+   
+   if (position.x > xWidth-radius) 
+   {
+     collisionSound();
+     position.x = xWidth-radius;
+     velocity.x *= -1;
+    } 
+    else if (position.x < x + radius) {
       collisionSound();
       position.x = x + radius;
       velocity.x *= -1;
-    } else if (position.y > yHeight-radius) {
+    } 
+    else if (position.y > yHeight-radius) {
       collisionSound();
       position.y = yHeight-radius;
       velocity.y *= -1;
-    } else if (position.y < y + radius) {
+    } 
+    else if (position.y < y + radius) 
+    {
       collisionSound();
       position.y = y + radius;
       velocity.y *= -1;
     }
-  }  
-    
+  } 
+  
   void checkCollision(Barrier b)
   {
-      // Get distances between the balls components
+    // Get distances between the balls components
     PVector distanceVect = PVector.sub(b.position, position);
-    
+      
     // Calculate magnitude of the vector separating the balls
     float distanceVectMag = distanceVect.mag();
-
+      
     // Minimum distance before they are touching
     float minDistance = radius + b.radius;
-
+      
     if (distanceVectMag < minDistance) {
       collisionSound();
       float distanceCorrection = (minDistance-distanceVectMag)/2.0;
@@ -220,7 +224,7 @@ class Mover extends Ball{
       PVector correctionVector = d.normalize().mult(distanceCorrection);
       b.position.add(correctionVector);
       position.sub(correctionVector);
-
+        
       // get angle of distanceVect
       float theta  = distanceVect.heading();
       // precalculate trig values
@@ -228,17 +232,17 @@ class Mover extends Ball{
       float cosine = cos(theta);
 
       /* bTemp will hold rotated ball positions. You 
-       just need to worry about bTemp[1] position*/
+      just need to worry about bTemp[1] position*/
       PVector[] bTemp = {
         new PVector(), new PVector()
       };
 
       /* this ball's position is relative to the other
-       so you can use the vector between them (bVect) as the 
-       reference point in the rotation expressions.
-       bTemp[0].position.x and bTemp[0].position.y will initialize
-       automatically to 0.0, which is what you want
-       since b[1] will rotate around b[0] */
+      so you can use the vector between them (bVect) as the 
+      reference point in the rotation expressions.
+      bTemp[0].position.x and bTemp[0].position.y will initialize
+      automatically to 0.0, which is what you want
+      since b[1] will rotate around b[0] */
       bTemp[1].x  = cosine * distanceVect.x + sine * distanceVect.y;
       bTemp[1].y  = cosine * distanceVect.y - sine * distanceVect.x;
 
@@ -253,8 +257,8 @@ class Mover extends Ball{
       vTemp[1].y  = cosine * b.velocity.y - sine * b.velocity.x;
 
       /* Now that velocities are rotated, you can use 1D
-       conservation of momentum equations to calculate 
-       the final velocity along the x-axis. */
+      conservation of momentum equations to calculate 
+      the final velocity along the x-axis. */
       PVector[] vFinal = {  
         new PVector(), new PVector()
       };
@@ -272,8 +276,8 @@ class Mover extends Ball{
       bTemp[1].x += vFinal[1].x;
 
       /* Rotate ball positions and velocities back
-       Reverse signs in trig expressions to rotate 
-       in the opposite direction */
+      Reverse signs in trig expressions to rotate 
+      in the opposite direction */
       // rotate balls
       PVector[] bFinal = { 
         new PVector(), new PVector()
@@ -297,24 +301,24 @@ class Mover extends Ball{
       b.velocity.y = cosine * vFinal[1].y + sine * vFinal[1].x;
     }
   }
-
-   void changeReflection()
-   { 
-     reflect = false;
-   }
-    
+  
+  void changeReflection()
+  { 
+    reflect = false;
+  }
+  
   PVector getPosition()
-    {
-      return position;
-    }
+  {
+    return position;
+  }
   void defBall()
   {
     //check collide with defender
     if (dist(d.getPosition().x, d.getPosition().y, position.x, position.y) < 100)
     {
-        velocity.x *= -2;  
-        velocity.y *= -2;
-        stop ++;
+      velocity.x *= -2;  
+      velocity.y *= -2;
+      stop ++;
     }
   }
 }

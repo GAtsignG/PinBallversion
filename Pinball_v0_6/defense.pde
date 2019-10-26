@@ -1,24 +1,9 @@
-//防守球员图片及碰撞
-// void defensePlayer()
-// {
-//     image(defenseP1, dx-50, dy-50,100,100);
-//     image(defenseP2, 1528, 500, 100, 100);
-//     //球和防守球员碰撞功能
-//     //if(Mover.position.x <= dx+62)
-//     //{
-//     //    if((Mover.position.y >= dy-74)||(Mover.position.y <= dy + 74))
-//     //    {
-//     //        Mover.velocity = PVector(10,0);
-//     //    }
-//     //}
-// }
-
 class Defender extends Ball{
   PVector position;
   PVector velocity;
   float radius, m;
   float x,y;
-
+  
   Defender()
   {
     //position = new PVector(310, 540); //start position
@@ -29,93 +14,52 @@ class Defender extends Ball{
     x = 310;
     y = 540;
   }
-
+  
   void defensePlayer()
   {
     image(defenseP1, position.x-50, position.y-50,100,100);
     //image(defenseP2, 1528, 500, 100, 100);
   }
-
-//update the position
-void setP()  
-{
-   x = this.position.x;
-   y = this.position.y; 
-}
-
-//防守按键
-void defenseKeyPressed()
-{
+  //update the position
+  void setP()
+  {
+    x = this.position.x;
+    y = this.position.y; 
+  }
+  
+  //防守按键
+  void defenseKeyPressed()
+  {
     int keyIndex = -1;
     if(keyPressed && mover.stop == 0)
-        {
-            if(key == 'w' || key == 'W')
-            {
-                this.position.y -= 5;               
-            }
-            if(key == 's' || key == 'S')
-            {
-                this.position.y += 5 ;
-            }
-            if(key == 'a' || key == 'A')
-            {
-                this.position.x--;
-            }
-            if(key == 'd' || key == 'D')
-            {
-                this.position.x++;
-            }
-        }
-    // if(position.x <= 340 && position.x >= 280 && position.y <= 790 && position.y >= 290)
-    // {
-    //     if(keyPressed)
-    //     {
-    //         if(key == 'w' || key == 'W')
-    //         {
-    //             position.y -= 5;
-    //         }
-    //         if(key == 's' || key == 'S')
-    //         {
-    //             position.y += 5;
-    //         }
-    //         if(key == 'a' || key == 'A')
-    //         {
-    //             position.x--;
-    //         }
-    //         if(key == 'd' || key == 'D')
-    //         {
-    //             position.x++;
-    //         }
-    //     }
-    // }
-    //出防守区域自动复位到边界
-    // else if(position.x > 340)
-    // {
-    //     position.x = 340;
-    // }
-    // else if(position.x < 280)
-    // {
-    //     position.x = 280;
-    // }
-    // else if(position.y > 790)
-    // {
-    //     position.y = 790;
-    // }
-    // else if(position.y < 290)
-    // {
-    //     position.y = 290;
-    // }
-    
+    {
+      if(key == 'w' || key == 'W')
+      {
+        this.position.y -= 5;
+      }
+      if(key == 's' || key == 'S')
+      {
+        this.position.y += 5 ;
+      }
+      if(key == 'a' || key == 'A')
+      {
+        this.position.x--;
+      }
+      if(key == 'd' || key == 'D')
+      {
+        this.position.x++;
+      }
+    }
   }
-
+  
   PVector getPosition()
   {
-      return this.position;
+    return this.position;
   }
 
   void saveBall(Mover b)
   {
-        // Get distances between the balls components
+    // Get distances between the balls components
     PVector distanceVect = PVector.sub(b.position, position);
 
     // Calculate magnitude of the vector separating the balls

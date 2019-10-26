@@ -15,10 +15,10 @@ class ParticleSystem {
     float rate = random(1);
     if (rate < 0.5) { 
       particles.add(new Particle(origin));
-                    } 
+    }
     else {
       particles.add(new Confetti(origin));
-         }
+    }
   }
 
   void run() {
@@ -37,5 +37,4 @@ class ParticleSystem {
       p.applyForce(force);
     } 
   }
-  
 }

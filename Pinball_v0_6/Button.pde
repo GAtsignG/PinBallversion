@@ -38,17 +38,14 @@ class Button{
     {
       Pressed = true;
       if(mouseX >= Pos.x && mouseX <= Pos.x + Width && mouseY >= Pos.y && mouseY <= Pos.y + Height){
-      Clicked = true;
+        Clicked = true;
       }
     }else{
       Clicked = false;
       Pressed = false;
     }
-  
   }
-
-
-
+  
   void render(){      // must be placed in void draw() to render the button to the screen
     noStroke();
     
@@ -107,4 +104,4 @@ class TitleButton extends Button{      // Title use ONLY, change size
     textSize(60);                // default font size modify here 
     text(Text, Pos.x + (Width/2), Pos.y + (Height/2) );
   }
- }
+}
