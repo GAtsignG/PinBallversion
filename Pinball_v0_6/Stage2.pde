@@ -47,7 +47,7 @@ void drawStage2a(){  // Setting default page - Audio
   text("Full Screen", 850, 666);
 
   // 这里加两个滑竿控制音量和音效，只需要3/5个可调节级别  ,  add slider!!!    // controlP5, 用滑竿模式或者切换按钮模式
- if(mute)
+ if(!mute)
  {
      fill(255);
      noStroke();
