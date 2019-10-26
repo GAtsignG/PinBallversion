@@ -58,7 +58,13 @@ void drawStage4a(){  // only display score
 
   if (switchToCeremony && !mute)
   {
+   bgmCeremony.pause();
+   bgmCeremony.rewind();
    bgmCeremony.play();
+  }
+  else 
+  {
+    bgmCeremony.pause();  
   }
   
 }
@@ -85,6 +91,10 @@ void drawStage4b(){  // display ceremoney screen
       bgmMenu.rewind();
       bgmGaming.loop();
     }
+    else{
+      bgmMenu.pause();
+      bgmGaming.pause();
+    }
     
     switchToGame = true;
     p1Play = false;
@@ -102,6 +112,10 @@ void drawStage4b(){  // display ceremoney screen
       bgmCeremony.pause();
       bgmCeremony.rewind();
       bgmMenu.loop();
+    }
+    else{
+      bgmCeremony.pause();
+      bgmMenu.pause();
     }
     
 

@@ -138,6 +138,15 @@ void mousePressed()
      if(mouseY > 460 && mouseY < 520)
      {
        mute = !mute;
+       if(mute)
+       {
+         bgmGaming.pause();
+         bgmCeremony.pause();
+         bgmMenu.pause();
+       }
+       else{
+         bgmMenu.play();
+       }
      }
      
    }
