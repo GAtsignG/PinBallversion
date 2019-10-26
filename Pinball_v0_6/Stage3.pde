@@ -187,6 +187,9 @@ void drawStage3(){  // Gaming zone setting
       bgmGaming.rewind();
       bgmMenu.play();
     }
+    else{
+      bgmGaming.pause();
+    }
     
     timer.stop(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
     timeLimit.stop(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
@@ -230,6 +233,10 @@ void drawStage3(){  // Gaming zone setting
     {
       bgmGaming.pause();
       bgmGaming.rewind();
+      bgmGaming.play();
+    }
+    else{
+      bgmGaming.pause();
     }
     
     timer.stop(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);

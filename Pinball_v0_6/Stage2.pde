@@ -227,32 +227,3 @@ void drawStage2c(){  // Setting Controller page
   backSButton.update();
   backSButton.render();
 }
-
-// void gui(){
-//   cp5.addIcon("icon",10)
-//      .setPosition(933, 455)
-//      .setSize(70,50)
-//      .setRoundedCorners(20)
-//      .setFont(createFont("fontawesome-webfont.ttf", 40))
-//      .setFontIcons(#00f205,#00f204)
-//      .setColorBackground(color(255,100))
-//      .hideBackground()
-//      ;
-// }
-// void icon (boolean theValue)
-// {
-//     if(theValue)
-//     {
-//         bgmMenu.pause();
-//         bgmGaming.pause();
-//         bgmCeremony.pause();
-//         mute = true;
-//     }
-//     else
-//     {
-//         // bgmMenu.play();
-//         // bgmGaming.play();
-//         // bgmCeremony.play();
-//         mute = false;
-//     }
-// }
