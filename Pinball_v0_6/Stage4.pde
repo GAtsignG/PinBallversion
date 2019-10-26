@@ -83,7 +83,14 @@ void drawStage4b(){  // display ceremoney screen
   // which player win????
   textFont(formataBI, 100);
   fill(255);
-  text("Player", 770, 920);
+  if(p1>p2)
+  {
+    text("Player 1", 770, 920);
+  }
+  else{
+    text("Player 2", 770, 920);
+  }
+  
   // add text here—— player x!!
 
 
