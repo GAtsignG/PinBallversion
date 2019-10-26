@@ -103,28 +103,68 @@ void drawStage2g(){  // Setting Game page
   textFont(formataBI, 65);
   textAlign(RIGHT);
   text("Music", 850, 500);
+  text("Sound Effects", 850, 700);
 
-  // 全局控制开关
+  // Global setting - audio mute button
    if(!mute)
  {
-     fill(255);
+     pushMatrix();   // group start
+     translate(933, 449);  // 整组移动到坐标（x, y）
+
+     fill(255);  // Default button color
      noStroke();
-     rect(925,460,250,60,7);
+     rect(0, 0, 250, 60, 10);  // button
+     textAlign(CENTER, CENTER);
      textSize(35);
-     fill(0);
-     text("ON",1075,500);
- }
- else{
-     fill(0);
+     fill(239, 75, 75);
+     text("ON", 125, 30);
+     popMatrix();    // group end 
+}
+else
+{
+     pushMatrix();   // group start
+     translate(933, 449);  // 整组移动到坐标（x, y）
+
+     fill(239, 75, 75);  // Default button color
      noStroke();
-     rect(925,460,250,60,7);
+     rect(0, 0, 250, 60, 10);  // button
+     textAlign(CENTER, CENTER);
      textSize(35);
      fill(255);
-     text("OFF",1075,500);
- }
- 
-  //cp5.hide();
-  
+     text("OFF", 125, 30);
+     popMatrix();    // group end 
+}
+
+  // Global setting - sfx mute button
+   if(!mute)
+ {
+     pushMatrix();   // group start
+     translate(933, 649);  // 整组移动到坐标（x, y）
+
+     fill(255);  // Default button color
+     noStroke();
+     rect(0, 0, 250, 60, 10);  // button
+     textAlign(CENTER, CENTER);
+     textSize(35);
+     fill(239, 75, 75);
+     text("ON", 125, 30);
+     popMatrix();    // group end 
+}
+else
+{
+     pushMatrix();   // group start
+     translate(933, 649);  // 整组移动到坐标（x, y）
+
+     fill(239, 75, 75);  // Default button color
+     noStroke();
+     rect(0, 0, 250, 60, 10);  // button
+     textAlign(CENTER, CENTER);
+     textSize(35);
+     fill(255);
+     text("OFF", 125, 30);
+     popMatrix();    // group end 
+}
+
   if(playButton.isClicked() ){  // switch to Play page
       clickSound();
       switchTog = false;

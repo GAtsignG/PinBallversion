@@ -259,6 +259,7 @@ void draw(){
   }
 }
 
+// sfx trigger
 void clickSound()
 {
   aClick.rewind();
