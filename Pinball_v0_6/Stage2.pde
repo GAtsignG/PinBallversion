@@ -39,6 +39,49 @@ void drawStage2a(){  // Setting default page - Audio
   sf.speedDown();
   sf.speedDown();
 
+  // Option's text.
+  fill(255);
+  textFont(formataBI, 65);
+  textAlign(RIGHT);
+  text("Music", 850, 500);
+  text("Full Screen", 850, 666);
+
+  // 这里加两个滑竿控制音量和音效，只需要3/5个可调节级别  ,  add slider!!!    // controlP5, 用滑竿模式或者切换按钮模式
+ if(mute)
+ {
+     fill(255);
+     noStroke();
+     rect(925,460,250,60,7);
+     textSize(35);
+     fill(0);
+     text("ON",1075,500);
+ }
+ else{
+     fill(0);
+     noStroke();
+     rect(925,460,250,60,7);
+     textSize(35);
+     fill(255);
+     text("OFF",1075,500);
+ }
+ if(fullScreen)
+ {
+     fill(255);
+     noStroke();
+     rect(925,625,250,60,7);
+     textSize(35);
+     fill(0);
+     text("ON",1075,665);
+ }
+ else{
+     fill(0);
+     noStroke();
+     rect(925,625,250,60,7);
+     textSize(35);
+     fill(255);
+     text("OFF",1075,665);
+ }
+    
   if(gameButton.isClicked() ){  // switch to Game page
       clickSound();
       switchTog = true;

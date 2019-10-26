@@ -54,7 +54,15 @@ ArrayList<City> city;
   //particle system
 
 void setup(){
- size(1920, 1080);
+  if(fullScreen)
+  {
+    fullScreen();
+  }
+  else{
+    size(1920,1080);
+  }
+  //fullScreen();
+  //size(1920, 1080);
   frameRate(60);
   // Load all fonts
   formataR = createFont("Formata-Regular.otf", 32);
@@ -133,13 +141,13 @@ void mousePressed()
  }
  if(switchToSettings && switchToa)
  {
-   if(mouseX > 950 && mouseX < 1000)
+   if(mouseX > 925 && mouseX < 1175)
    {
-     if(mouseY > 470 && mouseY < 500)
+     if(mouseY > 460 && mouseY < 520)
      {
        mute = !mute;
      }
-     else if(mouseY > 635 && mouseY < 665)
+     else if(mouseY > 625 && mouseY < 685)
      {
        fullScreen = !fullScreen;
      }
