@@ -258,5 +258,10 @@ void collisionSound()
 {
   aCollision.rewind();
   aCollision.play();
+}
 
+void aWhistleSound()
+{
+  aWhistle.rewind();
+  aWhistle.play();
 }
