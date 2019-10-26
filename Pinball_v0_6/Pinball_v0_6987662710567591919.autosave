@@ -1,3 +1,5 @@
+import processing.sound.*;
+
   // GUI library
   import controlP5.*;
 
@@ -53,8 +55,11 @@ ArrayList<City> city;
   //particle system
 
 void setup(){
+ 
+    size(1920,1080);
   
-  size(1920, 1080);
+  //fullScreen();
+  //size(1920, 1080);
   frameRate(60);
   // Load all fonts
   formataR = createFont("Formata-Regular.otf", 32);
@@ -253,13 +258,20 @@ void draw(){
 
 void clickSound()
 {
-  aClick.rewind();
-  aClick.play();
+      if(aClick.isPlaying() ){
+          aClick.pause();
+          aClick.rewind();
+      }else{
+          aClick.play();
+      }
 }
 
 void collisionSound()
 {
-  aCollision.rewind();
-  aCollision.play();
-
+      if(aCollision.isPlaying() ){
+          aCollision.pause();
+          aCollision.rewind();
+      }else{
+          aCollision.play();
+      }
 }

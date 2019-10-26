@@ -95,9 +95,8 @@ void showStage3(){
       //barriersImage[i] = loadImage(+i+".png");
   }
   // bgm load
-
     bgmGaming = minim.loadFile("bgm_Gaming.mp3");
-    aCollision = minim.loadFile("a_collision.wav"); 
+    aCollision = minim.loadFile("a_collision.mp3"); 
   // 产生碰撞就会激发这个音效
 
   // Buttons             (Pos.x, Pos.y, Width, Height, radius, Text, R, G, B, Alpha)
