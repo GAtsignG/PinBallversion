@@ -8,9 +8,6 @@
   // Buttons
   Button gameButton, playButton, controllerButton, backSButton;
 
-  // GUI
-  //ControlP5 cp5;
-
 void showStage2(){
   // image load
   img2Cover = loadImage("Stage2_Cover.png");

@@ -58,12 +58,6 @@ void drawStage1(){
   //ps.run();
   //rectMode(CORNER);
 
-  if(!switchToGame )
-  {   // menu界面无效但是setting界面是有效的？？？？？？？？？？
-    
-  }
-
- 
   if(startButton.isClicked() ){  // switch to Stage 3 Gaming
       clickSound();
       if(!mute)

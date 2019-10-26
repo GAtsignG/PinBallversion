@@ -1,10 +1,6 @@
-  // GUI library
-  import controlP5.*;
-
+  // This is the Main program
   // Audio library
   import ddf.minim.*;
-  import com.dhchoi.CountdownTimer;
-  import com.dhchoi.CountdownTimerService;
   // Audio player
   Minim minim;
   AudioPlayer aClick;         // use in all Stages
@@ -14,6 +10,10 @@
   AudioPlayer bgmMenu;        // use in Stage 1/2/5
   AudioPlayer bgmGaming;      // use in Stage 3
   AudioPlayer bgmCeremony;    // use in Stage 4
+  
+  // countdown timer
+  import com.dhchoi.CountdownTimer;
+  import com.dhchoi.CountdownTimerService;
 
   // stage switch function list
   boolean switchToSettings = false;
@@ -48,9 +48,9 @@
   ParticleSystem ps2;
   PVector gravity;
   StarField sf;
-ArrayList<Explosion> explosion;
-ArrayList<Rocket> rocket;
-ArrayList<City> city;
+  ArrayList<Explosion> explosion;
+  ArrayList<Rocket> rocket;
+  ArrayList<City> city;
 
   //particle system
 
@@ -76,21 +76,11 @@ void setup(){
   showStage3();
   showStage4();
   showStage5();
-  // cp5 = new ControlP5(this);
-  // cp5.addIcon("icon",10)
-  //    .setPosition(933, 455)
-  //    .setSize(70,50)
-  //    .setRoundedCorners(20)
-  //    .setFont(createFont("fontawesome-webfont.ttf", 40))
-  //    .setFontIcons(#00f205,#00f204)
-  //    .setColorBackground(color(255,100))
-  //    .setSwitch(true);
-     //.hideBackground();
      
   //particle system
- explosion = new ArrayList<Explosion>();
- rocket = new ArrayList<Rocket>();
- smooth();
+  explosion = new ArrayList<Explosion>();
+  rocket = new ArrayList<Rocket>();
+  smooth();
       // int xWidth = 1620;
       // int x = 340;
       // int yHeight = 980;
