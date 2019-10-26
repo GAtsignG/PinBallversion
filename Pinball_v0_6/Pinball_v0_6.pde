@@ -27,6 +27,7 @@
 
   //mute
   boolean mute = false;
+  boolean fullScreen = false;
   
   int p1;   //scores
   int p2;
@@ -129,6 +130,20 @@ void mousePressed()
     switchToGame = false;
     trans = false;
  }
+ if(switchToSettings && switchToa)
+ {
+   if(mouseX > 950 && mouseX < 1000)
+   {
+     if(mouseY > 470 && mouseY < 500)
+     {
+       mute = !mute;
+     }
+     else if(mouseY > 635 && mouseY < 665)
+     {
+       fullScreen = !fullScreen;
+     }
+   }
+ }
 }
 
 void keyPressed() {  // Pausing fuction, only available at Stage 3 Gaming
@@ -180,14 +195,14 @@ void draw(){
   // default show Stage 1 Menu
   if (!switchToGame && !switchToSettings && !switchToCredit)
   {
-    // cp5.hide();
+    //cp5.hide();
     drawStage1();
   }
 
   
   if (!switchToSettings && switchToGame)  // switch to Stage 3 Gaming
   {
-    // cp5.hide();
+    //cp5.hide();
     drawStage3();
   }
 
@@ -214,13 +229,13 @@ void draw(){
 
   if (switchToCeremony && !switchToGame)  //switch to Ceremony
   {
-    // cp5.hide();
+    //cp5.hide();
     drawStage4a(); 
   }
 
    if (switchToFinal && !switchToGame)  //switch to Final
   {
-    // cp5.hide();
+    //cp5.hide();
     drawStage4b(); 
   }
 
