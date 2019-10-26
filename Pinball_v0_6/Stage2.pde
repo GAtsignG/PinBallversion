@@ -103,6 +103,7 @@ void drawStage2g(){  // Setting Game page
   textFont(formataBI, 65);
   textAlign(RIGHT);
   text("Music", 850, 500);
+  text("Sound Effects", 850, 700);
 
   // Global setting - audio mute button
    if(!mute)
@@ -134,6 +135,35 @@ else
      popMatrix();    // group end 
 }
 
+  // Global setting - sfx mute button
+   if(!mute)
+ {
+     pushMatrix();   // group start
+     translate(933, 649);  // 整组移动到坐标（x, y）
+
+     fill(255);  // Default button color
+     noStroke();
+     rect(0, 0, 250, 60, 10);  // button
+     textAlign(CENTER, CENTER);
+     textSize(35);
+     fill(239, 75, 75);
+     text("ON", 125, 30);
+     popMatrix();    // group end 
+}
+else
+{
+     pushMatrix();   // group start
+     translate(933, 649);  // 整组移动到坐标（x, y）
+
+     fill(239, 75, 75);  // Default button color
+     noStroke();
+     rect(0, 0, 250, 60, 10);  // button
+     textAlign(CENTER, CENTER);
+     textSize(35);
+     fill(255);
+     text("OFF", 125, 30);
+     popMatrix();    // group end 
+}
 
   if(playButton.isClicked() ){  // switch to Play page
       clickSound();
