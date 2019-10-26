@@ -39,44 +39,6 @@ void drawStage2a(){  // Setting default page - Audio
   sf.speedDown();
   sf.speedDown();
 
-
-
-  // 这里加两个滑竿控制音量和音效，只需要3/5个可调节级别  ,  add slider!!!    // controlP5, 用滑竿模式或者切换按钮模式
- if(mute)
- {
-     fill(255);
-     noStroke();
-     rect(950,470,50,30,7);
-     textSize(15);
-     fill(0);
-     text("ON",985,490);
- }
- else{
-     fill(0);
-     noStroke();
-     rect(950,470,50,30,7);
-     textSize(15);
-     fill(255);
-     text("OFF",985,490);
- }
- if(fullScreen)
- {
-     fill(255);
-     noStroke();
-     rect(950,635,50,30,7);
-     textSize(15);
-     fill(0);
-     text("ON",985,655);
- }
- else{
-     fill(0);
-     noStroke();
-     rect(950,635,50,30,7);
-     textSize(15);
-     fill(255);
-     text("OFF",985,655);
- }
-    
   if(gameButton.isClicked() ){  // switch to Game page
       clickSound();
       switchTog = true;
@@ -141,7 +103,41 @@ void drawStage2g(){  // Setting Game page
   text("Music", 850, 500);
   text("Full Screen", 850, 666);
 
-  // toggle to fullscreen mode,    use controlP5 - icon  (Frome examples)
+  // 全局控制开关
+   if(mute)
+ {
+     fill(255);
+     noStroke();
+     rect(950,470,50,30,7);
+     textSize(15);
+     fill(0);
+     text("ON",985,490);
+ }
+ else{
+     fill(0);
+     noStroke();
+     rect(950,470,50,30,7);
+     textSize(15);
+     fill(255);
+     text("OFF",985,490);
+ }
+ if(fullScreen)
+ {
+     fill(255);
+     noStroke();
+     rect(950,635,50,30,7);
+     textSize(15);
+     fill(0);
+     text("ON",985,655);
+ }
+ else{
+     fill(0);
+     noStroke();
+     rect(950,635,50,30,7);
+     textSize(15);
+     fill(255);
+     text("OFF",985,655);
+ }
   //cp5.hide();
   
   if(playButton.isClicked() ){  // switch to Audio page
