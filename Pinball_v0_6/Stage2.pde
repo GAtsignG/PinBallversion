@@ -27,13 +27,13 @@ void showStage2(){
 
 }
 
-void drawStage2a(){  // Setting default page - Audio
+void drawStage2a(){  // Setting default page - Play
   
   image(img0BG, 0, 0);
   fill(0, 120);
   rect(0, 0, 1920, 1080);
   image(img2Cover, 0, 0);
-  image(img2HowToPlay, 275, 290, 1420, 650);  // 加载如何玩的说明图
+  image(img2HowToPlay, 271, 294, 1436, 664);  // Load the pic to explain How to play this game
   
   sf.run();
   sf.speedDown();
@@ -125,7 +125,7 @@ void drawStage2g(){  // Setting Game page
  
   //cp5.hide();
   
-  if(playButton.isClicked() ){  // switch to Audio page
+  if(playButton.isClicked() ){  // switch to Play page
       clickSound();
       switchTog = false;
       switchToa = true;
@@ -189,7 +189,7 @@ void drawStage2c(){  // Setting Controller page
       switchToc = false;
   }
 
-  if(playButton.isClicked() ){  // switch to Audio page
+  if(playButton.isClicked() ){  // switch to Play page
       clickSound();
       switchTog = false;
       switchToa = true;

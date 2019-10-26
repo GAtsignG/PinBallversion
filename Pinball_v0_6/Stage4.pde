@@ -23,8 +23,8 @@ void showStage4(){  // 默认显示Stage4a ↓↓↓↓
 
   // Buttons  (Pos.x, Pos.y, Width, Height, radius, Text, R, G, B, Alpha)
   textFont(formataBI);
-  playAgainButton = new Button(1300, 500, 250, 50, 100, "Play Again", 129, 200, 177);
-  menuButton = new Button(1300, 600, 250, 50, 100, "Menu", 129, 200, 177);
+  playAgainButton = new Button(1300, 500, 250, 60, 100, "Play Again", 129, 200, 177);
+  menuButton = new Button(1300, 600, 250, 60, 100, "Menu", 129, 200, 177);
 
 }
 
@@ -61,9 +61,7 @@ void drawStage4a(){  // only display score
    bgmCeremony.pause();
    bgmCeremony.rewind();
    bgmCeremony.play();
-  }
-  else 
-  {
+  }else{
     bgmCeremony.pause();  
   }
   
@@ -79,8 +77,14 @@ void drawStage4b(){  // display ceremoney screen
   // 界面过渡后显示出来下面的
   // fade in after switch screen from score to ceremoney
 
-  //imageMode(CENTER);
-  image(img4Winner, 300, 200);     
+  // load winner img
+  image(img4Winner, 565, 341, 423, 593);
+
+  // which player win????
+  textFont(formataBI, 100);
+  fill(255);
+  text("Player", 770, 920);
+  // add text here—— player x!!
 
 
   if(playAgainButton.isClicked() ){  // switch to Stage 3 Gaming   
@@ -90,8 +94,7 @@ void drawStage4b(){  // display ceremoney screen
       bgmMenu.pause();
       bgmMenu.rewind();
       bgmGaming.loop();
-    }
-    else{
+    }else{
       bgmMenu.pause();
       bgmGaming.pause();
     }
@@ -112,8 +115,7 @@ void drawStage4b(){  // display ceremoney screen
       bgmCeremony.pause();
       bgmCeremony.rewind();
       bgmMenu.loop();
-    }
-    else{
+    }else{
       bgmCeremony.pause();
       bgmMenu.pause();
     }
