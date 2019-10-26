@@ -187,13 +187,11 @@ void draw(){
   // default show Stage 1 Menu
   if (!switchToGame && !switchToSettings && !switchToCredit)
   {
-    //cp5.hide();
     drawStage1();
   }
   
   if (!switchToSettings && switchToGame)  // switch to Stage 3 Gaming
   {
-    //cp5.hide();
     drawStage3();
   }
   
@@ -220,13 +218,11 @@ void draw(){
 
   if (switchToCeremony && !switchToGame)  //switch to Ceremony
   {
-    //cp5.hide();
     drawStage4a(); 
   }
 
    if (switchToFinal && !switchToGame)  //switch to Final
   {
-    //cp5.hide();
     drawStage4b(); 
   }
 }
