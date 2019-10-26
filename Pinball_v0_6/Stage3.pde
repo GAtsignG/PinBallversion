@@ -96,9 +96,9 @@ void showStage3(){
   }
   // bgm load
     bgmGaming = minim.loadFile("bgm_Gaming.mp3");
-    aCollision = minim.loadFile("a_collision.mp3"); 
-  // 产生碰撞就会激发这个音效
-
+    aCollision = minim.loadFile("a_collision.mp3");   // when the collision happend play this sound
+    aWhistle = minim.loadFile("a_whistle.mp3");       // when game end, play this sound only once
+  
   // Buttons             (Pos.x, Pos.y, Width, Height, radius, Text, R, G, B, Alpha)
   textFont(formataBI);
   // pauseButton = new Button(1700, 850, 200, 50, 100, "Start", 129, 200, 177);
