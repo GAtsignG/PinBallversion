@@ -130,6 +130,20 @@ void mousePressed()
     switchToGame = false;
     trans = false;
  }
+ if(switchToSettings && switchToa)
+ {
+   if(mouseX > 950 && mouseX < 1000)
+   {
+     if(mouseY > 470 && mouseY < 500)
+     {
+       mute = !mute;
+     }
+     else if(mouseY > 635 && mouseY < 665)
+     {
+       fullScreen = !fullScreen;
+     }
+   }
+ }
 }
 
 void keyPressed() {  // Pausing fuction, only available at Stage 3 Gaming
