@@ -39,6 +39,8 @@ void drawStage2a(){  // Setting default page - Audio
   sf.speedDown();
   sf.speedDown();
 
+ 
+    
   if(gameButton.isClicked() ){  // switch to Game page
       clickSound();
       switchTog = true;
@@ -101,43 +103,26 @@ void drawStage2g(){  // Setting Game page
   textFont(formataBI, 65);
   textAlign(RIGHT);
   text("Music", 850, 500);
-  text("Full Screen", 850, 666);
 
   // 全局控制开关
-   if(mute)
+   if(!mute)
  {
      fill(255);
      noStroke();
-     rect(950,470,50,30,7);
-     textSize(15);
+     rect(925,460,250,60,7);
+     textSize(35);
      fill(0);
-     text("ON",985,490);
+     text("ON",1075,500);
  }
  else{
      fill(0);
      noStroke();
-     rect(950,470,50,30,7);
-     textSize(15);
+     rect(925,460,250,60,7);
+     textSize(35);
      fill(255);
-     text("OFF",985,490);
+     text("OFF",1075,500);
  }
- if(fullScreen)
- {
-     fill(255);
-     noStroke();
-     rect(950,635,50,30,7);
-     textSize(15);
-     fill(0);
-     text("ON",985,655);
- }
- else{
-     fill(0);
-     noStroke();
-     rect(950,635,50,30,7);
-     textSize(15);
-     fill(255);
-     text("OFF",985,655);
- }
+ 
   //cp5.hide();
   
   if(playButton.isClicked() ){  // switch to Audio page
