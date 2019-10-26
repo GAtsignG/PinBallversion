@@ -136,7 +136,7 @@ else
 }
 
   // Global setting - sfx mute button
-   if(!mute)
+   if(!sEM)
  {
      pushMatrix();   // group start
      translate(933, 649);  // 整组移动到坐标（x, y）

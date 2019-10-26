@@ -228,7 +228,7 @@ void drawStage3(){  // Gaming zone setting
   {
      if (p1 == 5 || p2 == 5) //end the game and switch to ceremony
     {
-      aWhistle.play();
+      whistleSound();
     if(!mute)
     {
       bgmGaming.pause();

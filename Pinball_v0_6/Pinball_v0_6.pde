@@ -135,9 +135,9 @@ void mousePressed()
  }
  if(switchToSettings && switchTog)
  {
-   if(mouseX > 925 && mouseX < 1175)
+   if(mouseX > 933 && mouseX < 1183)
    {
-     if(mouseY > 460 && mouseY < 520)
+     if(mouseY > 449 && mouseY < 509)
      {
        mute = !mute;
        if(mute)
@@ -149,6 +149,10 @@ void mousePressed()
        else{
          bgmMenu.play();
        }
+     }
+     else if(mouseX>649 && mouseY < 709)
+     {
+       sEM = !sEM;
      }
      
    }
@@ -262,18 +266,51 @@ void draw(){
 // sfx trigger
 void clickSound()
 {
-  aClick.rewind();
-  aClick.play();
+  if(!sEM)
+  {
+    aClick.pause();
+    aClick.rewind();
+    aClick.play();
+  }
+  else{
+    aClick.pause();
+  }
+  
 }
-
+void sweepSound()
+{
+  if(!sEM)
+  {
+    aSweep.pause();
+    aSweep.rewind();
+    aSweep.play();
+  }
+  else{
+    aSweep.pause();
+  }
+}
 void collisionSound()
 {
-  aCollision.rewind();
-  aCollision.play();
+  if(!sEM)
+  {
+    aCollision.pause();
+    aCollision.rewind();
+    aCollision.play();
+  }
+  else{
+    aCollision.pause();
+  }
 }
 
-void aWhistleSound()
+void whistleSound()
 {
-  aWhistle.rewind();
-  aWhistle.play();
+  if(!sEM)
+  {
+    aWhistle.pause();
+    aWhistle.rewind();
+    aWhistle.play();
+  }
+  else{
+    aWhistle.pause();
+  }
 }
