@@ -131,13 +131,22 @@ void mousePressed()
     switchToGame = false;
     trans = false;
  }
- if(switchToSettings && switchToa)
+ if(switchToSettings && switchTog)
  {
    if(mouseX > 925 && mouseX < 1175)
    {
      if(mouseY > 460 && mouseY < 520)
      {
        mute = !mute;
+       if(mute)
+       {
+         bgmGaming.pause();
+         bgmCeremony.pause();
+         bgmMenu.pause();
+       }
+       else{
+         bgmMenu.play();
+       }
      }
      
    }
@@ -258,5 +267,10 @@ void collisionSound()
 {
   aCollision.rewind();
   aCollision.play();
+}
 
+void aWhistleSound()
+{
+  aWhistle.rewind();
+  aWhistle.play();
 }

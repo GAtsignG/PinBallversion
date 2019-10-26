@@ -96,9 +96,10 @@ void showStage3(){
   }
   // bgm load
     bgmGaming = minim.loadFile("bgm_Gaming.mp3");
-    aCollision = minim.loadFile("a_collision.mp3");   // when the collision happend play this sound
-    aWhistle = minim.loadFile("a_whistle.mp3");       // when game end, play this sound only once
-  
+    aCollision = minim.loadFile("a_collision.mp3");
+    aWhistle = minim.loadFile("a_whistle.wav");       // when game end, play this sound only once
+  // 产生碰撞就会激发这个音效
+
   // Buttons             (Pos.x, Pos.y, Width, Height, radius, Text, R, G, B, Alpha)
   textFont(formataBI);
   // pauseButton = new Button(1700, 850, 200, 50, 100, "Start", 129, 200, 177);
@@ -154,7 +155,7 @@ void drawStage3(){  // Gaming zone setting
     //barrier.barrierReflect();
   }
 
-  if(!startGame)
+  if(!startGame && !trans)
   {
     d = new Defender(); //default postion
     fill(0, 120);  //countdown lable
@@ -186,6 +187,9 @@ void drawStage3(){  // Gaming zone setting
       bgmGaming.rewind();
       bgmMenu.play();
     }
+    else{
+      bgmGaming.pause();
+    }
     
     timer.stop(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
     timeLimit.stop(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
@@ -193,6 +197,7 @@ void drawStage3(){  // Gaming zone setting
     timeLimit.reset(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
     startGame = false;
     countNum = 3;  //restart the game
+    
     switchToGame = false;
     round = false;
  
@@ -213,7 +218,7 @@ void drawStage3(){  // Gaming zone setting
       }
       barriers[i] = new Barrier(random(650+xx*i,650+xx*(i+1)),yy,random(150,200), i, barriers);
     }
- }
+   }
 
 
   backGButton.update();
@@ -223,10 +228,15 @@ void drawStage3(){  // Gaming zone setting
   {
      if (p1 == 5 || p2 == 5) //end the game and switch to ceremony
     {
+      aWhistle.play();
     if(!mute)
     {
       bgmGaming.pause();
       bgmGaming.rewind();
+      bgmGaming.play();
+    }
+    else{
+      bgmGaming.pause();
     }
     
     timer.stop(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
