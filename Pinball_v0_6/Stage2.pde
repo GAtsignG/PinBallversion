@@ -3,10 +3,10 @@
   */
 
   // Image var
-  PImage img2Cover, img2Controller;
+  PImage img2Cover, img2Controller, img2HowToPlay;
 
   // Buttons
-  Button gameButton, audioButton, controllerButton, backSButton;
+  Button gameButton, playButton, controllerButton, backSButton;
 
   // GUI
   //ControlP5 cp5;
@@ -15,11 +15,12 @@ void showStage2(){
   // image load
   img2Cover = loadImage("Stage2_Cover.png");
   img2Controller = loadImage("Stage2_ControllerIndicator.png");
+  img2HowToPlay = loadImage("Stage2_HowToPlay.png");
   // Buttons             (Pos.x, Pos.y, Width, Height, radius, Text, R, G, B, Alpha)
   // extended button, +alpha 
   textFont(formataBI);
   gameButton = new TitleButton(650, 170, 340, 100, 0, "Game", 100, 100, 100, 0);
-  audioButton = new TitleButton(990, 170, 350, 100, 0, "Audio", 150, 200, 100, 0);  
+  playButton = new TitleButton(990, 170, 350, 100, 0, "Play", 150, 200, 100, 0);  
   controllerButton = new TitleButton(1340, 170, 400, 100, 0, "Controller", 200, 100, 200, 0);
   // general button
   backSButton = new Button(860, 920, 200, 50, 100, "Back", 100, 129, 200, 177);
@@ -32,17 +33,13 @@ void drawStage2a(){  // Setting default page - Audio
   fill(0, 120);
   rect(0, 0, 1920, 1080);
   image(img2Cover, 0, 0);
+  image(img2HowToPlay, 275, 290, 1420, 650);  // 加载如何玩的说明图
   
   sf.run();
   sf.speedDown();
   sf.speedDown();
 
-  // Option's text.
-  fill(255);
-  textFont(formataBI, 65);
-  textAlign(RIGHT);
-  text("Music", 850, 500);
-  text("Full Screen", 850, 666);
+
 
   // 这里加两个滑竿控制音量和音效，只需要3/5个可调节级别  ,  add slider!!!    // controlP5, 用滑竿模式或者切换按钮模式
  
@@ -85,8 +82,8 @@ void drawStage2a(){  // Setting default page - Audio
 
   gameButton.update();
   gameButton.render();
-  audioButton.update();
-  audioButton.render();
+  playButton.update();
+  playButton.render();
   controllerButton.update();
   controllerButton.render();
   backSButton.update();
@@ -103,16 +100,18 @@ void drawStage2g(){  // Setting Game page
   sf.run();
   sf.speedDown();
   sf.speedDown();
+
   // Option's text.
   fill(255);
   textFont(formataBI, 65);
   textAlign(RIGHT);
-  text("Full Screen", 850, 500);
-  text("Rounds", 850, 666);
+  text("Music", 850, 500);
+  text("Full Screen", 850, 666);
+
   // toggle to fullscreen mode,    use controlP5 - icon  (Frome examples)
   //cp5.hide();
   
-  if(audioButton.isClicked() ){  // switch to Audio page
+  if(playButton.isClicked() ){  // switch to Audio page
       clickSound();
       switchTog = false;
       switchToa = true;
@@ -135,7 +134,7 @@ void drawStage2g(){  // Setting Game page
   }
   
   if(mouseX >= 990 && mouseX <= 1340 && mouseY >= 170 && mouseY <= 270)
-  {  // when move mouse over the audioButton, draw a underline below it
+  {  // when move mouse over the playButton, draw a underline below it
       noStroke();
       fill(129, 200, 177);               
       rect(1068, 255, 187, 5);
@@ -150,8 +149,8 @@ void drawStage2g(){  // Setting Game page
 
   gameButton.update();
   gameButton.render();
-  audioButton.update();
-  audioButton.render();
+  playButton.update();
+  playButton.render();
   controllerButton.update();
   controllerButton.render();
   backSButton.update();
@@ -168,12 +167,6 @@ void drawStage2c(){  // Setting Controller page
   sf.run();
   sf.speedDown();
   sf.speedDown();
-  // Option's text.
-  //textFont(formataBI, 65);
-  //textAlign(CENTER);
-  //text("Music", 850, 500);
-  //text("Sound Effect", 850, 666);
-  //cp5.hide();
 
   if(gameButton.isClicked() ){  // switch to Game page
       clickSound();
@@ -182,7 +175,7 @@ void drawStage2c(){  // Setting Controller page
       switchToc = false;
   }
 
-  if(audioButton.isClicked() ){  // switch to Audio page
+  if(playButton.isClicked() ){  // switch to Audio page
       clickSound();
       switchTog = false;
       switchToa = true;
@@ -205,7 +198,7 @@ void drawStage2c(){  // Setting Controller page
   }
 
   if(mouseX >= 990 && mouseX <= 1340 && mouseY >= 170 && mouseY <= 270)
-  {  // when move mouse over the audioButton, draw a underline below it
+  {  // when move mouse over the playButton, draw a underline below it
       noStroke();
       fill(129, 200, 177);               
       rect(1068, 255, 187, 5);
@@ -213,8 +206,8 @@ void drawStage2c(){  // Setting Controller page
 
   gameButton.update();
   gameButton.render();
-  audioButton.update();
-  audioButton.render();
+  playButton.update();
+  playButton.render();
   controllerButton.update();
   controllerButton.render();
   backSButton.update();
