@@ -1,10 +1,6 @@
-  // GUI library
-  import controlP5.*;
-
+  // This is the Main program
   // Audio library
   import ddf.minim.*;
-  import com.dhchoi.CountdownTimer;
-  import com.dhchoi.CountdownTimerService;
   // Audio player
   Minim minim;
   AudioPlayer aClick;         // use in all Stages
@@ -14,6 +10,10 @@
   AudioPlayer bgmMenu;        // use in Stage 1/2/5
   AudioPlayer bgmGaming;      // use in Stage 3
   AudioPlayer bgmCeremony;    // use in Stage 4
+  
+  // countdown timer
+  import com.dhchoi.CountdownTimer;
+  import com.dhchoi.CountdownTimerService;
 
   // stage switch function list
   boolean switchToSettings = false;
@@ -48,9 +48,9 @@
   ParticleSystem ps2;
   PVector gravity;
   StarField sf;
-ArrayList<Explosion> explosion;
-ArrayList<Rocket> rocket;
-ArrayList<City> city;
+  ArrayList<Explosion> explosion;
+  ArrayList<Rocket> rocket;
+  ArrayList<City> city;
 
   //particle system
 
@@ -78,9 +78,9 @@ void setup(){
   showStage5();
   
   //particle system
- explosion = new ArrayList<Explosion>();
- rocket = new ArrayList<Rocket>();
- smooth();
+  explosion = new ArrayList<Explosion>();
+  rocket = new ArrayList<Rocket>();
+  smooth();
       // int xWidth = 1620;
       // int x = 340;
       // int yHeight = 980;

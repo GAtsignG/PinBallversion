@@ -25,6 +25,7 @@ void showStage5(){
 void drawStage5(){  // the Credits page
 
   image(img0BG, 0, 0);
+  image(img25AbstractMid, 0, 0);
   fill(0, 120);
   rect(0, 0, 1920, 1080);
   image(img5Cover, 0, 0);
