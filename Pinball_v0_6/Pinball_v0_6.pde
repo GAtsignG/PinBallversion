@@ -28,6 +28,8 @@
 
   //mute
   boolean mute = false;
+  //sound effect mute
+  boolean sEM = false;
   
   int p1;   //scores
   int p2;

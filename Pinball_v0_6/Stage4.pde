@@ -15,10 +15,7 @@ void showStage4(){  // 默认显示Stage4a ↓↓↓↓
   img4Winner = loadImage("Stage4_Winner.png");
 
   // bgm load
-  if(!mute)
-  {
     bgmCeremony = minim.loadFile("bgm_Ceremoney.mp3");
-  }
   
 
   // Buttons  (Pos.x, Pos.y, Width, Height, radius, Text, R, G, B, Alpha)
@@ -58,6 +55,8 @@ void drawStage4a(){  // only display score
 
   if (switchToCeremony && !mute)
   {
+    bgmGaming.pause();
+    bgmMenu.pause();
    bgmCeremony.pause();
    bgmCeremony.rewind();
    bgmCeremony.play();
