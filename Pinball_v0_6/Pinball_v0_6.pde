@@ -33,7 +33,7 @@ boolean sEM = false;
   
 int p1;   //scores
 int p2;
-boolean p1Play; //player round
+boolean p1Play = true; //player round
 
 // Font setting
 PFont formataR, formataB, formataI, formataBI, numFont;

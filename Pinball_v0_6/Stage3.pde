@@ -159,14 +159,17 @@ void drawStage3(){  // Gaming zone setting
       bgmGaming.pause();
     }
     
-    timer.stop(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
-    timeLimit.stop(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
-    timer.reset(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
-    timeLimit.reset(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
-    startGame = false;
-    countNum = 3;  //restart the game
+    // timer.stop(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
+    // timeLimit.stop(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
+    // timer.reset(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
+    // timeLimit.reset(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
+    // startGame = false;
+    // countNum = 3;  //restart the game
     
     switchToGame = false;
+    switchToCeremony = false;
+    switchToSettings = false;
+    switchToCredit = false;
     round = false;
  
  //refresh the mover and barriers
@@ -268,17 +271,20 @@ void onFinishEvent(CountdownTimer t) {
   }
   if (t.getId() == 1)
   {
-    confirmNext();
+    if(p1<5 && p2 < 5)
+    {
+      confirmNext();
+    }
     if(p1Play)
     { 
       //交换球权
-      p1++;
+      p2++;
       p1Play = false;
     }
     else
     {           
       //交换球权
-      p2++;
+      p1++;
       p1Play = true;
     }
     mover.nextGame(); //overtime !!!       

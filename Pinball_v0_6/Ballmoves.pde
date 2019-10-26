@@ -72,33 +72,6 @@ class Mover extends Ball{
         }
       }
     }
-    else
-    {
-      if(position.x<400)
-      {
-        if(position.y<790 && position.y>290)
-        {
-          goalYes();
-          goal = true;
-          mover = new Mover();
-          nextGame();
-          for (int i = 0; i< barrierNum; i++)
-          {
-            float xx = (1500-650)/barrierNum;
-            float yy;
-            if(i%2 == 0)
-            {
-              yy = random(270,430);
-            }
-            else
-            {
-              yy = random(550,710);
-            }
-            barriers[i] = new Barrier(random(650+xx*i,650+xx*(i+1)),yy,random(150,200), i, barriers);
-          }
-        }
-      }
-    }
   }
   
   boolean getGoal()
@@ -136,7 +109,10 @@ class Mover extends Ball{
       p1Play = true;
     }
     nextGame();
-    confirmNext();
+    if(p1<5 && p2 < 5)
+    {
+      confirmNext();
+    }
   }
   void nextGame()
   {   
@@ -152,41 +128,18 @@ class Mover extends Ball{
     //ellipse(position.x, position.y, 48, 48);
   }
 
-  void checkEdges() {
-    //continue the play
-    if (position.x > 400) {
-      position.x = 0;
-    } 
-    else if (position.x < 1530) {
-      position.x = width;
-    }
-
-    if (position.y > 120) {
-      position.y = 0;
-    } 
-    else if (position.y < 980) {
-      position.y = height;
-    }
-  }
-  
-    /*void ballreflect()
-{
-     velocity.x *= -1;  
-     velocity.y *= -1;
-}
-*/
- void checkReflect()
- {
-   int xWidth = 1620;
-   int x = 340;
-   int yHeight = 980;
-   int y = 120;
+  void checkReflect()
+  {
+    int xWidth = 1620;
+    int x = 340;
+    int yHeight = 980;
+    int y = 120;
    
-   if (position.x > xWidth-radius) 
-   {
-     collisionSound();
-     position.x = xWidth-radius;
-     velocity.x *= -1;
+    if (position.x > xWidth-radius) 
+    {
+      collisionSound();
+      position.x = xWidth-radius;
+      velocity.x *= -1;
     } 
     else if (position.x < x + radius) {
       collisionSound();
