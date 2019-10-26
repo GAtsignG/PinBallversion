@@ -109,12 +109,3 @@ class TitleButton extends Button{      // Title use ONLY, change size
     text(Text, Pos.x + (Width/2), Pos.y + (Height/2) );
   }
  }
-
-// 准备写个滑竿的class
-class Slider{
-  ControlP5 cp5;
-
-  int volumeCP = 100;
-  
-
-}

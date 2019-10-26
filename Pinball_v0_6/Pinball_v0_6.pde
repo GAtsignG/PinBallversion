@@ -27,6 +27,7 @@
 
   //mute
   boolean mute = false;
+  boolean fullScreen = false;
   
   int p1;   //scores
   int p2;
@@ -128,6 +129,20 @@ void mousePressed()
     switchToCeremony = true;
     switchToGame = false;
     trans = false;
+ }
+ if(switchToSettings && switchToa)
+ {
+   if(mouseX > 950 && mouseX < 1000)
+   {
+     if(mouseY > 470 && mouseY < 500)
+     {
+       mute = !mute;
+     }
+     else if(mouseY > 635 && mouseY < 665)
+     {
+       fullScreen = !fullScreen;
+     }
+   }
  }
 }
 
