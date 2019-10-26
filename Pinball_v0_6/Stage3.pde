@@ -31,6 +31,8 @@ int barrierImg = (int) random(1,9);
 Defender d;
 
 void showStage3(){
+  // bgm load
+  bgmCeremony = minim.loadFile("bgm_Ceremoney.mp3");
   // image load
   img3BGframe = loadImage("Stage3_BG_Frame.png");
   img3BGgrass = loadImage("Stage3_BG_Grass.jpg");
@@ -199,26 +201,26 @@ void drawStage3(){  // Gaming zone setting
     if (p1 == 5 || p2 == 5) //end the game and switch to ceremony
     {
       whistleSound();
-    if(!mute)
-    {
-      bgmGaming.pause();
-      bgmGaming.rewind();
-      bgmGaming.play();
-    }
-    else{
-      bgmGaming.pause();
-    }
+      if(!mute)
+      {
+        bgmGaming.pause();
+        bgmGaming.rewind();
+        bgmGaming.play();
+      }
+      else{
+        bgmGaming.pause();
+      }
     
-    timer.stop(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
-    timeLimit.stop(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
-    timer.reset(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
-    timeLimit.reset(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
-    startGame = false;
-    countNum = 3;  //restart the game
-    round = false;
+      timer.stop(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
+      timeLimit.stop(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
+      timer.reset(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
+      timeLimit.reset(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
+      startGame = false;
+      countNum = 3;  //restart the game
+      round = false;
     
-    //fireworkTime.start();
-    trans = true;
+      //fireworkTime.start();
+      trans = true;
     }
   }
   
@@ -229,6 +231,17 @@ void drawStage3(){  // Gaming zone setting
     textFont(formataI, 30);
     text("Click mouse to continue", 960, 570);
     textFont(formataBI, 30);
+    if(!mute)
+    {
+      bgmGaming.pause();
+      bgmMenu.pause();
+      bgmCeremony.pause();
+      bgmCeremony.rewind();
+      bgmCeremony.play();
+    }
+    else{
+      bgmCeremony.pause();
+    }
   }
 }
 
