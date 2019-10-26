@@ -53,15 +53,8 @@ ArrayList<City> city;
   //particle system
 
 void setup(){
-  if(fullScreen)
-  {
-    fullScreen();
-  }
-  else{
-    size(1920,1080);
-  }
-  //fullScreen();
-  //size(1920, 1080);
+  
+  size(1920, 1080);
   frameRate(60);
   // Load all fonts
   formataR = createFont("Formata-Regular.otf", 32);
