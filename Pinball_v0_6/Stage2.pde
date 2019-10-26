@@ -3,7 +3,7 @@
   */
 
   // Image var
-  PImage img2Cover, img2Controller, img2HowToPlay;
+  PImage img2Cover, img25AbstractMid, img2Controller, img2HowToPlay;
 
   // Buttons
   Button gameButton, playButton, controllerButton, backSButton;
@@ -11,6 +11,7 @@
 void showStage2(){
   // image load
   img2Cover = loadImage("Stage2_Cover.png");
+  img25AbstractMid = loadImage("Stage2_AbstractMid.png");
   img2Controller = loadImage("Stage2_ControllerIndicator.png");
   img2HowToPlay = loadImage("Stage2_HowToPlay.png");
   // Buttons             (Pos.x, Pos.y, Width, Height, radius, Text, R, G, B, Alpha)
@@ -27,6 +28,7 @@ void showStage2(){
 void drawStage2a(){  // Setting default page - Play
   
   image(img0BG, 0, 0);
+  image(img25AbstractMid, 0, 0);
   fill(0, 120);
   rect(0, 0, 1920, 1080);
   image(img2Cover, 0, 0);
@@ -88,6 +90,7 @@ void drawStage2a(){  // Setting default page - Play
 void drawStage2g(){  // Setting Game page
 
   image(img0BG, 0, 0);
+  image(img25AbstractMid, 0, 0);
   fill(0, 120);
   rect(0, 0, 1920, 1080);
   image(img2Cover, 0, 0);
@@ -211,6 +214,7 @@ else
 void drawStage2c(){  // Setting Controller page
 
   image(img0BG, 0, 0);
+  image(img25AbstractMid, 0, 0);
   fill(0, 120);
   rect(0, 0, 1920, 1080);
   image(img2Cover, 0, 0);
