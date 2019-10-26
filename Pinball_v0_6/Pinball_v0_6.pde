@@ -131,7 +131,7 @@ void mousePressed()
     switchToGame = false;
     trans = false;
  }
- if(switchToSettings && switchToa)
+ if(switchToSettings && switchTog)
  {
    if(mouseX > 925 && mouseX < 1175)
    {
