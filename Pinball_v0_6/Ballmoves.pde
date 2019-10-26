@@ -72,33 +72,6 @@ class Mover extends Ball{
         }
       }
     }
-    else
-    {
-      if(position.x<400)
-      {
-        if(position.y<790 && position.y>290)
-        {
-          goalYes();
-          goal = true;
-          mover = new Mover();
-          nextGame();
-          for (int i = 0; i< barrierNum; i++)
-          {
-            float xx = (1500-650)/barrierNum;
-            float yy;
-            if(i%2 == 0)
-            {
-              yy = random(270,430);
-            }
-            else
-            {
-              yy = random(550,710);
-            }
-            barriers[i] = new Barrier(random(650+xx*i,650+xx*(i+1)),yy,random(150,200), i, barriers);
-          }
-        }
-      }
-    }
   }
   
   boolean getGoal()
@@ -136,7 +109,10 @@ class Mover extends Ball{
       p1Play = true;
     }
     nextGame();
-    confirmNext();
+    if(p1<5 && p2 < 5)
+    {
+      confirmNext();
+    }
   }
   void nextGame()
   {   

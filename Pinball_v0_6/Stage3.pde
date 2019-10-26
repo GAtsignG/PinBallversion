@@ -271,17 +271,20 @@ void onFinishEvent(CountdownTimer t) {
   }
   if (t.getId() == 1)
   {
-    confirmNext();
+    if(p1<5 && p2 < 5)
+    {
+      confirmNext();
+    }
     if(p1Play)
     { 
       //交换球权
-      p1++;
+      p2++;
       p1Play = false;
     }
     else
     {           
       //交换球权
-      p2++;
+      p1++;
       p1Play = true;
     }
     mover.nextGame(); //overtime !!!       
