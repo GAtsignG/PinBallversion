@@ -258,7 +258,6 @@ void clickSound()
 {
   if(!sEM)
   {
-    aClick.pause();
     aClick.rewind();
     aClick.play();
   }
@@ -271,7 +270,6 @@ void sweepSound()
 {
   if(!sEM)
   {
-    aSweep.pause();
     aSweep.rewind();
     aSweep.play();
   }
@@ -283,7 +281,6 @@ void collisionSound()
 {
   if(!sEM)
   {
-    aCollision.pause();
     aCollision.rewind();
     aCollision.play();
   }
@@ -296,7 +293,6 @@ void whistleSound()
 {
   if(!sEM)
   {
-    aWhistle.pause();
     aWhistle.rewind();
     aWhistle.play();
   }

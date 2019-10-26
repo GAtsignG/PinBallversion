@@ -8,7 +8,7 @@ class Button{
   String Text;
   Boolean Pressed = false;
   Boolean Clicked = false;
-
+  int sweep = 0;
   // Constructor to create a button
   //    (Pos.x, Pos.y, Width, Height,    radius,    Text,      R, G, B,)
   Button(int x, int y, int w, int h, int radius, String t, int r, int g, int b){
@@ -57,13 +57,18 @@ class Button{
       // cursor(HAND);         // 变不回原来的样子了
       fill(184, 49, 49);    // button color darkness
       rect(Pos.x, Pos.y, Width, Height, Radius);
-      sweepSound();
+      
+      if(sweep == 0)
+      {
+        sweepSound();
+      }
+      sweep++;
 
     }else{
       // cursor(ARROW);
       fill(239, 75, 75);  // General color of the buttons, modify here if needed
       rect(Pos.x, Pos.y, Width, Height, Radius);
-      sweepSound();
+      sweep = 0;
     }
     
     
