@@ -310,7 +310,7 @@ void confirmNext()
   fill(255);
   textFont(formataBI, 65);
   textAlign(CENTER);
-  text("Next round", 960, 520);
+  text("Exchange Player Role!", 960, 520);
     
   fill(255, 100);
   textFont(formataI, 30);

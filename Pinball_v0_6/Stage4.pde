@@ -37,7 +37,7 @@ void drawStage4a(){  // only display score
   // 读取BallMoves里的分数，分别显示在冒号两边
   textFont(numFont, 500);
   fill(239, 75, 75);
-  text(p1, 720, 560);   // p1 score
+  text(p1, 710, 560);   // p1 score
   fill(62, 137, 218);
   text(p2, 1220, 560);  // p2 score
   textFont(formataBI);
