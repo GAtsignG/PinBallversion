@@ -125,26 +125,22 @@ void mousePressed()
  }
  if(switchToSettings && switchTog)
  {
-   if(mouseX > 933 && mouseX < 1183)
+   if(mouseX > 933 && mouseX <1183 && mouseY > 449 && mouseY < 509)
    {
-     if(mouseY > 449 && mouseY < 509)
+     mute = !mute;
+     if(mute)
      {
-       mute = !mute;
-       if(mute)
-       {
-         bgmGaming.pause();
-         bgmCeremony.pause();
-         bgmMenu.pause();
-       }
-       else{
-         bgmMenu.play();
-       }
+       bgmGaming.pause();
+       bgmCeremony.pause();
+       bgmMenu.pause();
      }
-     else if(mouseX>649 && mouseY < 709)
-     {
-       sEM = !sEM;
+     else{
+       bgmMenu.play();
      }
-     
+   }
+   if(mouseX > 933 && mouseX < 1183 && mouseY > 649 && mouseY < 709)
+   {
+     sEM = !sEM;
    }
  }
 }
