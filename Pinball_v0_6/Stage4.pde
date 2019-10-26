@@ -97,6 +97,7 @@ void drawStage4b(){  // display ceremoney screen
     clickSound();
     if(!mute)
     {
+      bgmCeremony.pause();
       bgmMenu.pause();
       bgmMenu.rewind();
       bgmGaming.loop();
