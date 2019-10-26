@@ -138,10 +138,7 @@ void mousePressed()
      {
        mute = !mute;
      }
-     else if(mouseY > 625 && mouseY < 685)
-     {
-       fullScreen = !fullScreen;
-     }
+     
    }
  }
 }
