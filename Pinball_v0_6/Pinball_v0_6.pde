@@ -13,6 +13,7 @@
   AudioPlayer bgmMenu;        // use in Stage 1/2/5
   AudioPlayer bgmGaming;      // use in Stage 3
   AudioPlayer bgmCeremony;    // use in Stage 4
+  AudioPlayer collision;      // collision sound
 
   // stage switch function list
   boolean switchToSettings = false;
