@@ -159,14 +159,17 @@ void drawStage3(){  // Gaming zone setting
       bgmGaming.pause();
     }
     
-    timer.stop(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
-    timeLimit.stop(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
-    timer.reset(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
-    timeLimit.reset(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
-    startGame = false;
-    countNum = 3;  //restart the game
+    // timer.stop(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
+    // timeLimit.stop(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
+    // timer.reset(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
+    // timeLimit.reset(CountdownTimer.StopBehavior.STOP_AFTER_INTERVAL);
+    // startGame = false;
+    // countNum = 3;  //restart the game
     
     switchToGame = false;
+    switchToCeremony = false;
+    switchToSettings = false;
+    switchToCredit = false;
     round = false;
  
  //refresh the mover and barriers
