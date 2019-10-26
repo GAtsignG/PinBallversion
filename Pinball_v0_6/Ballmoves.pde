@@ -152,41 +152,18 @@ class Mover extends Ball{
     //ellipse(position.x, position.y, 48, 48);
   }
 
-  void checkEdges() {
-    //continue the play
-    if (position.x > 400) {
-      position.x = 0;
-    } 
-    else if (position.x < 1530) {
-      position.x = width;
-    }
-
-    if (position.y > 120) {
-      position.y = 0;
-    } 
-    else if (position.y < 980) {
-      position.y = height;
-    }
-  }
-  
-    /*void ballreflect()
-{
-     velocity.x *= -1;  
-     velocity.y *= -1;
-}
-*/
- void checkReflect()
- {
-   int xWidth = 1620;
-   int x = 340;
-   int yHeight = 980;
-   int y = 120;
+  void checkReflect()
+  {
+    int xWidth = 1620;
+    int x = 340;
+    int yHeight = 980;
+    int y = 120;
    
-   if (position.x > xWidth-radius) 
-   {
-     collisionSound();
-     position.x = xWidth-radius;
-     velocity.x *= -1;
+    if (position.x > xWidth-radius) 
+    {
+      collisionSound();
+      position.x = xWidth-radius;
+      velocity.x *= -1;
     } 
     else if (position.x < x + radius) {
       collisionSound();
