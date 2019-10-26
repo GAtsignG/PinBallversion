@@ -184,15 +184,19 @@ class Mover extends Ball{
       int y = 120;
 
      if (position.x > xWidth-radius) {
+       collisionSound();
       position.x = xWidth-radius;
       velocity.x *= -1;
     } else if (position.x < x + radius) {
+      collisionSound();
       position.x = x + radius;
       velocity.x *= -1;
     } else if (position.y > yHeight-radius) {
+      collisionSound();
       position.y = yHeight-radius;
       velocity.y *= -1;
     } else if (position.y < y + radius) {
+      collisionSound();
       position.y = y + radius;
       velocity.y *= -1;
     }
@@ -202,7 +206,7 @@ class Mover extends Ball{
   {
       // Get distances between the balls components
     PVector distanceVect = PVector.sub(b.position, position);
-
+    
     // Calculate magnitude of the vector separating the balls
     float distanceVectMag = distanceVect.mag();
 
@@ -210,6 +214,7 @@ class Mover extends Ball{
     float minDistance = radius + b.radius;
 
     if (distanceVectMag < minDistance) {
+      collisionSound();
       float distanceCorrection = (minDistance-distanceVectMag)/2.0;
       PVector d = distanceVect.copy();
       PVector correctionVector = d.normalize().mult(distanceCorrection);

@@ -95,11 +95,9 @@ void showStage3(){
       //barriersImage[i] = loadImage(+i+".png");
   }
   // bgm load
-  if(!mute)
-  {
+
     bgmGaming = minim.loadFile("bgm_Gaming.mp3");
     aCollision = minim.loadFile("a_collision.wav"); 
-  }
   // 产生碰撞就会激发这个音效
 
   // Buttons             (Pos.x, Pos.y, Width, Height, radius, Text, R, G, B, Alpha)
@@ -312,7 +310,6 @@ void onFinishEvent(CountdownTimer t) {
       p2++;
       p1Play = true;
     } 
-      
       mover.nextGame(); //overtime !!!       
   }
   if (t.getId() == 2)

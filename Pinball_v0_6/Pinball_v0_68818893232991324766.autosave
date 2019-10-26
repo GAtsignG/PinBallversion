@@ -53,9 +53,13 @@ ArrayList<City> city;
   //particle system
 
 void setup(){
- 
+  if(fullScreen)
+  {
+    fullScreen();
+  }
+  else{
     size(1920,1080);
-  
+  }
   //fullScreen();
   //size(1920, 1080);
   frameRate(60);

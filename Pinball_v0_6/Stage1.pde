@@ -27,7 +27,7 @@ void showStage1(){
   // sfx load
   aClick = minim.loadFile("a_click.wav");
   aSweep = minim.loadFile("a_sweep.wav");
-
+  
   // font load
 
   // Buttons             (Pos.x, Pos.y, Width, Height, radius, Text, R, G, B, Alpha)
@@ -109,15 +109,4 @@ void drawStage1(){
   quitButton.update();
   quitButton.render();
 
-}
-
-
-void clickSound()
-{
-      if(aClick.isPlaying() ){
-          aClick.pause();
-          aClick.rewind();
-      }else{
-          aClick.play();
-      }
 }
