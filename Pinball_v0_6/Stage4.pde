@@ -13,7 +13,7 @@ void showStage4(){  // 默认显示Stage4a ↓↓↓↓
   img4Winner = loadImage("Stage4_Winner.png");
 
   // bgm load
-  bgmCeremony = minim.loadFile("bgm_Ceremoney.mp3");
+  
   
   // Buttons  (Pos.x, Pos.y, Width, Height, radius, Text, R, G, B, Alpha)
   textFont(formataBI);
@@ -49,18 +49,6 @@ void drawStage4a(){  // only display score
   textFont(formataI, 25);
   text("Click anywhere to continue", width/2, 1000);
   textFont(formataBI, 50);
-
-  if (switchToCeremony && !mute)
-  {
-    bgmGaming.pause();
-    bgmMenu.pause();
-    bgmCeremony.pause();
-    bgmCeremony.rewind();
-    bgmCeremony.play();
-  }else{
-    bgmCeremony.pause();  
-  }
-  
 }
 // 过渡到下一个画面
 
