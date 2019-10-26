@@ -103,7 +103,6 @@ void drawStage2g(){  // Setting Game page
   textFont(formataBI, 65);
   textAlign(RIGHT);
   text("Music", 850, 500);
-  text("Full Screen", 850, 666);
 
   // 全局控制开关
    if(!mute)
@@ -123,23 +122,7 @@ void drawStage2g(){  // Setting Game page
      fill(255);
      text("OFF",1075,500);
  }
- if(fullScreen)
- {
-     fill(255);
-     noStroke();
-     rect(925,625,250,60,7);
-     textSize(35);
-     fill(0);
-     text("ON",1075,665);
- }
- else{
-     fill(0);
-     noStroke();
-     rect(925,625,250,60,7);
-     textSize(35);
-     fill(255);
-     text("OFF",1075,665);
- }
+ 
   //cp5.hide();
   
   if(playButton.isClicked() ){  // switch to Audio page

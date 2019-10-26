@@ -27,7 +27,6 @@
 
   //mute
   boolean mute = false;
-  boolean fullScreen = false;
   
   int p1;   //scores
   int p2;
