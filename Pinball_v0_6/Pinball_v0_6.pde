@@ -76,17 +76,7 @@ void setup(){
   showStage3();
   showStage4();
   showStage5();
-  // cp5 = new ControlP5(this);
-  // cp5.addIcon("icon",10)
-  //    .setPosition(933, 455)
-  //    .setSize(70,50)
-  //    .setRoundedCorners(20)
-  //    .setFont(createFont("fontawesome-webfont.ttf", 40))
-  //    .setFontIcons(#00f205,#00f204)
-  //    .setColorBackground(color(255,100))
-  //    .setSwitch(true);
-     //.hideBackground();
-     
+  
   //particle system
  explosion = new ArrayList<Explosion>();
  rocket = new ArrayList<Rocket>();
